@@ -1,0 +1,39 @@
+{
+    "name": "EditorMode",
+    "rootNamespace": "",
+    "references": [
+        "UnityEngine.TestRunner",
+        "UnityEditor.TestRunner",
+        "Core",
+        "GameLogic",
+        "General",
+        "Data"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "nunit.framework.dll",
+        "FluentAssertions.dll",
+        "Castle.Core.dll",
+        "NSubstitute.dll",
+        "System.Collections.NonGeneric.dll",
+        "System.Collections.Specialized.dll",
+        "System.ComponentModel.TypeConverter.dll",
+        "System.Reflection.TypeExtensions.dll",
+        "System.Runtime.CompilerServices.Unsafe.dll",
+        "System.Text.RegularExpressions.dll",
+        "System.Threading.Tasks.Extensions.dll",
+        "System.Xml.ReaderWriter.dll",
+        "Entitas.dll"
+    ],
+    "autoReferenced": false,
+    "defineConstraints": [
+        "UNITY_INCLUDE_TESTS"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

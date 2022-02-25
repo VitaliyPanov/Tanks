@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c649d59f83414fea921601cd004bed3e, type: 3}
+  m_Name: Shell
+  m_EditorClassIdentifier: 
+  Type: 0
+  Prefab: {fileID: 192454, guid: a5cc3026845878e4a8c0290b68e4455b, type: 3}
+  Damage: 150
+  AimSlider: {fileID: 0}
+  ExplosionForce: 500
+  ExplosionRadius: 5
+  MinLaunchForce: 15
+  MaxLaunchForce: 30
+  MaxLaunchingTime: 0.3
+  CooldownTime: 0.3

@@ -1,0 +1,10 @@
+using Entitas;
+
+namespace TanksGB.GameLogic.Components.Game.Health
+{
+    [Game]
+    public sealed class HealthDamageComponent : IComponent
+    {
+        public float Value;
+    }
+}

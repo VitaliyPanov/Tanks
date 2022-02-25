@@ -1,0 +1,17 @@
+{
+    "name": "General",
+    "rootNamespace": "",
+    "references": [
+        "Unity.InputSystem",
+        "Data"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
