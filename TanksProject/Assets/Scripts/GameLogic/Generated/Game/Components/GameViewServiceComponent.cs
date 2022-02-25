@@ -12,7 +12,7 @@ public partial class GameContext {
     public ViewServiceComponent viewService { get { return viewServiceEntity.viewService; } }
     public bool hasViewService { get { return viewServiceEntity != null; } }
 
-    public GameEntity SetViewService(TanksGB.GameLogic.Services.View.IViewService newValue) {
+    public GameEntity SetViewService(Tanks.GameLogic.Services.View.IViewService newValue) {
         if (hasViewService) {
             throw new Entitas.EntitasException("Could not set ViewService!\n" + this + " already has an entity with ViewServiceComponent!",
                 "You should check if the context already has a viewServiceEntity before setting it or use context.ReplaceViewService().");
@@ -22,7 +22,7 @@ public partial class GameContext {
         return entity;
     }
 
-    public void ReplaceViewService(TanksGB.GameLogic.Services.View.IViewService newValue) {
+    public void ReplaceViewService(Tanks.GameLogic.Services.View.IViewService newValue) {
         var entity = viewServiceEntity;
         if (entity == null) {
             entity = SetViewService(newValue);
@@ -49,14 +49,14 @@ public partial class GameEntity {
     public ViewServiceComponent viewService { get { return (ViewServiceComponent)GetComponent(GameComponentsLookup.ViewService); } }
     public bool hasViewService { get { return HasComponent(GameComponentsLookup.ViewService); } }
 
-    public void AddViewService(TanksGB.GameLogic.Services.View.IViewService newValue) {
+    public void AddViewService(Tanks.GameLogic.Services.View.IViewService newValue) {
         var index = GameComponentsLookup.ViewService;
         var component = (ViewServiceComponent)CreateComponent(index, typeof(ViewServiceComponent));
         component.value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceViewService(TanksGB.GameLogic.Services.View.IViewService newValue) {
+    public void ReplaceViewService(Tanks.GameLogic.Services.View.IViewService newValue) {
         var index = GameComponentsLookup.ViewService;
         var component = (ViewServiceComponent)CreateComponent(index, typeof(ViewServiceComponent));
         component.value = newValue;

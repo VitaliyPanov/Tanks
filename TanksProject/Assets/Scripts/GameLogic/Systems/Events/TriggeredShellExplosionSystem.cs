@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Entitas;
 using UnityEngine;
 
-namespace TanksGB.GameLogic.Systems.Events
+namespace Tanks.GameLogic.Systems.Events
 {
     internal sealed class TriggeredShellExplosionSystem : IExecuteSystem
     {

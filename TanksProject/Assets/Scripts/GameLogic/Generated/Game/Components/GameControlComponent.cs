@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly TanksGB.GameLogic.Components.Game.ControlComponent controlComponent = new TanksGB.GameLogic.Components.Game.ControlComponent();
+    static readonly Tanks.GameLogic.Components.Game.ControlComponent controlComponent = new Tanks.GameLogic.Components.Game.ControlComponent();
 
     public bool tryControl {
         get { return HasComponent(GameComponentsLookup.Control); }

@@ -9,12 +9,12 @@
 public partial class InputContext {
 
     public InputEntity realtimeSinceStartupEntity { get { return GetGroup(InputMatcher.RealtimeSinceStartup).GetSingleEntity(); } }
-    public TanksGB.GameLogic.Components.Input.Time.RealtimeSinceStartupComponent realtimeSinceStartup { get { return realtimeSinceStartupEntity.realtimeSinceStartup; } }
+    public Tanks.GameLogic.Components.Input.Time.RealtimeSinceStartupComponent realtimeSinceStartup { get { return realtimeSinceStartupEntity.realtimeSinceStartup; } }
     public bool hasRealtimeSinceStartup { get { return realtimeSinceStartupEntity != null; } }
 
     public InputEntity SetRealtimeSinceStartup(float newValue) {
         if (hasRealtimeSinceStartup) {
-            throw new Entitas.EntitasException("Could not set RealtimeSinceStartup!\n" + this + " already has an entity with TanksGB.GameLogic.Components.Input.Time.RealtimeSinceStartupComponent!",
+            throw new Entitas.EntitasException("Could not set RealtimeSinceStartup!\n" + this + " already has an entity with Tanks.GameLogic.Components.Input.Time.RealtimeSinceStartupComponent!",
                 "You should check if the context already has a realtimeSinceStartupEntity before setting it or use context.ReplaceRealtimeSinceStartup().");
         }
         var entity = CreateEntity();
@@ -46,19 +46,19 @@ public partial class InputContext {
 //------------------------------------------------------------------------------
 public partial class InputEntity {
 
-    public TanksGB.GameLogic.Components.Input.Time.RealtimeSinceStartupComponent realtimeSinceStartup { get { return (TanksGB.GameLogic.Components.Input.Time.RealtimeSinceStartupComponent)GetComponent(InputComponentsLookup.RealtimeSinceStartup); } }
+    public Tanks.GameLogic.Components.Input.Time.RealtimeSinceStartupComponent realtimeSinceStartup { get { return (Tanks.GameLogic.Components.Input.Time.RealtimeSinceStartupComponent)GetComponent(InputComponentsLookup.RealtimeSinceStartup); } }
     public bool hasRealtimeSinceStartup { get { return HasComponent(InputComponentsLookup.RealtimeSinceStartup); } }
 
     public void AddRealtimeSinceStartup(float newValue) {
         var index = InputComponentsLookup.RealtimeSinceStartup;
-        var component = (TanksGB.GameLogic.Components.Input.Time.RealtimeSinceStartupComponent)CreateComponent(index, typeof(TanksGB.GameLogic.Components.Input.Time.RealtimeSinceStartupComponent));
+        var component = (Tanks.GameLogic.Components.Input.Time.RealtimeSinceStartupComponent)CreateComponent(index, typeof(Tanks.GameLogic.Components.Input.Time.RealtimeSinceStartupComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceRealtimeSinceStartup(float newValue) {
         var index = InputComponentsLookup.RealtimeSinceStartup;
-        var component = (TanksGB.GameLogic.Components.Input.Time.RealtimeSinceStartupComponent)CreateComponent(index, typeof(TanksGB.GameLogic.Components.Input.Time.RealtimeSinceStartupComponent));
+        var component = (Tanks.GameLogic.Components.Input.Time.RealtimeSinceStartupComponent)CreateComponent(index, typeof(Tanks.GameLogic.Components.Input.Time.RealtimeSinceStartupComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

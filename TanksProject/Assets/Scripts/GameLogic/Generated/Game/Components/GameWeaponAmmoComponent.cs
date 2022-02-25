@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public TanksGB.GameLogic.Components.Game.Weapon.WeaponAmmoComponent weaponAmmo { get { return (TanksGB.GameLogic.Components.Game.Weapon.WeaponAmmoComponent)GetComponent(GameComponentsLookup.WeaponAmmo); } }
+    public Tanks.GameLogic.Components.Game.Weapon.WeaponAmmoComponent weaponAmmo { get { return (Tanks.GameLogic.Components.Game.Weapon.WeaponAmmoComponent)GetComponent(GameComponentsLookup.WeaponAmmo); } }
     public bool hasWeaponAmmo { get { return HasComponent(GameComponentsLookup.WeaponAmmo); } }
 
-    public void AddWeaponAmmo(TanksGB.Data.AmmoData newData) {
+    public void AddWeaponAmmo(Tanks.Data.AmmoData newData) {
         var index = GameComponentsLookup.WeaponAmmo;
-        var component = (TanksGB.GameLogic.Components.Game.Weapon.WeaponAmmoComponent)CreateComponent(index, typeof(TanksGB.GameLogic.Components.Game.Weapon.WeaponAmmoComponent));
+        var component = (Tanks.GameLogic.Components.Game.Weapon.WeaponAmmoComponent)CreateComponent(index, typeof(Tanks.GameLogic.Components.Game.Weapon.WeaponAmmoComponent));
         component.Data = newData;
         AddComponent(index, component);
     }
 
-    public void ReplaceWeaponAmmo(TanksGB.Data.AmmoData newData) {
+    public void ReplaceWeaponAmmo(Tanks.Data.AmmoData newData) {
         var index = GameComponentsLookup.WeaponAmmo;
-        var component = (TanksGB.GameLogic.Components.Game.Weapon.WeaponAmmoComponent)CreateComponent(index, typeof(TanksGB.GameLogic.Components.Game.Weapon.WeaponAmmoComponent));
+        var component = (Tanks.GameLogic.Components.Game.Weapon.WeaponAmmoComponent)CreateComponent(index, typeof(Tanks.GameLogic.Components.Game.Weapon.WeaponAmmoComponent));
         component.Data = newData;
         ReplaceComponent(index, component);
     }

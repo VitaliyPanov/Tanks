@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Entitas;
 using General.Services;
 
-namespace TanksGB.GameLogic.Systems.Update
+namespace Tanks.GameLogic.Systems.Update
 {
     internal sealed class TimeTrippingSystem : IExecuteSystem
     {

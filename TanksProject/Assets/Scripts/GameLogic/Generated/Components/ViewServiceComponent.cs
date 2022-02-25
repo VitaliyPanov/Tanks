@@ -8,5 +8,5 @@
 //------------------------------------------------------------------------------
 [Entitas.CodeGeneration.Attributes.DontGenerate(false)]
 public sealed class ViewServiceComponent : Entitas.IComponent {
-    public TanksGB.GameLogic.Services.View.IViewService value;
+    public Tanks.GameLogic.Services.View.IViewService value;
 }

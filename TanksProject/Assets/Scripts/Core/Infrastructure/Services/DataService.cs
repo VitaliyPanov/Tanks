@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using General.Services;
-using TanksGB.Data;
+using Tanks.Data;
 using UnityEngine;
 
-namespace TanksGB.Core.Infrastructure.Services
+namespace Tanks.Core.Infrastructure.Services
 {
     internal sealed class DataService : IDataService
     {

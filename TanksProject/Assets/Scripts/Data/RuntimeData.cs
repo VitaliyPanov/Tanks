@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace TanksGB.Data
+namespace Tanks.Data
 {
     [CreateAssetMenu(fileName = "RuntimeData", menuName = "Tanks/RuntimeData")]
     public sealed class RuntimeData : ScriptableObject

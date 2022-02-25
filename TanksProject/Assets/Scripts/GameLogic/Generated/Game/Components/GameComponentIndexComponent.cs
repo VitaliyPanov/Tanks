@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public TanksGB.GameLogic.Components.Game.ComponentIndexComponent componentIndex { get { return (TanksGB.GameLogic.Components.Game.ComponentIndexComponent)GetComponent(GameComponentsLookup.ComponentIndex); } }
+    public Tanks.GameLogic.Components.Game.ComponentIndexComponent componentIndex { get { return (Tanks.GameLogic.Components.Game.ComponentIndexComponent)GetComponent(GameComponentsLookup.ComponentIndex); } }
     public bool hasComponentIndex { get { return HasComponent(GameComponentsLookup.ComponentIndex); } }
 
     public void AddComponentIndex(int newValue) {
         var index = GameComponentsLookup.ComponentIndex;
-        var component = (TanksGB.GameLogic.Components.Game.ComponentIndexComponent)CreateComponent(index, typeof(TanksGB.GameLogic.Components.Game.ComponentIndexComponent));
+        var component = (Tanks.GameLogic.Components.Game.ComponentIndexComponent)CreateComponent(index, typeof(Tanks.GameLogic.Components.Game.ComponentIndexComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceComponentIndex(int newValue) {
         var index = GameComponentsLookup.ComponentIndex;
-        var component = (TanksGB.GameLogic.Components.Game.ComponentIndexComponent)CreateComponent(index, typeof(TanksGB.GameLogic.Components.Game.ComponentIndexComponent));
+        var component = (Tanks.GameLogic.Components.Game.ComponentIndexComponent)CreateComponent(index, typeof(Tanks.GameLogic.Components.Game.ComponentIndexComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

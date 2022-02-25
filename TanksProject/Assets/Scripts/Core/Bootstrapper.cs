@@ -1,10 +1,10 @@
 using General.Services;
 using General.UI;
-using TanksGB.Core.Infrastructure.StateMachine;
+using Tanks.Core.Infrastructure.StateMachine;
 using UnityEngine;
 using Zenject;
 
-namespace TanksGB.Core
+namespace Tanks.Core
 {
     internal sealed class Bootstrapper : MonoBehaviour
     {

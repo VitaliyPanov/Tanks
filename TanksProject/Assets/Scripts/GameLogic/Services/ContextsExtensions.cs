@@ -1,4 +1,4 @@
-﻿namespace TanksGB.GameLogic.Services
+﻿namespace Tanks.GameLogic.Services
 {
     internal static class ContextsExtensions
     {

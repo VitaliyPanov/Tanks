@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public TanksGB.GameLogic.Components.Game.Weapon.WeaponLaunchTimeComponent weaponLaunchTime { get { return (TanksGB.GameLogic.Components.Game.Weapon.WeaponLaunchTimeComponent)GetComponent(GameComponentsLookup.WeaponLaunchTime); } }
+    public Tanks.GameLogic.Components.Game.Weapon.WeaponLaunchTimeComponent weaponLaunchTime { get { return (Tanks.GameLogic.Components.Game.Weapon.WeaponLaunchTimeComponent)GetComponent(GameComponentsLookup.WeaponLaunchTime); } }
     public bool hasWeaponLaunchTime { get { return HasComponent(GameComponentsLookup.WeaponLaunchTime); } }
 
     public void AddWeaponLaunchTime(float newValue) {
         var index = GameComponentsLookup.WeaponLaunchTime;
-        var component = (TanksGB.GameLogic.Components.Game.Weapon.WeaponLaunchTimeComponent)CreateComponent(index, typeof(TanksGB.GameLogic.Components.Game.Weapon.WeaponLaunchTimeComponent));
+        var component = (Tanks.GameLogic.Components.Game.Weapon.WeaponLaunchTimeComponent)CreateComponent(index, typeof(Tanks.GameLogic.Components.Game.Weapon.WeaponLaunchTimeComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceWeaponLaunchTime(float newValue) {
         var index = GameComponentsLookup.WeaponLaunchTime;
-        var component = (TanksGB.GameLogic.Components.Game.Weapon.WeaponLaunchTimeComponent)CreateComponent(index, typeof(TanksGB.GameLogic.Components.Game.Weapon.WeaponLaunchTimeComponent));
+        var component = (Tanks.GameLogic.Components.Game.Weapon.WeaponLaunchTimeComponent)CreateComponent(index, typeof(Tanks.GameLogic.Components.Game.Weapon.WeaponLaunchTimeComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

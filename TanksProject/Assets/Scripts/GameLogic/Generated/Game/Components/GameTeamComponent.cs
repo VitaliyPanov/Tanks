@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public TanksGB.GameLogic.Components.Game.TeamComponent team { get { return (TanksGB.GameLogic.Components.Game.TeamComponent)GetComponent(GameComponentsLookup.Team); } }
+    public Tanks.GameLogic.Components.Game.TeamComponent team { get { return (Tanks.GameLogic.Components.Game.TeamComponent)GetComponent(GameComponentsLookup.Team); } }
     public bool hasTeam { get { return HasComponent(GameComponentsLookup.Team); } }
 
-    public void AddTeam(TanksGB.Data.TeamType newType) {
+    public void AddTeam(Tanks.Data.TeamType newType) {
         var index = GameComponentsLookup.Team;
-        var component = (TanksGB.GameLogic.Components.Game.TeamComponent)CreateComponent(index, typeof(TanksGB.GameLogic.Components.Game.TeamComponent));
+        var component = (Tanks.GameLogic.Components.Game.TeamComponent)CreateComponent(index, typeof(Tanks.GameLogic.Components.Game.TeamComponent));
         component.Type = newType;
         AddComponent(index, component);
     }
 
-    public void ReplaceTeam(TanksGB.Data.TeamType newType) {
+    public void ReplaceTeam(Tanks.Data.TeamType newType) {
         var index = GameComponentsLookup.Team;
-        var component = (TanksGB.GameLogic.Components.Game.TeamComponent)CreateComponent(index, typeof(TanksGB.GameLogic.Components.Game.TeamComponent));
+        var component = (Tanks.GameLogic.Components.Game.TeamComponent)CreateComponent(index, typeof(Tanks.GameLogic.Components.Game.TeamComponent));
         component.Type = newType;
         ReplaceComponent(index, component);
     }

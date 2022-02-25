@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public TanksGB.GameLogic.Components.Game.Weapon.WeaponTransformComponent weaponTransform { get { return (TanksGB.GameLogic.Components.Game.Weapon.WeaponTransformComponent)GetComponent(GameComponentsLookup.WeaponTransform); } }
+    public Tanks.GameLogic.Components.Game.Weapon.WeaponTransformComponent weaponTransform { get { return (Tanks.GameLogic.Components.Game.Weapon.WeaponTransformComponent)GetComponent(GameComponentsLookup.WeaponTransform); } }
     public bool hasWeaponTransform { get { return HasComponent(GameComponentsLookup.WeaponTransform); } }
 
     public void AddWeaponTransform(UnityEngine.Transform newValue) {
         var index = GameComponentsLookup.WeaponTransform;
-        var component = (TanksGB.GameLogic.Components.Game.Weapon.WeaponTransformComponent)CreateComponent(index, typeof(TanksGB.GameLogic.Components.Game.Weapon.WeaponTransformComponent));
+        var component = (Tanks.GameLogic.Components.Game.Weapon.WeaponTransformComponent)CreateComponent(index, typeof(Tanks.GameLogic.Components.Game.Weapon.WeaponTransformComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceWeaponTransform(UnityEngine.Transform newValue) {
         var index = GameComponentsLookup.WeaponTransform;
-        var component = (TanksGB.GameLogic.Components.Game.Weapon.WeaponTransformComponent)CreateComponent(index, typeof(TanksGB.GameLogic.Components.Game.Weapon.WeaponTransformComponent));
+        var component = (Tanks.GameLogic.Components.Game.Weapon.WeaponTransformComponent)CreateComponent(index, typeof(Tanks.GameLogic.Components.Game.Weapon.WeaponTransformComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

@@ -1,7 +1,7 @@
 ﻿using Entitas;
 using Entitas.CodeGeneration.Attributes;
 
-namespace TanksGB.GameLogic.Components.Input.Time
+namespace Tanks.GameLogic.Components.Input.Time
 {
     [Input]
     [Unique]

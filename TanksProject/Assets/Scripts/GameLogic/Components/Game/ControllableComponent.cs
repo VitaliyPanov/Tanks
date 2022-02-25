@@ -1,7 +1,7 @@
 ﻿using Entitas;
 using Entitas.CodeGeneration.Attributes;
 
-namespace TanksGB.GameLogic.Components.Game
+namespace Tanks.GameLogic.Components.Game
 {
     [Game]
     [Unique]

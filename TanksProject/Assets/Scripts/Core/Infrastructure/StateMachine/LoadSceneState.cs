@@ -1,7 +1,7 @@
 using General.Services;
 using General.UI;
 
-namespace TanksGB.Core.Infrastructure.StateMachine
+namespace Tanks.Core.Infrastructure.StateMachine
 {
     public sealed class LoadSceneState : ILoadingState<string>
     {

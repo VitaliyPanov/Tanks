@@ -1,8 +1,8 @@
 ﻿using Entitas;
-using TanksGB.Data;
+using Tanks.Data;
 using UnityEngine;
 
-namespace TanksGB.GameLogic.Systems.FixedUpdate
+namespace Tanks.GameLogic.Systems.FixedUpdate
 {
     internal sealed class MovementSystem : IExecuteSystem
     {

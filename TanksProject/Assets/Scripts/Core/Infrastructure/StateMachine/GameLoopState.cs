@@ -1,7 +1,7 @@
-using TanksGB.Core.Controllers;
+using Tanks.Core.Controllers;
 using UnityEngine;
 
-namespace TanksGB.Core.Infrastructure.StateMachine
+namespace Tanks.Core.Infrastructure.StateMachine
 {
     public class GameLoopState : IState
     {

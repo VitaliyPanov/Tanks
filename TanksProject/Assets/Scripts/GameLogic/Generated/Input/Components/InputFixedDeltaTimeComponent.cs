@@ -9,12 +9,12 @@
 public partial class InputContext {
 
     public InputEntity fixedDeltaTimeEntity { get { return GetGroup(InputMatcher.FixedDeltaTime).GetSingleEntity(); } }
-    public TanksGB.GameLogic.Components.Input.Time.FixedDeltaTimeComponent fixedDeltaTime { get { return fixedDeltaTimeEntity.fixedDeltaTime; } }
+    public Tanks.GameLogic.Components.Input.Time.FixedDeltaTimeComponent fixedDeltaTime { get { return fixedDeltaTimeEntity.fixedDeltaTime; } }
     public bool hasFixedDeltaTime { get { return fixedDeltaTimeEntity != null; } }
 
     public InputEntity SetFixedDeltaTime(float newValue) {
         if (hasFixedDeltaTime) {
-            throw new Entitas.EntitasException("Could not set FixedDeltaTime!\n" + this + " already has an entity with TanksGB.GameLogic.Components.Input.Time.FixedDeltaTimeComponent!",
+            throw new Entitas.EntitasException("Could not set FixedDeltaTime!\n" + this + " already has an entity with Tanks.GameLogic.Components.Input.Time.FixedDeltaTimeComponent!",
                 "You should check if the context already has a fixedDeltaTimeEntity before setting it or use context.ReplaceFixedDeltaTime().");
         }
         var entity = CreateEntity();
@@ -46,19 +46,19 @@ public partial class InputContext {
 //------------------------------------------------------------------------------
 public partial class InputEntity {
 
-    public TanksGB.GameLogic.Components.Input.Time.FixedDeltaTimeComponent fixedDeltaTime { get { return (TanksGB.GameLogic.Components.Input.Time.FixedDeltaTimeComponent)GetComponent(InputComponentsLookup.FixedDeltaTime); } }
+    public Tanks.GameLogic.Components.Input.Time.FixedDeltaTimeComponent fixedDeltaTime { get { return (Tanks.GameLogic.Components.Input.Time.FixedDeltaTimeComponent)GetComponent(InputComponentsLookup.FixedDeltaTime); } }
     public bool hasFixedDeltaTime { get { return HasComponent(InputComponentsLookup.FixedDeltaTime); } }
 
     public void AddFixedDeltaTime(float newValue) {
         var index = InputComponentsLookup.FixedDeltaTime;
-        var component = (TanksGB.GameLogic.Components.Input.Time.FixedDeltaTimeComponent)CreateComponent(index, typeof(TanksGB.GameLogic.Components.Input.Time.FixedDeltaTimeComponent));
+        var component = (Tanks.GameLogic.Components.Input.Time.FixedDeltaTimeComponent)CreateComponent(index, typeof(Tanks.GameLogic.Components.Input.Time.FixedDeltaTimeComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceFixedDeltaTime(float newValue) {
         var index = InputComponentsLookup.FixedDeltaTime;
-        var component = (TanksGB.GameLogic.Components.Input.Time.FixedDeltaTimeComponent)CreateComponent(index, typeof(TanksGB.GameLogic.Components.Input.Time.FixedDeltaTimeComponent));
+        var component = (Tanks.GameLogic.Components.Input.Time.FixedDeltaTimeComponent)CreateComponent(index, typeof(Tanks.GameLogic.Components.Input.Time.FixedDeltaTimeComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace TanksGB.GameLogic.Views
+namespace Tanks.GameLogic.Views
 {
     public interface IView
     {

@@ -1,4 +1,4 @@
-﻿namespace TanksGB.GameLogic.Systems.Events
+﻿namespace Tanks.GameLogic.Systems.Events
 {
     public sealed class EventsSystems : Feature
     {

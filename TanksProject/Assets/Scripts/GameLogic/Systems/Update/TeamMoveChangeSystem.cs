@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using Entitas;
-using TanksGB.Data;
-using TanksGB.GameLogic.Services;
+using Tanks.Data;
+using Tanks.GameLogic.Services;
 
-namespace TanksGB.GameLogic.Systems.Update
+namespace Tanks.GameLogic.Systems.Update
 {
     internal sealed class TeamMoveChangeSystem : ReactiveSystem<GameEntity>, IInitializeSystem
     {

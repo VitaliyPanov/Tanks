@@ -1,11 +1,11 @@
 using System.Linq;
 using Entitas;
-using TanksGB.Data;
-using TanksGB.GameLogic.Services;
-using TanksGB.GameLogic.Views;
+using Tanks.Data;
+using Tanks.GameLogic.Services;
+using Tanks.GameLogic.Views;
 using UnityEngine;
 
-namespace TanksGB.GameLogic.Systems.Init
+namespace Tanks.GameLogic.Systems.Init
 {
     internal sealed class TanksInitSystem : IInitializeSystem
     {

@@ -1,8 +1,8 @@
 ﻿using General.Services;
-using TanksGB.Data;
-using TanksGB.GameLogic.Systems.Input;
+using Tanks.Data;
+using Tanks.GameLogic.Systems.Input;
 
-namespace TanksGB.GameLogic.Systems.Update
+namespace Tanks.GameLogic.Systems.Update
 {
     internal sealed class InputSystems : Feature
     {

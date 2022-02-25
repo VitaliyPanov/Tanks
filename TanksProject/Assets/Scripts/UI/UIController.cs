@@ -4,7 +4,7 @@ using General.Controllers;
 using General.Services;
 using UnityEngine;
 
-namespace TanksGB.UI
+namespace Tanks.UI
 {
     public sealed class UIController : IUIController, IStart, IUpdate
     {

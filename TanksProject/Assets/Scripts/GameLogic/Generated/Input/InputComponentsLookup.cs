@@ -10,17 +10,19 @@ public static class InputComponentsLookup {
 
     public const int Attack = 0;
     public const int Direction = 1;
-    public const int DeltaTime = 2;
-    public const int FixedDeltaTime = 3;
-    public const int RealtimeSinceStartup = 4;
-    public const int ToggleNext = 5;
-    public const int TogglePrevious = 6;
+    public const int Pause = 2;
+    public const int DeltaTime = 3;
+    public const int FixedDeltaTime = 4;
+    public const int RealtimeSinceStartup = 5;
+    public const int ToggleNext = 6;
+    public const int TogglePrevious = 7;
 
-    public const int TotalComponents = 7;
+    public const int TotalComponents = 8;
 
     public static readonly string[] componentNames = {
         "Attack",
         "Direction",
+        "Pause",
         "DeltaTime",
         "FixedDeltaTime",
         "RealtimeSinceStartup",
@@ -29,12 +31,13 @@ public static class InputComponentsLookup {
     };
 
     public static readonly System.Type[] componentTypes = {
-        typeof(TanksGB.GameLogic.Components.Input.AttackComponent),
-        typeof(TanksGB.GameLogic.Components.Input.DirectionComponent),
-        typeof(TanksGB.GameLogic.Components.Input.Time.DeltaTimeComponent),
-        typeof(TanksGB.GameLogic.Components.Input.Time.FixedDeltaTimeComponent),
-        typeof(TanksGB.GameLogic.Components.Input.Time.RealtimeSinceStartupComponent),
-        typeof(TanksGB.GameLogic.Components.Input.ToggleNextComponent),
-        typeof(TanksGB.GameLogic.Components.Input.TogglePreviousComponent)
+        typeof(Tanks.GameLogic.Components.Input.AttackComponent),
+        typeof(Tanks.GameLogic.Components.Input.DirectionComponent),
+        typeof(Tanks.GameLogic.Components.Input.PauseComponent),
+        typeof(Tanks.GameLogic.Components.Input.Time.DeltaTimeComponent),
+        typeof(Tanks.GameLogic.Components.Input.Time.FixedDeltaTimeComponent),
+        typeof(Tanks.GameLogic.Components.Input.Time.RealtimeSinceStartupComponent),
+        typeof(Tanks.GameLogic.Components.Input.ToggleNextComponent),
+        typeof(Tanks.GameLogic.Components.Input.TogglePreviousComponent)
     };
 }

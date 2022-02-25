@@ -9,12 +9,12 @@
 public partial class InputContext {
 
     public InputEntity directionEntity { get { return GetGroup(InputMatcher.Direction).GetSingleEntity(); } }
-    public TanksGB.GameLogic.Components.Input.DirectionComponent direction { get { return directionEntity.direction; } }
+    public Tanks.GameLogic.Components.Input.DirectionComponent direction { get { return directionEntity.direction; } }
     public bool hasDirection { get { return directionEntity != null; } }
 
     public InputEntity SetDirection(UnityEngine.Vector2 newValue) {
         if (hasDirection) {
-            throw new Entitas.EntitasException("Could not set Direction!\n" + this + " already has an entity with TanksGB.GameLogic.Components.Input.DirectionComponent!",
+            throw new Entitas.EntitasException("Could not set Direction!\n" + this + " already has an entity with Tanks.GameLogic.Components.Input.DirectionComponent!",
                 "You should check if the context already has a directionEntity before setting it or use context.ReplaceDirection().");
         }
         var entity = CreateEntity();
@@ -46,19 +46,19 @@ public partial class InputContext {
 //------------------------------------------------------------------------------
 public partial class InputEntity {
 
-    public TanksGB.GameLogic.Components.Input.DirectionComponent direction { get { return (TanksGB.GameLogic.Components.Input.DirectionComponent)GetComponent(InputComponentsLookup.Direction); } }
+    public Tanks.GameLogic.Components.Input.DirectionComponent direction { get { return (Tanks.GameLogic.Components.Input.DirectionComponent)GetComponent(InputComponentsLookup.Direction); } }
     public bool hasDirection { get { return HasComponent(InputComponentsLookup.Direction); } }
 
     public void AddDirection(UnityEngine.Vector2 newValue) {
         var index = InputComponentsLookup.Direction;
-        var component = (TanksGB.GameLogic.Components.Input.DirectionComponent)CreateComponent(index, typeof(TanksGB.GameLogic.Components.Input.DirectionComponent));
+        var component = (Tanks.GameLogic.Components.Input.DirectionComponent)CreateComponent(index, typeof(Tanks.GameLogic.Components.Input.DirectionComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceDirection(UnityEngine.Vector2 newValue) {
         var index = InputComponentsLookup.Direction;
-        var component = (TanksGB.GameLogic.Components.Input.DirectionComponent)CreateComponent(index, typeof(TanksGB.GameLogic.Components.Input.DirectionComponent));
+        var component = (Tanks.GameLogic.Components.Input.DirectionComponent)CreateComponent(index, typeof(Tanks.GameLogic.Components.Input.DirectionComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

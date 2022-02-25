@@ -1,7 +1,7 @@
 using Entitas;
 using UnityEngine;
 
-namespace TanksGB.GameLogic.Components.Game
+namespace Tanks.GameLogic.Components.Game
 {
     [Game]
     public sealed class RotationComponent : IComponent

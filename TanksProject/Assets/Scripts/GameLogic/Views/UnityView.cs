@@ -1,9 +1,9 @@
 ﻿using Entitas.Unity;
-using TanksGB.GameLogic.Services;
-using TanksGB.GameLogic.Views.Behaviours;
+using Tanks.GameLogic.Services;
+using Tanks.GameLogic.Views.Behaviours;
 using UnityEngine;
 
-namespace TanksGB.GameLogic.Views
+namespace Tanks.GameLogic.Views
 {
     [RequireComponent(typeof(EntityLink))]
     internal sealed class UnityView : MonoBehaviour, IView

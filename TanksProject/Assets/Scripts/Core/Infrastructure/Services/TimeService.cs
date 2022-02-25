@@ -1,7 +1,7 @@
 ﻿using General.Services;
 using UnityEngine;
 
-namespace TanksGB.Core.Infrastructure.Services
+namespace Tanks.Core.Infrastructure.Services
 {
     internal class TimeService :  ITimeService
     {

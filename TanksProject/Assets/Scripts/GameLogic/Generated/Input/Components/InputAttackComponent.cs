@@ -35,7 +35,7 @@ public partial class InputContext {
 //------------------------------------------------------------------------------
 public partial class InputEntity {
 
-    static readonly TanksGB.GameLogic.Components.Input.AttackComponent attackComponent = new TanksGB.GameLogic.Components.Input.AttackComponent();
+    static readonly Tanks.GameLogic.Components.Input.AttackComponent attackComponent = new Tanks.GameLogic.Components.Input.AttackComponent();
 
     public bool isAttack {
         get { return HasComponent(InputComponentsLookup.Attack); }

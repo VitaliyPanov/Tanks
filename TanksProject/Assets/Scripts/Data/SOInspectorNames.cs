@@ -1,4 +1,4 @@
-﻿namespace TanksGB.Data
+﻿namespace Tanks.Data
 {
     internal static class SOInspectorNames
     {

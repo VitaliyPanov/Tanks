@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public TanksGB.GameLogic.Components.Game.RotationComponent rotation { get { return (TanksGB.GameLogic.Components.Game.RotationComponent)GetComponent(GameComponentsLookup.Rotation); } }
+    public Tanks.GameLogic.Components.Game.RotationComponent rotation { get { return (Tanks.GameLogic.Components.Game.RotationComponent)GetComponent(GameComponentsLookup.Rotation); } }
     public bool hasRotation { get { return HasComponent(GameComponentsLookup.Rotation); } }
 
     public void AddRotation(UnityEngine.Quaternion newValue) {
         var index = GameComponentsLookup.Rotation;
-        var component = (TanksGB.GameLogic.Components.Game.RotationComponent)CreateComponent(index, typeof(TanksGB.GameLogic.Components.Game.RotationComponent));
+        var component = (Tanks.GameLogic.Components.Game.RotationComponent)CreateComponent(index, typeof(Tanks.GameLogic.Components.Game.RotationComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceRotation(UnityEngine.Quaternion newValue) {
         var index = GameComponentsLookup.Rotation;
-        var component = (TanksGB.GameLogic.Components.Game.RotationComponent)CreateComponent(index, typeof(TanksGB.GameLogic.Components.Game.RotationComponent));
+        var component = (Tanks.GameLogic.Components.Game.RotationComponent)CreateComponent(index, typeof(Tanks.GameLogic.Components.Game.RotationComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public TanksGB.GameLogic.Components.Game.Health.MaxHealthComponent maxHealth { get { return (TanksGB.GameLogic.Components.Game.Health.MaxHealthComponent)GetComponent(GameComponentsLookup.MaxHealth); } }
+    public Tanks.GameLogic.Components.Game.Health.MaxHealthComponent maxHealth { get { return (Tanks.GameLogic.Components.Game.Health.MaxHealthComponent)GetComponent(GameComponentsLookup.MaxHealth); } }
     public bool hasMaxHealth { get { return HasComponent(GameComponentsLookup.MaxHealth); } }
 
     public void AddMaxHealth(float newValue) {
         var index = GameComponentsLookup.MaxHealth;
-        var component = (TanksGB.GameLogic.Components.Game.Health.MaxHealthComponent)CreateComponent(index, typeof(TanksGB.GameLogic.Components.Game.Health.MaxHealthComponent));
+        var component = (Tanks.GameLogic.Components.Game.Health.MaxHealthComponent)CreateComponent(index, typeof(Tanks.GameLogic.Components.Game.Health.MaxHealthComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceMaxHealth(float newValue) {
         var index = GameComponentsLookup.MaxHealth;
-        var component = (TanksGB.GameLogic.Components.Game.Health.MaxHealthComponent)CreateComponent(index, typeof(TanksGB.GameLogic.Components.Game.Health.MaxHealthComponent));
+        var component = (Tanks.GameLogic.Components.Game.Health.MaxHealthComponent)CreateComponent(index, typeof(Tanks.GameLogic.Components.Game.Health.MaxHealthComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

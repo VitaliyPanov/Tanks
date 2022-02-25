@@ -8,12 +8,12 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public TanksGB.GameLogic.Components.Game.Ammunition.ShellComponent shell { get { return (TanksGB.GameLogic.Components.Game.Ammunition.ShellComponent)GetComponent(GameComponentsLookup.Shell); } }
+    public Tanks.GameLogic.Components.Game.Ammunition.ShellComponent shell { get { return (Tanks.GameLogic.Components.Game.Ammunition.ShellComponent)GetComponent(GameComponentsLookup.Shell); } }
     public bool hasShell { get { return HasComponent(GameComponentsLookup.Shell); } }
 
     public void AddShell(float newExplosionForce, float newExplosionRadius) {
         var index = GameComponentsLookup.Shell;
-        var component = (TanksGB.GameLogic.Components.Game.Ammunition.ShellComponent)CreateComponent(index, typeof(TanksGB.GameLogic.Components.Game.Ammunition.ShellComponent));
+        var component = (Tanks.GameLogic.Components.Game.Ammunition.ShellComponent)CreateComponent(index, typeof(Tanks.GameLogic.Components.Game.Ammunition.ShellComponent));
         component.ExplosionForce = newExplosionForce;
         component.ExplosionRadius = newExplosionRadius;
         AddComponent(index, component);
@@ -21,7 +21,7 @@ public partial class GameEntity {
 
     public void ReplaceShell(float newExplosionForce, float newExplosionRadius) {
         var index = GameComponentsLookup.Shell;
-        var component = (TanksGB.GameLogic.Components.Game.Ammunition.ShellComponent)CreateComponent(index, typeof(TanksGB.GameLogic.Components.Game.Ammunition.ShellComponent));
+        var component = (Tanks.GameLogic.Components.Game.Ammunition.ShellComponent)CreateComponent(index, typeof(Tanks.GameLogic.Components.Game.Ammunition.ShellComponent));
         component.ExplosionForce = newExplosionForce;
         component.ExplosionRadius = newExplosionRadius;
         ReplaceComponent(index, component);

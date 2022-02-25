@@ -9,12 +9,12 @@
 public partial class GameContext {
 
     public GameEntity controllableEntity { get { return GetGroup(GameMatcher.Controllable).GetSingleEntity(); } }
-    public TanksGB.GameLogic.Components.Game.ControllableComponent controllable { get { return controllableEntity.controllable; } }
+    public Tanks.GameLogic.Components.Game.ControllableComponent controllable { get { return controllableEntity.controllable; } }
     public bool hasControllable { get { return controllableEntity != null; } }
 
     public GameEntity SetControllable(GameEntity newEntity) {
         if (hasControllable) {
-            throw new Entitas.EntitasException("Could not set Controllable!\n" + this + " already has an entity with TanksGB.GameLogic.Components.Game.ControllableComponent!",
+            throw new Entitas.EntitasException("Could not set Controllable!\n" + this + " already has an entity with Tanks.GameLogic.Components.Game.ControllableComponent!",
                 "You should check if the context already has a controllableEntity before setting it or use context.ReplaceControllable().");
         }
         var entity = CreateEntity();
@@ -46,19 +46,19 @@ public partial class GameContext {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public TanksGB.GameLogic.Components.Game.ControllableComponent controllable { get { return (TanksGB.GameLogic.Components.Game.ControllableComponent)GetComponent(GameComponentsLookup.Controllable); } }
+    public Tanks.GameLogic.Components.Game.ControllableComponent controllable { get { return (Tanks.GameLogic.Components.Game.ControllableComponent)GetComponent(GameComponentsLookup.Controllable); } }
     public bool hasControllable { get { return HasComponent(GameComponentsLookup.Controllable); } }
 
     public void AddControllable(GameEntity newEntity) {
         var index = GameComponentsLookup.Controllable;
-        var component = (TanksGB.GameLogic.Components.Game.ControllableComponent)CreateComponent(index, typeof(TanksGB.GameLogic.Components.Game.ControllableComponent));
+        var component = (Tanks.GameLogic.Components.Game.ControllableComponent)CreateComponent(index, typeof(Tanks.GameLogic.Components.Game.ControllableComponent));
         component.Entity = newEntity;
         AddComponent(index, component);
     }
 
     public void ReplaceControllable(GameEntity newEntity) {
         var index = GameComponentsLookup.Controllable;
-        var component = (TanksGB.GameLogic.Components.Game.ControllableComponent)CreateComponent(index, typeof(TanksGB.GameLogic.Components.Game.ControllableComponent));
+        var component = (Tanks.GameLogic.Components.Game.ControllableComponent)CreateComponent(index, typeof(Tanks.GameLogic.Components.Game.ControllableComponent));
         component.Entity = newEntity;
         ReplaceComponent(index, component);
     }

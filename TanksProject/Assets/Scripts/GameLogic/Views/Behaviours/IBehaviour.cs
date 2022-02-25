@@ -1,6 +1,6 @@
 using Entitas;
 
-namespace TanksGB.GameLogic.Views.Behaviours
+namespace Tanks.GameLogic.Views.Behaviours
 {
     public interface IBehaviour
     {

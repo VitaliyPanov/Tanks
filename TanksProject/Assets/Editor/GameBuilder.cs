@@ -1,6 +1,6 @@
 using UnityEditor;
 
-namespace TanksGB.Editor
+namespace Tanks.Editor
 {
     public static class GameBuilder
     {

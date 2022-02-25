@@ -1,6 +1,6 @@
-﻿using TanksGB.GameLogic.Systems.Weapon;
+﻿using Tanks.GameLogic.Systems.Weapon;
 
-namespace TanksGB.GameLogic.Systems.Update
+namespace Tanks.GameLogic.Systems.Update
 {
     internal sealed class WeaponSystems : Feature
     {

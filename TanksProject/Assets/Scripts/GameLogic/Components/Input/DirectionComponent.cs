@@ -1,9 +1,8 @@
-using System.Runtime.InteropServices;
 using Entitas;
 using Entitas.CodeGeneration.Attributes;
 using UnityEngine;
 
-namespace TanksGB.GameLogic.Components.Input
+namespace Tanks.GameLogic.Components.Input
 {
     [Input]
     [Unique]

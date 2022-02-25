@@ -1,4 +1,4 @@
-namespace TanksGB.Core.Infrastructure
+namespace Tanks.Core.Infrastructure
 {
     public sealed class Calculator:IInput
     {

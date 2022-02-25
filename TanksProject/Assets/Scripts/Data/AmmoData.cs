@@ -1,7 +1,7 @@
 ﻿using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace TanksGB.Data
+namespace Tanks.Data
 {
     [CreateAssetMenu(fileName = "AmmoName", menuName = "Tanks/StaticData/Ammo")]
     public sealed class AmmoData : ScriptableObject

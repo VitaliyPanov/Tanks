@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public TanksGB.GameLogic.Components.Game.PositionComponent position { get { return (TanksGB.GameLogic.Components.Game.PositionComponent)GetComponent(GameComponentsLookup.Position); } }
+    public Tanks.GameLogic.Components.Game.PositionComponent position { get { return (Tanks.GameLogic.Components.Game.PositionComponent)GetComponent(GameComponentsLookup.Position); } }
     public bool hasPosition { get { return HasComponent(GameComponentsLookup.Position); } }
 
     public void AddPosition(UnityEngine.Vector3 newValue) {
         var index = GameComponentsLookup.Position;
-        var component = (TanksGB.GameLogic.Components.Game.PositionComponent)CreateComponent(index, typeof(TanksGB.GameLogic.Components.Game.PositionComponent));
+        var component = (Tanks.GameLogic.Components.Game.PositionComponent)CreateComponent(index, typeof(Tanks.GameLogic.Components.Game.PositionComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplacePosition(UnityEngine.Vector3 newValue) {
         var index = GameComponentsLookup.Position;
-        var component = (TanksGB.GameLogic.Components.Game.PositionComponent)CreateComponent(index, typeof(TanksGB.GameLogic.Components.Game.PositionComponent));
+        var component = (Tanks.GameLogic.Components.Game.PositionComponent)CreateComponent(index, typeof(Tanks.GameLogic.Components.Game.PositionComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

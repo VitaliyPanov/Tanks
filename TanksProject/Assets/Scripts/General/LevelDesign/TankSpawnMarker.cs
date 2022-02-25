@@ -1,4 +1,4 @@
-﻿using TanksGB.Data;
+﻿using Tanks.Data;
 using UnityEngine;
 
 namespace General.LevelDesign

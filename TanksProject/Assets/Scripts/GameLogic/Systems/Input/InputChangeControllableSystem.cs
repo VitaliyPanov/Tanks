@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using Entitas;
-using TanksGB.GameLogic.Services;
+using Tanks.GameLogic.Services;
 
-namespace TanksGB.GameLogic.Systems.Input
+namespace Tanks.GameLogic.Systems.Input
 {
     internal sealed class InputChangeControllableSystem : ReactiveSystem<InputEntity>
     {

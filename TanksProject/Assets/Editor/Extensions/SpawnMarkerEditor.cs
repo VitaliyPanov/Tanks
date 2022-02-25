@@ -1,7 +1,7 @@
 ﻿using System;
 using General;
 using General.LevelDesign;
-using TanksGB.Data;
+using Tanks.Data;
 using UnityEditor;
 using UnityEngine;
 

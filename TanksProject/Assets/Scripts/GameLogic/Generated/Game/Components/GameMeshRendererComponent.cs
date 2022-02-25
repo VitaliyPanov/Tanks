@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public TanksGB.GameLogic.Components.Game.MeshRendererComponent meshRenderer { get { return (TanksGB.GameLogic.Components.Game.MeshRendererComponent)GetComponent(GameComponentsLookup.MeshRenderer); } }
+    public Tanks.GameLogic.Components.Game.MeshRendererComponent meshRenderer { get { return (Tanks.GameLogic.Components.Game.MeshRendererComponent)GetComponent(GameComponentsLookup.MeshRenderer); } }
     public bool hasMeshRenderer { get { return HasComponent(GameComponentsLookup.MeshRenderer); } }
 
     public void AddMeshRenderer(UnityEngine.MeshRenderer[] newArray) {
         var index = GameComponentsLookup.MeshRenderer;
-        var component = (TanksGB.GameLogic.Components.Game.MeshRendererComponent)CreateComponent(index, typeof(TanksGB.GameLogic.Components.Game.MeshRendererComponent));
+        var component = (Tanks.GameLogic.Components.Game.MeshRendererComponent)CreateComponent(index, typeof(Tanks.GameLogic.Components.Game.MeshRendererComponent));
         component.Array = newArray;
         AddComponent(index, component);
     }
 
     public void ReplaceMeshRenderer(UnityEngine.MeshRenderer[] newArray) {
         var index = GameComponentsLookup.MeshRenderer;
-        var component = (TanksGB.GameLogic.Components.Game.MeshRendererComponent)CreateComponent(index, typeof(TanksGB.GameLogic.Components.Game.MeshRendererComponent));
+        var component = (Tanks.GameLogic.Components.Game.MeshRendererComponent)CreateComponent(index, typeof(Tanks.GameLogic.Components.Game.MeshRendererComponent));
         component.Array = newArray;
         ReplaceComponent(index, component);
     }

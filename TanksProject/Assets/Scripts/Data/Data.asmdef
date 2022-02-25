@@ -1,6 +1,6 @@
 {
     "name": "Data",
-    "rootNamespace": "TanksGB",
+    "rootNamespace": "Tanks",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],

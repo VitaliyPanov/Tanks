@@ -1,4 +1,4 @@
-﻿namespace TanksGB.Data
+﻿namespace Tanks.Data
 {
     public enum TeamType
     {

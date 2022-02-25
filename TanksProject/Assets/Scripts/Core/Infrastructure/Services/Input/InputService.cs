@@ -1,9 +1,10 @@
 using System;
 using General.Services;
+using TanksGB.Core.Infrastructure.Services.Input;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace TanksGB.Core.Infrastructure.Services.Input
+namespace Tanks.Core.Infrastructure.Services.Input
 {
     internal sealed class InputService : IInputService, IDisposable
     {

@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly TanksGB.GameLogic.Components.Game.MovableComponent movableComponent = new TanksGB.GameLogic.Components.Game.MovableComponent();
+    static readonly Tanks.GameLogic.Components.Game.MovableComponent movableComponent = new Tanks.GameLogic.Components.Game.MovableComponent();
 
     public bool isMovable {
         get { return HasComponent(GameComponentsLookup.Movable); }

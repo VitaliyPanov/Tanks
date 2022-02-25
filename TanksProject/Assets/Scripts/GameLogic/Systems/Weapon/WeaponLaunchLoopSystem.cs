@@ -1,7 +1,7 @@
 using Entitas;
-using TanksGB.GameLogic.Services;
+using Tanks.GameLogic.Services;
 
-namespace TanksGB.GameLogic.Systems.Weapon
+namespace Tanks.GameLogic.Systems.Weapon
 {
     internal sealed class WeaponLaunchLoopSystem : IExecuteSystem
     {

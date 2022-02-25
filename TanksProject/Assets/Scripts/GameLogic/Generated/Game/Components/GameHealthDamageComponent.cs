@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public TanksGB.GameLogic.Components.Game.Health.HealthDamageComponent healthDamage { get { return (TanksGB.GameLogic.Components.Game.Health.HealthDamageComponent)GetComponent(GameComponentsLookup.HealthDamage); } }
+    public Tanks.GameLogic.Components.Game.Health.HealthDamageComponent healthDamage { get { return (Tanks.GameLogic.Components.Game.Health.HealthDamageComponent)GetComponent(GameComponentsLookup.HealthDamage); } }
     public bool hasHealthDamage { get { return HasComponent(GameComponentsLookup.HealthDamage); } }
 
     public void AddHealthDamage(float newValue) {
         var index = GameComponentsLookup.HealthDamage;
-        var component = (TanksGB.GameLogic.Components.Game.Health.HealthDamageComponent)CreateComponent(index, typeof(TanksGB.GameLogic.Components.Game.Health.HealthDamageComponent));
+        var component = (Tanks.GameLogic.Components.Game.Health.HealthDamageComponent)CreateComponent(index, typeof(Tanks.GameLogic.Components.Game.Health.HealthDamageComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceHealthDamage(float newValue) {
         var index = GameComponentsLookup.HealthDamage;
-        var component = (TanksGB.GameLogic.Components.Game.Health.HealthDamageComponent)CreateComponent(index, typeof(TanksGB.GameLogic.Components.Game.Health.HealthDamageComponent));
+        var component = (Tanks.GameLogic.Components.Game.Health.HealthDamageComponent)CreateComponent(index, typeof(Tanks.GameLogic.Components.Game.Health.HealthDamageComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

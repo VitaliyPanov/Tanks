@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace TanksGB.GameLogic.Services
+namespace Tanks.GameLogic.Services
 {
     public static class GameObjectExtensions
     {

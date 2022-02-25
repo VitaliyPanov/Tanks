@@ -35,7 +35,7 @@ public partial class InputContext {
 //------------------------------------------------------------------------------
 public partial class InputEntity {
 
-    static readonly TanksGB.GameLogic.Components.Input.ToggleNextComponent toggleNextComponent = new TanksGB.GameLogic.Components.Input.ToggleNextComponent();
+    static readonly Tanks.GameLogic.Components.Input.ToggleNextComponent toggleNextComponent = new Tanks.GameLogic.Components.Input.ToggleNextComponent();
 
     public bool isToggleNext {
         get { return HasComponent(InputComponentsLookup.ToggleNext); }

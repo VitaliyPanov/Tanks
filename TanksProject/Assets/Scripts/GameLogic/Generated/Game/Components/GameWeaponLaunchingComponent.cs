@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly TanksGB.GameLogic.Components.Game.Weapon.WeaponLaunchingComponent weaponLaunchingComponent = new TanksGB.GameLogic.Components.Game.Weapon.WeaponLaunchingComponent();
+    static readonly Tanks.GameLogic.Components.Game.Weapon.WeaponLaunchingComponent weaponLaunchingComponent = new Tanks.GameLogic.Components.Game.Weapon.WeaponLaunchingComponent();
 
     public bool isWeaponLaunching {
         get { return HasComponent(GameComponentsLookup.WeaponLaunching); }

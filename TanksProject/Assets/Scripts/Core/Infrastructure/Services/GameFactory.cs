@@ -1,9 +1,9 @@
 ﻿using General.Controllers;
 using General.Services;
-using TanksGB.Core.Controllers;
+using Tanks.Core.Controllers;
 using UnityEngine;
 
-namespace TanksGB.Core.Infrastructure.Services
+namespace Tanks.Core.Infrastructure.Services
 {
     internal sealed class GameFactory : IGameFactory
     {

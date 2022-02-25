@@ -1,7 +1,7 @@
 using Entitas;
-using TanksGB.GameLogic.Views;
+using Tanks.GameLogic.Views;
 
-namespace TanksGB.GameLogic.Components.Game
+namespace Tanks.GameLogic.Components.Game
 {
     [Game]
     public sealed class ViewComponent : IComponent

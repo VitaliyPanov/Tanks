@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace TanksGB.Core.Infrastructure.Services.Pool
+namespace Tanks.Core.Infrastructure.Services.Pool
 {
     internal sealed class ObjectPool : IDisposable
     {

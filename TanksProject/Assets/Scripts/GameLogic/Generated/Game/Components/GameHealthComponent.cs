@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly TanksGB.GameLogic.Components.Game.Health.HealthComponent healthComponent = new TanksGB.GameLogic.Components.Game.Health.HealthComponent();
+    static readonly Tanks.GameLogic.Components.Game.Health.HealthComponent healthComponent = new Tanks.GameLogic.Components.Game.Health.HealthComponent();
 
     public bool isHealth {
         get { return HasComponent(GameComponentsLookup.Health); }

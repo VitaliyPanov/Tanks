@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly TanksGB.GameLogic.Components.Game.Weapon.WeaponFiredComponent weaponFiredComponent = new TanksGB.GameLogic.Components.Game.Weapon.WeaponFiredComponent();
+    static readonly Tanks.GameLogic.Components.Game.Weapon.WeaponFiredComponent weaponFiredComponent = new Tanks.GameLogic.Components.Game.Weapon.WeaponFiredComponent();
 
     public bool isWeaponFired {
         get { return HasComponent(GameComponentsLookup.WeaponFired); }

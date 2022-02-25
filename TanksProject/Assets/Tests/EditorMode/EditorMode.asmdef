@@ -1,6 +1,6 @@
 {
     "name": "EditorMode",
-    "rootNamespace": "",
+    "rootNamespace": "Tanks",
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",

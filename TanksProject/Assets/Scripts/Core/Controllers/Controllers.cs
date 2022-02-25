@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using General.Controllers;
 
-namespace TanksGB.Core.Controllers
+namespace Tanks.Core.Controllers
 {
     internal sealed class Controllers
     {

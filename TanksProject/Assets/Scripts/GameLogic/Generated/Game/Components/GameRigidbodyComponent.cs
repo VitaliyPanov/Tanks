@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public TanksGB.GameLogic.Components.Game.RigidbodyComponent rigidbody { get { return (TanksGB.GameLogic.Components.Game.RigidbodyComponent)GetComponent(GameComponentsLookup.Rigidbody); } }
+    public Tanks.GameLogic.Components.Game.RigidbodyComponent rigidbody { get { return (Tanks.GameLogic.Components.Game.RigidbodyComponent)GetComponent(GameComponentsLookup.Rigidbody); } }
     public bool hasRigidbody { get { return HasComponent(GameComponentsLookup.Rigidbody); } }
 
     public void AddRigidbody(UnityEngine.Rigidbody newValue) {
         var index = GameComponentsLookup.Rigidbody;
-        var component = (TanksGB.GameLogic.Components.Game.RigidbodyComponent)CreateComponent(index, typeof(TanksGB.GameLogic.Components.Game.RigidbodyComponent));
+        var component = (Tanks.GameLogic.Components.Game.RigidbodyComponent)CreateComponent(index, typeof(Tanks.GameLogic.Components.Game.RigidbodyComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceRigidbody(UnityEngine.Rigidbody newValue) {
         var index = GameComponentsLookup.Rigidbody;
-        var component = (TanksGB.GameLogic.Components.Game.RigidbodyComponent)CreateComponent(index, typeof(TanksGB.GameLogic.Components.Game.RigidbodyComponent));
+        var component = (Tanks.GameLogic.Components.Game.RigidbodyComponent)CreateComponent(index, typeof(Tanks.GameLogic.Components.Game.RigidbodyComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

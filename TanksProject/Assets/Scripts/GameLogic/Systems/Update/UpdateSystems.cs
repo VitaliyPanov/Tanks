@@ -1,8 +1,7 @@
-using System.Collections.Generic;
 using General.Services;
-using TanksGB.Data;
+using Tanks.Data;
 
-namespace TanksGB.GameLogic.Systems.Update
+namespace Tanks.GameLogic.Systems.Update
 {
     internal sealed class UpdateSystems : Feature
     {

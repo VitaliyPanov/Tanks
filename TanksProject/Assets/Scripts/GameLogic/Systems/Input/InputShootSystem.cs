@@ -1,6 +1,6 @@
 using Entitas;
 
-namespace TanksGB.GameLogic.Systems.Input
+namespace Tanks.GameLogic.Systems.Input
 {
     internal sealed class InputShootSystem : IExecuteSystem
     {

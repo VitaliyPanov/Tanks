@@ -1,16 +1,6 @@
-﻿using System.Collections;
-using System.Linq;
-using FluentAssertions;
-using General.Services;
-using NUnit.Framework;
-using TanksGB.Core.Infrastructure.Services.Input;
-using TanksGB.Core.Infrastructure.Services.Pool;
-using TanksGB.Data;
-using TanksGB.GameLogic;
-using UnityEngine;
-using UnityEngine.TestTools;
+﻿using Tanks.GameLogic;
 
-namespace Tests.PlayMode.ECS
+namespace Tanks.Tests.PlayMode.ECS
 {
     public class InitSystemTests
     {

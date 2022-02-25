@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using General.Services;
-using TanksGB.GameLogic.Services;
+using Tanks.GameLogic.Services;
 using UnityEngine;
 
-namespace TanksGB.Core.Infrastructure.Services.Pool
+namespace Tanks.Core.Infrastructure.Services.Pool
 {
     internal sealed class PoolService : IPoolService
     {

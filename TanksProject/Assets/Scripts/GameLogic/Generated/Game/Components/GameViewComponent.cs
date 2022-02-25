@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public TanksGB.GameLogic.Components.Game.ViewComponent view { get { return (TanksGB.GameLogic.Components.Game.ViewComponent)GetComponent(GameComponentsLookup.View); } }
+    public Tanks.GameLogic.Components.Game.ViewComponent view { get { return (Tanks.GameLogic.Components.Game.ViewComponent)GetComponent(GameComponentsLookup.View); } }
     public bool hasView { get { return HasComponent(GameComponentsLookup.View); } }
 
-    public void AddView(TanksGB.GameLogic.Views.IView newValue) {
+    public void AddView(Tanks.GameLogic.Views.IView newValue) {
         var index = GameComponentsLookup.View;
-        var component = (TanksGB.GameLogic.Components.Game.ViewComponent)CreateComponent(index, typeof(TanksGB.GameLogic.Components.Game.ViewComponent));
+        var component = (Tanks.GameLogic.Components.Game.ViewComponent)CreateComponent(index, typeof(Tanks.GameLogic.Components.Game.ViewComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceView(TanksGB.GameLogic.Views.IView newValue) {
+    public void ReplaceView(Tanks.GameLogic.Views.IView newValue) {
         var index = GameComponentsLookup.View;
-        var component = (TanksGB.GameLogic.Components.Game.ViewComponent)CreateComponent(index, typeof(TanksGB.GameLogic.Components.Game.ViewComponent));
+        var component = (Tanks.GameLogic.Components.Game.ViewComponent)CreateComponent(index, typeof(Tanks.GameLogic.Components.Game.ViewComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

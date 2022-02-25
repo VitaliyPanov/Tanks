@@ -1,7 +1,7 @@
 using General.Controllers;
 using UnityEngine;
 
-namespace TanksGB.Core.Controllers
+namespace Tanks.Core.Controllers
 {
     internal sealed class CameraController : ICameraController, IStart, ILateUpdate
     {

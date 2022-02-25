@@ -1,4 +1,4 @@
-﻿namespace TanksGB.Core
+﻿namespace Tanks.Core
 {
     internal static class SceneNames
     {

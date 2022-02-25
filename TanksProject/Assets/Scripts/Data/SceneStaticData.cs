@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace TanksGB.Data
+namespace Tanks.Data
 {
     [CreateAssetMenu(fileName = "SceneData", menuName = "Tanks/StaticData/Scene")]
     public sealed class SceneStaticData : ScriptableObject

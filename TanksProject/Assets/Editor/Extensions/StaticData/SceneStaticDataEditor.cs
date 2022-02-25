@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using General.LevelDesign;
 using Sirenix.OdinInspector.Editor;
-using TanksGB.Data;
+using Tanks.Data;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;

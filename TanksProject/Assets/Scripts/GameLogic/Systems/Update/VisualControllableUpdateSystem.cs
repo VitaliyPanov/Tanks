@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using Entitas;
-using TanksGB.Data;
+using Tanks.Data;
 using UnityEngine;
 
-namespace TanksGB.GameLogic.Systems.Update
+namespace Tanks.GameLogic.Systems.Update
 {
     internal sealed class VisualControllableUpdateSystem : ReactiveSystem<GameEntity>, ICleanupSystem
     {

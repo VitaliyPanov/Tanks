@@ -1,6 +1,6 @@
 {
     "name": "PlayMode",
-    "rootNamespace": "",
+    "rootNamespace": "Tanks",
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",

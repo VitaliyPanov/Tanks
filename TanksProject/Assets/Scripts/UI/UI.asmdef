@@ -1,6 +1,6 @@
 {
     "name": "UI",
-    "rootNamespace": "TanksGB",
+    "rootNamespace": "Tanks",
     "references": [
         "Data",
         "General"

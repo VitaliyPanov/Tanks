@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
 using Entitas;
-using TanksGB.Data;
-using TanksGB.GameLogic.Services;
+using Tanks.Data;
+using Tanks.GameLogic.Services;
 using UnityEngine;
 
-namespace TanksGB.GameLogic.Systems.Weapon
+namespace Tanks.GameLogic.Systems.Weapon
 {
     internal sealed class WeaponShootSystem : ReactiveSystem<GameEntity>, ICleanupSystem
     {

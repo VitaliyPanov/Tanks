@@ -1,7 +1,7 @@
 using Entitas;
-using TanksGB.Data;
+using Tanks.Data;
 
-namespace TanksGB.GameLogic.Systems.Init
+namespace Tanks.GameLogic.Systems.Init
 {
     internal sealed class TeamsInitSystem : IInitializeSystem
     {

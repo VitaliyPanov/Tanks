@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Entitas;
 
-namespace TanksGB.GameLogic.Systems.Update
+namespace Tanks.GameLogic.Systems.Update
 {
     internal sealed class HealthControlSystem : ReactiveSystem<GameEntity>
     {

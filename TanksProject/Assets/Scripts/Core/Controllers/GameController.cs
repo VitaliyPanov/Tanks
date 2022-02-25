@@ -2,7 +2,7 @@ using General.Controllers;
 using General.Services;
 using UnityEngine;
 
-namespace TanksGB.Core.Controllers
+namespace Tanks.Core.Controllers
 {
     internal sealed class GameController : MonoBehaviour
     {

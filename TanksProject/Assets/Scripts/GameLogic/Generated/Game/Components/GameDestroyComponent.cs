@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly TanksGB.GameLogic.Components.Game.DestroyComponent destroyComponent = new TanksGB.GameLogic.Components.Game.DestroyComponent();
+    static readonly Tanks.GameLogic.Components.Game.DestroyComponent destroyComponent = new Tanks.GameLogic.Components.Game.DestroyComponent();
 
     public bool isDestroy {
         get { return HasComponent(GameComponentsLookup.Destroy); }

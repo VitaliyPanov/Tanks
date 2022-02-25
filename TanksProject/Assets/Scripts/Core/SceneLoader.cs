@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.SceneManagement;
 
-namespace TanksGB.Core
+namespace Tanks.Core
 {
     public sealed class SceneLoader
     {

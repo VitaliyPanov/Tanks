@@ -1,7 +1,7 @@
 using Entitas;
-using TanksGB.Data;
+using Tanks.Data;
 
-namespace TanksGB.GameLogic.Components.Game
+namespace Tanks.GameLogic.Components.Game
 {
     [Game]
     public sealed class TeamComponent : IComponent

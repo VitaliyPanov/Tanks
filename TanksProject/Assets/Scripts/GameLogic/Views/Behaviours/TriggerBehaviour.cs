@@ -1,7 +1,7 @@
 ﻿using Entitas;
 using UnityEngine;
 
-namespace TanksGB.GameLogic.Views.Behaviours
+namespace Tanks.GameLogic.Views.Behaviours
 {
     [RequireComponent(typeof(UnityView))]
     public class TriggerBehaviour : MonoBehaviour, IBehaviour

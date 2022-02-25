@@ -1,5 +1,6 @@
 using FluentAssertions;
 using NUnit.Framework;
+using Tanks.Core.Infrastructure;
 using TanksGB.Core.Infrastructure;
 
 namespace Tests.EditorMode

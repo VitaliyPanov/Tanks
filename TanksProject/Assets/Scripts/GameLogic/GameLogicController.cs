@@ -1,12 +1,12 @@
 ﻿using General.Controllers;
 using General.Services;
-using TanksGB.Data;
-using TanksGB.GameLogic.Services.View;
-using TanksGB.GameLogic.Systems.FixedUpdate;
-using TanksGB.GameLogic.Systems.Init;
-using TanksGB.GameLogic.Systems.Update;
+using Tanks.Data;
+using Tanks.GameLogic.Services.View;
+using Tanks.GameLogic.Systems.FixedUpdate;
+using Tanks.GameLogic.Systems.Init;
+using Tanks.GameLogic.Systems.Update;
 
-namespace TanksGB.GameLogic
+namespace Tanks.GameLogic
 {
     public class GameLogicController : ILogicController, IStart, IUpdate, IFixedUpdate
     {
@@ -65,8 +65,7 @@ namespace TanksGB.GameLogic
 
         public void Pause(bool isPause)
         {
-            _updateSystems.paused = isPause;
-            _fixedUpdateSystems.paused = isPause;
+            _contexts.input.isPause = isPause;
         }
     }
 }

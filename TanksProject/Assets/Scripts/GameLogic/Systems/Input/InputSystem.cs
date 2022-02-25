@@ -2,7 +2,7 @@ using Entitas;
 using General.Services;
 using UnityEngine;
 
-namespace TanksGB.GameLogic.Systems.Input
+namespace Tanks.GameLogic.Systems.Input
 {
     internal sealed class InputSystem : IExecuteSystem
     {

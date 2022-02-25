@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public TanksGB.GameLogic.Components.Game.TargetComponent target { get { return (TanksGB.GameLogic.Components.Game.TargetComponent)GetComponent(GameComponentsLookup.Target); } }
+    public Tanks.GameLogic.Components.Game.TargetComponent target { get { return (Tanks.GameLogic.Components.Game.TargetComponent)GetComponent(GameComponentsLookup.Target); } }
     public bool hasTarget { get { return HasComponent(GameComponentsLookup.Target); } }
 
     public void AddTarget(GameEntity newValue) {
         var index = GameComponentsLookup.Target;
-        var component = (TanksGB.GameLogic.Components.Game.TargetComponent)CreateComponent(index, typeof(TanksGB.GameLogic.Components.Game.TargetComponent));
+        var component = (Tanks.GameLogic.Components.Game.TargetComponent)CreateComponent(index, typeof(Tanks.GameLogic.Components.Game.TargetComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceTarget(GameEntity newValue) {
         var index = GameComponentsLookup.Target;
-        var component = (TanksGB.GameLogic.Components.Game.TargetComponent)CreateComponent(index, typeof(TanksGB.GameLogic.Components.Game.TargetComponent));
+        var component = (Tanks.GameLogic.Components.Game.TargetComponent)CreateComponent(index, typeof(Tanks.GameLogic.Components.Game.TargetComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace TanksGB.Data
+namespace Tanks.Data
 {
     public static class TeamColors
     {

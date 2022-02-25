@@ -1,6 +1,6 @@
 ﻿using Entitas;
 
-namespace TanksGB.GameLogic.Components.Game.Ammunition
+namespace Tanks.GameLogic.Components.Game.Ammunition
 {
     [Game]
     public sealed class ShellComponent : IComponent

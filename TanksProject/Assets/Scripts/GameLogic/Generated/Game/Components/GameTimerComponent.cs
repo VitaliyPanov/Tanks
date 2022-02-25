@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public TanksGB.GameLogic.Components.Game.TimerComponent timer { get { return (TanksGB.GameLogic.Components.Game.TimerComponent)GetComponent(GameComponentsLookup.Timer); } }
+    public Tanks.GameLogic.Components.Game.TimerComponent timer { get { return (Tanks.GameLogic.Components.Game.TimerComponent)GetComponent(GameComponentsLookup.Timer); } }
     public bool hasTimer { get { return HasComponent(GameComponentsLookup.Timer); } }
 
     public void AddTimer(float newValue) {
         var index = GameComponentsLookup.Timer;
-        var component = (TanksGB.GameLogic.Components.Game.TimerComponent)CreateComponent(index, typeof(TanksGB.GameLogic.Components.Game.TimerComponent));
+        var component = (Tanks.GameLogic.Components.Game.TimerComponent)CreateComponent(index, typeof(Tanks.GameLogic.Components.Game.TimerComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceTimer(float newValue) {
         var index = GameComponentsLookup.Timer;
-        var component = (TanksGB.GameLogic.Components.Game.TimerComponent)CreateComponent(index, typeof(TanksGB.GameLogic.Components.Game.TimerComponent));
+        var component = (Tanks.GameLogic.Components.Game.TimerComponent)CreateComponent(index, typeof(Tanks.GameLogic.Components.Game.TimerComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

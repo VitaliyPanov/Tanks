@@ -1,8 +1,8 @@
-using TanksGB.Data;
-using TanksGB.GameLogic.Systems.Events;
-using TanksGB.GameLogic.Systems.Update;
+using Tanks.Data;
+using Tanks.GameLogic.Systems.Events;
+using Tanks.GameLogic.Systems.Update;
 
-namespace TanksGB.GameLogic.Systems.FixedUpdate
+namespace Tanks.GameLogic.Systems.FixedUpdate
 {
     internal sealed class FixedUpdateSystems : Feature
     {

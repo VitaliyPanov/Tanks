@@ -1,8 +1,8 @@
 using General.Services;
-using TanksGB.GameLogic.Views;
+using Tanks.GameLogic.Views;
 using UnityEngine;
 
-namespace TanksGB.GameLogic.Services.View
+namespace Tanks.GameLogic.Services.View
 {
     internal sealed class ViewService : IViewService
     {

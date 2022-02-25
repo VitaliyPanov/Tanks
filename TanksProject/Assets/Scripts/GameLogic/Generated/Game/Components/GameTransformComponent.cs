@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public TanksGB.GameLogic.Components.Game.TransformComponent transform { get { return (TanksGB.GameLogic.Components.Game.TransformComponent)GetComponent(GameComponentsLookup.Transform); } }
+    public Tanks.GameLogic.Components.Game.TransformComponent transform { get { return (Tanks.GameLogic.Components.Game.TransformComponent)GetComponent(GameComponentsLookup.Transform); } }
     public bool hasTransform { get { return HasComponent(GameComponentsLookup.Transform); } }
 
     public void AddTransform(UnityEngine.Transform newValue) {
         var index = GameComponentsLookup.Transform;
-        var component = (TanksGB.GameLogic.Components.Game.TransformComponent)CreateComponent(index, typeof(TanksGB.GameLogic.Components.Game.TransformComponent));
+        var component = (Tanks.GameLogic.Components.Game.TransformComponent)CreateComponent(index, typeof(Tanks.GameLogic.Components.Game.TransformComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceTransform(UnityEngine.Transform newValue) {
         var index = GameComponentsLookup.Transform;
-        var component = (TanksGB.GameLogic.Components.Game.TransformComponent)CreateComponent(index, typeof(TanksGB.GameLogic.Components.Game.TransformComponent));
+        var component = (Tanks.GameLogic.Components.Game.TransformComponent)CreateComponent(index, typeof(Tanks.GameLogic.Components.Game.TransformComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

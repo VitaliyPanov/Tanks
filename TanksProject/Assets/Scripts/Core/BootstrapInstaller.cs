@@ -1,15 +1,14 @@
 using General.Controllers;
 using General.Services;
-using TanksGB.Core.Controllers;
-using TanksGB.Core.Infrastructure.Services;
-using TanksGB.Core.Infrastructure.Services.Input;
-using TanksGB.Core.Infrastructure.Services.Pool;
-using TanksGB.GameLogic;
-using TanksGB.GameLogic.Services;
-using TanksGB.UI;
+using Tanks.Core.Controllers;
+using Tanks.Core.Infrastructure.Services;
+using Tanks.Core.Infrastructure.Services.Input;
+using Tanks.Core.Infrastructure.Services.Pool;
+using Tanks.GameLogic;
+using Tanks.UI;
 using Zenject;
 
-namespace TanksGB.Core
+namespace Tanks.Core
 {
     internal sealed class BootstrapInstaller:MonoInstaller
     {

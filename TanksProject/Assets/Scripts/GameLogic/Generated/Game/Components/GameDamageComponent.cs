@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public TanksGB.GameLogic.Components.Game.Ammunition.DamageComponent damage { get { return (TanksGB.GameLogic.Components.Game.Ammunition.DamageComponent)GetComponent(GameComponentsLookup.Damage); } }
+    public Tanks.GameLogic.Components.Game.Ammunition.DamageComponent damage { get { return (Tanks.GameLogic.Components.Game.Ammunition.DamageComponent)GetComponent(GameComponentsLookup.Damage); } }
     public bool hasDamage { get { return HasComponent(GameComponentsLookup.Damage); } }
 
     public void AddDamage(float newValue) {
         var index = GameComponentsLookup.Damage;
-        var component = (TanksGB.GameLogic.Components.Game.Ammunition.DamageComponent)CreateComponent(index, typeof(TanksGB.GameLogic.Components.Game.Ammunition.DamageComponent));
+        var component = (Tanks.GameLogic.Components.Game.Ammunition.DamageComponent)CreateComponent(index, typeof(Tanks.GameLogic.Components.Game.Ammunition.DamageComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceDamage(float newValue) {
         var index = GameComponentsLookup.Damage;
-        var component = (TanksGB.GameLogic.Components.Game.Ammunition.DamageComponent)CreateComponent(index, typeof(TanksGB.GameLogic.Components.Game.Ammunition.DamageComponent));
+        var component = (Tanks.GameLogic.Components.Game.Ammunition.DamageComponent)CreateComponent(index, typeof(Tanks.GameLogic.Components.Game.Ammunition.DamageComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

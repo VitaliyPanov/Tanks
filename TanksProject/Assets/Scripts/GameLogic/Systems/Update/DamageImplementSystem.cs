@@ -1,7 +1,6 @@
 using Entitas;
-using UnityEngine;
 
-namespace TanksGB.GameLogic.Systems.Update
+namespace Tanks.GameLogic.Systems.Update
 {
     public sealed class DamageImplementSystem : IExecuteSystem
     {

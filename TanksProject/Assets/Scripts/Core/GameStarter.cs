@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace TanksGB.Core
+namespace Tanks.Core
 {
     internal sealed class GameStarter : MonoBehaviour
     {

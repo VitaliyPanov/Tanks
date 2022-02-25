@@ -1,4 +1,4 @@
-namespace TanksGB.Core.Infrastructure.StateMachine
+namespace Tanks.Core.Infrastructure.StateMachine
 {
     public interface ILoadingState<TLoad> : IExitableState
     {
