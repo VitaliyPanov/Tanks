@@ -8,40 +8,43 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
-    public const int Damage = 0;
-    public const int Shell = 1;
-    public const int ComponentIndex = 2;
-    public const int Control = 3;
-    public const int Controllable = 4;
-    public const int Destroy = 5;
-    public const int Dead = 6;
-    public const int Triggered = 7;
-    public const int CurrentHealth = 8;
-    public const int Health = 9;
-    public const int HealthDamage = 10;
-    public const int MaxHealth = 11;
-    public const int MeshRenderer = 12;
-    public const int Movable = 13;
-    public const int Position = 14;
-    public const int Rigidbody = 15;
-    public const int Rotation = 16;
-    public const int Target = 17;
-    public const int Team = 18;
-    public const int Timer = 19;
-    public const int Transform = 20;
-    public const int View = 21;
-    public const int WeaponActivate = 22;
-    public const int WeaponAmmo = 23;
-    public const int WeaponCooldown = 24;
-    public const int WeaponFired = 25;
-    public const int WeaponLaunching = 26;
-    public const int WeaponLaunchTime = 27;
-    public const int WeaponTransform = 28;
-    public const int ViewService = 29;
+    public const int AI = 0;
+    public const int Damage = 1;
+    public const int Shell = 2;
+    public const int ComponentIndex = 3;
+    public const int Control = 4;
+    public const int Controllable = 5;
+    public const int Destroy = 6;
+    public const int Dead = 7;
+    public const int Triggered = 8;
+    public const int CurrentHealth = 9;
+    public const int Health = 10;
+    public const int HealthDamage = 11;
+    public const int MaxHealth = 12;
+    public const int MeshRenderer = 13;
+    public const int Movable = 14;
+    public const int Playable = 15;
+    public const int Position = 16;
+    public const int Rigidbody = 17;
+    public const int Rotation = 18;
+    public const int Target = 19;
+    public const int Team = 20;
+    public const int Timer = 21;
+    public const int Transform = 22;
+    public const int View = 23;
+    public const int WeaponActivate = 24;
+    public const int WeaponAmmo = 25;
+    public const int WeaponCooldown = 26;
+    public const int WeaponFired = 27;
+    public const int WeaponLaunching = 28;
+    public const int WeaponLaunchTime = 29;
+    public const int WeaponTransform = 30;
+    public const int ViewService = 31;
 
-    public const int TotalComponents = 30;
+    public const int TotalComponents = 32;
 
     public static readonly string[] componentNames = {
+        "AI",
         "Damage",
         "Shell",
         "ComponentIndex",
@@ -56,6 +59,7 @@ public static class GameComponentsLookup {
         "MaxHealth",
         "MeshRenderer",
         "Movable",
+        "Playable",
         "Position",
         "Rigidbody",
         "Rotation",
@@ -75,6 +79,7 @@ public static class GameComponentsLookup {
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(Tanks.GameLogic.Components.Game.AIComponent),
         typeof(Tanks.GameLogic.Components.Game.Ammunition.DamageComponent),
         typeof(Tanks.GameLogic.Components.Game.Ammunition.ShellComponent),
         typeof(Tanks.GameLogic.Components.Game.ComponentIndexComponent),
@@ -89,6 +94,7 @@ public static class GameComponentsLookup {
         typeof(Tanks.GameLogic.Components.Game.Health.MaxHealthComponent),
         typeof(Tanks.GameLogic.Components.Game.MeshRendererComponent),
         typeof(Tanks.GameLogic.Components.Game.MovableComponent),
+        typeof(Tanks.GameLogic.Components.Game.PlayableComponent),
         typeof(Tanks.GameLogic.Components.Game.PositionComponent),
         typeof(Tanks.GameLogic.Components.Game.RigidbodyComponent),
         typeof(Tanks.GameLogic.Components.Game.RotationComponent),

@@ -1,11 +1,9 @@
-﻿using System;
-using General;
-using General.LevelDesign;
+﻿using General.LevelDesign;
 using Tanks.Data;
 using UnityEditor;
 using UnityEngine;
 
-namespace TanksGB.Editor.Extensions
+namespace Tanks.Editor.Extensions
 {
     [UnityEditor.CustomEditor(typeof(TankSpawnMarker))]
     public sealed class SpawnMarkerEditor:UnityEditor.Editor

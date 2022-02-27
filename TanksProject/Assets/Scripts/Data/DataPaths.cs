@@ -4,5 +4,6 @@
     {
         public const string SCENE = "Data/Scenes";
         public const string RUNTIME = "Data/Runtime";
+        public const string UI = "Data/UI";
     }
 }

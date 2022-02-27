@@ -1,15 +1,14 @@
 ﻿using System.Linq;
 using General.LevelDesign;
-using Sirenix.OdinInspector.Editor;
 using Tanks.Data;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace TanksGB.Editor.Extensions.StaticData
+namespace Tanks.Editor.Extensions.StaticData
 {
     [CustomEditor(typeof(SceneStaticData))]
-    public class SceneStaticDataEditor : OdinEditor
+    public class SceneStaticDataEditor : UnityEditor.Editor//OdinEditor
     {
         public override void OnInspectorGUI()
         {
@@ -31,7 +30,6 @@ namespace TanksGB.Editor.Extensions.StaticData
             sceneData.TankSpawners = FindObjectsOfType<TankSpawnMarker>()
                 .Select(x => new TankSpawnerData(x.Type, x.transform.position))
                 .ToList();
-            sceneData.TankLayerMask = 1 << sceneData.TankPrefab.layer;
             EditorUtility.SetDirty(target);
             Debug.Log($"SceneData of {currentScene} initialized");
         }

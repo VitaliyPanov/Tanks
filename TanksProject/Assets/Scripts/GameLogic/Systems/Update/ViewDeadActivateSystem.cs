@@ -20,8 +20,6 @@ namespace Tanks.GameLogic.Systems.Update
         {
             foreach (var entity in _entities.GetEntities(_buffer))
             {
-                Debug.Log(
-                    $"Tank {entity.view.Value.GameObject.GetInstanceID()} in {entity.team.Type} team goes BOOM at {_context.realtimeSinceStartup.Value}");
                 entity.isDestroy = true;
             }
         }

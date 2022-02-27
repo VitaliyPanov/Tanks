@@ -3,11 +3,13 @@ using System.Linq;
 using Entitas;
 using Tanks.Data;
 using Tanks.GameLogic.Services;
+using UnityEngine;
 
 namespace Tanks.GameLogic.Systems.Update
 {
     internal sealed class TeamMoveChangeSystem : ReactiveSystem<GameEntity>, IInitializeSystem
     {
+        private const int c_maxAngle = 40;
         private readonly RuntimeData _runtimeData;
         private readonly IGroup<GameEntity> _entities;
         private readonly IGroup<GameEntity> _movableEntities;
@@ -37,7 +39,7 @@ namespace Tanks.GameLogic.Systems.Update
 
         protected override void Execute(List<GameEntity> entities)
         {
-            GameEntity firstMovable = FirstMovable(entities);
+            GameEntity firstMovable = FirstMovable(entities[0].team.Type);
             if (firstMovable != null)
             {
                 if (_contexts.game.controllable.Entity == entities[0]) 
@@ -47,27 +49,25 @@ namespace Tanks.GameLogic.Systems.Update
                 ChangeMovableTeam(_activeTeams.GetNext(entities[0].team.Type));
         }
 
-        private GameEntity FirstMovable(List<GameEntity> entities)
+        private GameEntity FirstMovable(TeamType team)
         {
-            GameEntity firstMovable = null;
-            
             foreach (var movableEntity in _movableEntities)
             {
-                if (movableEntity.team.Type == entities.First().team.Type && firstMovable == null)
-                    firstMovable = movableEntity;
+                if (movableEntity.team.Type == team)
+                    return movableEntity;
             }
-
-            return firstMovable;
+            return null;
         }
 
         private void ChangeMovableTeam(TeamType team)
         {
             for (int i = 0; i < _activeTeams.Count; i++)
             {
-                int? alive = CheckAliveInTeamAndSetMovable(team, null);
-                if (alive != null)
+                ReplaceMovableTeam(team);
+                GameEntity firstMovable = FirstMovable(team);
+                if (firstMovable != null)
                 {
-                    _buffer[(int) alive].tryControl = true;
+                    firstMovable.tryControl = true;
                     break;
                 }
 
@@ -79,26 +79,29 @@ namespace Tanks.GameLogic.Systems.Update
             _runtimeData.ChangeTeam(team);
         }
 
-        private int? CheckAliveInTeamAndSetMovable(TeamType team, int? firstAlive)
+        private void ReplaceMovableTeam(TeamType team)
         {
-            for (int i = 0; i < _entities.GetEntities(_buffer).Count; i++)
+            foreach (var entity in _entities.GetEntities(_buffer))
             {
-                GameEntity tankEntity = _buffer[i];
-                if (tankEntity.team.Type == team)
+                if (entity.team.Type == team)
                 {
-                    SetUnitMovableAndAbleToFire(tankEntity);
-                    firstAlive ??= i;
+                    SetUnitMovableAndAbleToFire(entity);
+                    CheckRotation(entity.transform.Value);
+                    _contexts.game.SetTimer(_runtimeData.MoveTime, GameComponentsLookup.Movable, entity);
                 }
             }
-
-            return firstAlive;
         }
 
         private void SetUnitMovableAndAbleToFire(GameEntity tankEntity)
         {
             tankEntity.isMovable = true;
             tankEntity.isWeaponFired = false;
-            _contexts.game.SetTimer(_runtimeData.MoveTime, GameComponentsLookup.Movable, tankEntity);
+        }
+
+        private void CheckRotation(Transform tank)
+        {
+            if (Mathf.Abs(tank.rotation.eulerAngles.x) > c_maxAngle || Mathf.Abs(tank.rotation.eulerAngles.z) > c_maxAngle)
+                tank.SetPositionAndRotation(tank.position += Vector3.up, Quaternion.identity);
         }
     }
 }

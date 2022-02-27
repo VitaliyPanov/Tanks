@@ -12,9 +12,15 @@ namespace Tanks.GameLogic.Services.View
             _poolService = poolService;
         }
 
-        public IView CreateView(GameObject prefab, GameEntity entity)
+        public IView CreateView(GameObject prefab)
         {
             var view = _poolService.Instantiate<UnityView>(prefab);
+            return view;
+        }
+
+        public IView CreateImmediately(GameObject prefab, GameEntity entity)
+        {
+            var view = CreateView(prefab);
             view.InitializeView(entity);
             return view;
         }

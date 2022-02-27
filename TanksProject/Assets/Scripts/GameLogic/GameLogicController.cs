@@ -2,6 +2,7 @@
 using General.Services;
 using Tanks.Data;
 using Tanks.GameLogic.Services.View;
+using Tanks.GameLogic.Systems.AI;
 using Tanks.GameLogic.Systems.FixedUpdate;
 using Tanks.GameLogic.Systems.Init;
 using Tanks.GameLogic.Systems.Update;
@@ -17,6 +18,7 @@ namespace Tanks.GameLogic
         private InitSystems _initSystems;
         private UpdateSystems _updateSystems;
         private FixedUpdateSystems _fixedUpdateSystems;
+        private AISystems _aiSystems;
         private Contexts _contexts;
 
         public GameLogicController(IPoolService poolService, IInputService inputService, IDataService dataService,
@@ -33,7 +35,7 @@ namespace Tanks.GameLogic
             SceneStaticData staticData = _dataService.StaticData(sceneName);
             RuntimeData runtimeData = _dataService.RuntimeData;
             runtimeData.ChangeTeam(staticData.FirstMoveTeam);
-            
+
             _contexts = Contexts.sharedInstance;
             BindLocalServices();
             CreateSystems(staticData, runtimeData);
@@ -44,12 +46,14 @@ namespace Tanks.GameLogic
             _initSystems.Initialize();
             _updateSystems.Initialize();
             _fixedUpdateSystems.Initialize();
+            _aiSystems.Initialize();
         }
 
         public void Update()
         {
             _updateSystems.Execute();
             _updateSystems.Cleanup();
+            _aiSystems.Execute();
         }
 
         public void FixedUpdate() => _fixedUpdateSystems.Execute();
@@ -61,11 +65,9 @@ namespace Tanks.GameLogic
             _initSystems = new InitSystems(_contexts, staticData, runtimeData);
             _updateSystems = new UpdateSystems(_contexts, runtimeData, _inputService, _timeService);
             _fixedUpdateSystems = new FixedUpdateSystems(_contexts, runtimeData);
+            _aiSystems = new AISystems(_contexts);
         }
 
-        public void Pause(bool isPause)
-        {
-            _contexts.input.isPause = isPause;
-        }
+        public void Pause(bool isPause) => _contexts.input.isPause = isPause;
     }
 }

@@ -13,16 +13,20 @@ MonoBehaviour:
   m_Name: MainSceneStaticData
   m_EditorClassIdentifier: 
   LevelKey: MainScene
-  FirstMoveTeam: 1
+  FirstMoveTeam: 0
   TankSpawners:
   - Type: 0
-    Position: {x: -22.3, y: 0.5, z: -0.07}
-  - Type: 2
-    Position: {x: -13.24, y: 0.5, z: 24.55}
+    Position: {x: -32.58, y: 0.5, z: 1.4}
   - Type: 0
-    Position: {x: -21.96, y: 0.5, z: 2.52}
+    Position: {x: -32.58, y: 0.5, z: 7.05}
+  - Type: 0
+    Position: {x: -28.17, y: 0.5, z: 7.05}
   - Type: 1
     Position: {x: 13.55, y: 0.5, z: -4.8}
+  - Type: 0
+    Position: {x: -28.17, y: 0.5, z: 1.4}
+  - Type: 2
+    Position: {x: -13.24, y: 0.5, z: 24.55}
   - Type: 1
     Position: {x: 11.77, y: 0.5, z: -7.64}
   - Type: 2
@@ -30,4 +34,5 @@ MonoBehaviour:
   - Type: 1
     Position: {x: 10.07, y: 0.5, z: -4.34}
   TankPrefab: {fileID: 1916818948987695301, guid: 2007f7a2c9892e84d9f9bd57472a1848, type: 3}
-  TankLayerMask: 128
+  StartTankHealth: 100
+  PlayableTeam: 0

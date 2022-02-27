@@ -30,7 +30,6 @@ namespace Tanks.Core.Infrastructure.StateMachine
         private void OnSceneLoaded()
         {
             _gameFactory.CreateGameController(_sceneName);
-            
             _stateMachine.Enter<GameLoopState>();
         }
 

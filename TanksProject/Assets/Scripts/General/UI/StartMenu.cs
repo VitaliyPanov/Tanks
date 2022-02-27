@@ -3,7 +3,7 @@ using UnityEngine.UIElements;
 
 namespace General.UI
 {
-    public sealed class StartMenu:MonoBehaviour
+    internal sealed class StartMenu:MonoBehaviour
     {
         [SerializeField] private GameObject _bootstrapperPrefab;
         private const string c_startBtn = "start_btn";

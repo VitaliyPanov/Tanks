@@ -7,5 +7,6 @@ namespace General.Services
         void Load();
         SceneStaticData StaticData(string sceneName);
         RuntimeData RuntimeData { get; }
+        UIData UIData { get; }
     }
 }

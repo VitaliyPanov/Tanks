@@ -64,7 +64,7 @@ namespace Tanks.GameLogic.Systems.Weapon
 
         private void InstantiateWithForce(GameObject prefab, GameEntity bulletEntity, Vector3 direction, float force)
         {
-            Rigidbody shellBody = _context.viewService.value.CreateView(prefab, bulletEntity)
+            Rigidbody shellBody = _context.viewService.value.CreateImmediately(prefab, bulletEntity)
                 .GameObject.GetOrAddComponent<Rigidbody>();
             shellBody.velocity = direction * force;
         }

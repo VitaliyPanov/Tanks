@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Tanks.GameLogic.Systems.Update
 {
-    internal sealed class VisualControllableUpdateSystem : ReactiveSystem<GameEntity>, ICleanupSystem
+    internal sealed class ControllableUpdateSystem : ReactiveSystem<GameEntity>, ICleanupSystem
     {
         private static readonly string s_emissioncolor = "_EmissionColor";
         private readonly RuntimeData _runtimeData;
@@ -13,7 +13,7 @@ namespace Tanks.GameLogic.Systems.Update
         private readonly IGroup<GameEntity> _selectGroup;
         private List<GameEntity> _buffer = new();
 
-        public VisualControllableUpdateSystem(Contexts contexts, RuntimeData runtimeData) : base(contexts.game)
+        public ControllableUpdateSystem(Contexts contexts, RuntimeData runtimeData) : base(contexts.game)
         {
             _game = contexts.game;
             _selectGroup = contexts.game.GetGroup(GameMatcher.Control);

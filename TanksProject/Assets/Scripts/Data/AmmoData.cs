@@ -1,5 +1,4 @@
-﻿using Sirenix.OdinInspector;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Tanks.Data
 {
@@ -8,31 +7,31 @@ namespace Tanks.Data
     {
         public AmmoType Type;
 
-        [FoldoutGroup(SOInspectorNames.PREFABS), PreviewField]
+        //[FoldoutGroup(SOInspectorNames.PREFABS), PreviewField]
         public GameObject Prefab;
 
-        [FoldoutGroup(SOInspectorNames.VARIABLES)]
+        //[FoldoutGroup(SOInspectorNames.VARIABLES)]
         public float Damage;
 
-        [FoldoutGroup(SOInspectorNames.PREFABS), PreviewField] [ShowIf(nameof(Type), AmmoType.Shell)]
+        //[FoldoutGroup(SOInspectorNames.PREFABS), PreviewField] [ShowIf(nameof(Type), AmmoType.Shell)]
         public GameObject AimSlider;
-
-        [FoldoutGroup(SOInspectorNames.VARIABLES)] [ShowIf(nameof(Type), AmmoType.Shell)]
+        
+        //[FoldoutGroup(SOInspectorNames.VARIABLES)] [ShowIf(nameof(Type), AmmoType.Shell)]
         public float ExplosionForce;
-
-        [FoldoutGroup(SOInspectorNames.VARIABLES)] [ShowIf(nameof(Type), AmmoType.Shell)]
+        
+        //[FoldoutGroup(SOInspectorNames.VARIABLES)] [ShowIf(nameof(Type), AmmoType.Shell)]
         public float ExplosionRadius;
-
-        [FoldoutGroup(SOInspectorNames.CONSTANTS)]
+        
+        //[FoldoutGroup(SOInspectorNames.CONSTANTS)]
         public float MinLaunchForce;
-
-        [FoldoutGroup(SOInspectorNames.CONSTANTS)]
+        
+        //[FoldoutGroup(SOInspectorNames.CONSTANTS)]
         public float MaxLaunchForce;
 
-        [FoldoutGroup(SOInspectorNames.CONSTANTS)]
+        //[FoldoutGroup(SOInspectorNames.CONSTANTS)]
         public float MaxLaunchingTime;
 
-        [FoldoutGroup(SOInspectorNames.CONSTANTS)]
+        //[FoldoutGroup(SOInspectorNames.CONSTANTS)]
         public float CooldownTime;
     }
 

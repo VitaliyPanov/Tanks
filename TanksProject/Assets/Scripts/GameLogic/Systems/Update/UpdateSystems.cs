@@ -12,7 +12,7 @@ namespace Tanks.GameLogic.Systems.Update
             Add(new InputSystems(contexts, runtimeData, inputService));
             Add(new TeamMoveChangeSystem(contexts, runtimeData));
             Add(new WeaponSystems(contexts));
-            Add(new VisualControllableUpdateSystem(contexts, runtimeData));
+            Add(new ControllableUpdateSystem(contexts, runtimeData));
             Add(new DamageImplementSystem(contexts));
             Add(new HealthControlSystem(contexts));
             Add(new ViewDeadActivateSystem(contexts));

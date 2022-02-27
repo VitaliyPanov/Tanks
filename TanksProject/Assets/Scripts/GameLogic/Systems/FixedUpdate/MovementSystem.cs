@@ -20,13 +20,14 @@ namespace Tanks.GameLogic.Systems.FixedUpdate
         public void Execute()
         {
             GameEntity selectedEntity = _gameContext.controllable.Entity;
-            Vector2 inputDirection = _inputContext.direction.Value;
+            if (!selectedEntity.isPlayable) return;
+            Vector2 inputDirection = _inputContext.direction.Value; 
             Vector3 deltaPosition = selectedEntity.transform.Value.forward * inputDirection.y *
-                                    _runtimeData.MovementSpeed * _inputContext.fixedDeltaTime.Value;
-            Quaternion deltaRotation = Quaternion.Euler(0f,
-                inputDirection.x * _runtimeData.TurnSpeed * _inputContext.fixedDeltaTime.Value, 0f);
+                                     _runtimeData.MovementSpeed * _inputContext.fixedDeltaTime.Value;
+             Quaternion deltaRotation = Quaternion.Euler(0f,
+                 inputDirection.x * _runtimeData.TurnSpeed * _inputContext.fixedDeltaTime.Value, 0f);
 
-            Move(selectedEntity.rigidbody.Value, deltaPosition, deltaRotation);
+             Move(selectedEntity.rigidbody.Value, deltaPosition, deltaRotation);
         }
 
         private static void Move(Rigidbody rigidbody, Vector3 deltaPosition, Quaternion deltaRotation)

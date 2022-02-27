@@ -22,11 +22,12 @@ namespace Tanks.Core.Controllers
             
             _logicController.Initialize(sceneName);
             _cameraController.SetCamera(Camera.main);
+            _uiController.Initialize(_dataService.UIData.InterfacePrefab);
             
             _dataService.RuntimeData.OnTeamMoveChangedEvent += PauseLogic;
             _dataService.RuntimeData.OnControllableTransformChangedEvent += ReplaceCameraTarget;
             _uiController.OnMessageHideEvent += UnPauseLogic;
-            
+
             _controllers = new Controllers();
             _controllers
                 .Add(_logicController)

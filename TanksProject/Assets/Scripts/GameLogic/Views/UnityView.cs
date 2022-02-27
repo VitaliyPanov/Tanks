@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace Tanks.GameLogic.Views
 {
+    [SelectionBase]
     [RequireComponent(typeof(EntityLink))]
     internal sealed class UnityView : MonoBehaviour, IView
     {
