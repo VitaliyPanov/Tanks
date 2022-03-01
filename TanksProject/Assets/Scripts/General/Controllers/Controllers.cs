@@ -3,7 +3,7 @@ using General.Controllers;
 
 namespace Tanks.Core.Controllers
 {
-    internal sealed class Controllers
+    public sealed class Controllers
     {
         private readonly List<IStart> _startControllers;
         private readonly List<IUpdate> _updateControllers;

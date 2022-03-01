@@ -1,4 +1,4 @@
-using General.Controllers;
+using Tanks.General.Controllers;
 using UnityEngine;
 
 namespace Tanks.Core.Controllers
@@ -26,7 +26,7 @@ namespace Tanks.Core.Controllers
             _cameraTransform.position = position;
         }
 
-        public void SetCamera(Camera camera)
+        public void Initialize(Camera camera)
         {
             _cameraTransform = camera.transform;
         }
