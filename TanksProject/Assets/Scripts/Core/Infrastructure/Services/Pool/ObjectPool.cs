@@ -16,19 +16,18 @@ namespace Tanks.Core.Infrastructure.Services.Pool
             _prefab = prefab;
             _root = new GameObject($"[{_prefab.name}]").transform;
         }
-        public GameObject Pop()
+        public GameObject Pop(Transform parent = null)
         {
             GameObject gameObject;
             if (_stack.Count == 0)
             {
-                gameObject = Object.Instantiate(_prefab);
+                gameObject = parent != null ? Object.Instantiate(_prefab, parent) : Object.Instantiate(_prefab);
                 gameObject.name = _prefab.name;
             }
             else
                 gameObject = _stack.Pop();
             
             gameObject.SetActive(true);
-            gameObject.transform.SetParent(null);
             return gameObject;
         }
 

@@ -7,45 +7,42 @@ namespace Tanks.GameLogic.Views.Behaviours
 {
     [RequireComponent(typeof(UnityView))]
     [RequireComponent(typeof(NavMeshAgent))]
-    public class NavMeshAgentBehaviour : MonoBehaviour, IBehaviour
+    public sealed class NavMeshAgentBehaviour : MonoBehaviour, IBehaviour, IEventListener, IMovableListener, IMovableRemovedListener
     {
-        private GameEntity _gameEntity;
         private AIEntity _aiEntity;
-        private int _movableComponent;
 
         public void Initialize(IEntity entity)
         {
-            switch (entity)
+            if (entity is AIEntity aiEntity)
             {
-                case GameEntity gameEntity:
-                    _gameEntity = gameEntity;
-                    _gameEntity.ReplaceAI(this);
-                    _gameEntity.OnComponentAdded += ToggleActivity;
-                    _gameEntity.OnComponentRemoved += ToggleActivity;
-                    _movableComponent = GameComponentsLookup.Movable;
-                    break;
-                case AIEntity aiEntity:
-                    _aiEntity = aiEntity;
-                    var agent = gameObject.GetOrAddComponent<NavMeshAgent>();
-                    _aiEntity.AddNavMesh(agent);
-                    agent.enabled = false;
-                    break;
+                _aiEntity = aiEntity;
+                var agent = gameObject.GetOrAddComponent<NavMeshAgent>();
+                _aiEntity.AddNavMesh(agent);
+                agent.enabled = false;
+            }
+        }
+        
+        public void AddListener(IEntity entity)
+        {
+            if (entity is GameEntity gameEntity)
+            {
+                gameEntity.AddMovableListener(this);
+                gameEntity.AddMovableRemovedListener(this);
             }
         }
 
-        private void ToggleActivity(IEntity entity, int index, IComponent component)
+        public void OnMovable(GameEntity entity)
         {
             if (_aiEntity == null) return;
-            if (index == _movableComponent)
-            {
-                _aiEntity.isActive = _gameEntity.isMovable;
-            }
+            SetAIActivity(entity.isMovable);
         }
 
-        private void OnDestroy()
+        public void OnMovableRemoved(GameEntity entity)
         {
-            _gameEntity.OnComponentAdded -= ToggleActivity;
-            _gameEntity.OnComponentRemoved -= ToggleActivity;
+            if (_aiEntity == null) return;
+            SetAIActivity(entity.isMovable);
         }
+
+        private void SetAIActivity(bool active) => _aiEntity.isActive = active;
     }
 }

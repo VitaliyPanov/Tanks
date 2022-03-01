@@ -1,6 +1,6 @@
 using Tanks.Data;
 
-namespace General.Services
+namespace Tanks.General.Services
 {
     public interface IDataService
     {

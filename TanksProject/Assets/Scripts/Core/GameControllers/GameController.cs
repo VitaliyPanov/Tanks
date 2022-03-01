@@ -2,7 +2,7 @@ using Tanks.General.Controllers;
 using Tanks.General.Services;
 using UnityEngine;
 
-namespace Tanks.Core.Controllers
+namespace Tanks.Core.GameControllers
 {
     internal sealed class GameController : MonoBehaviour
     {
@@ -10,7 +10,7 @@ namespace Tanks.Core.Controllers
         private ILogicController _logicController;
         private ICameraController _cameraController;
         private IUIController _uiController;
-        private General.Controllers.Controllers _controllers;
+        private Controllers _controllers;
         private Mediator _mediator;
 
         private void Awake() => DontDestroyOnLoad(this);
@@ -39,7 +39,7 @@ namespace Tanks.Core.Controllers
 
         private void AddControllersToList()
         {
-            _controllers = new General.Controllers.Controllers();
+            _controllers = new Controllers();
             _controllers
                 .Add(_logicController)
                 .Add(_cameraController)

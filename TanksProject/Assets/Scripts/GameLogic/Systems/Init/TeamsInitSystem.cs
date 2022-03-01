@@ -7,8 +7,8 @@ namespace Tanks.GameLogic.Systems.Init
     {
         private readonly IGroup<GameEntity> _teamEntities;
 
-        public TeamsInitSystem(Contexts contexts) => _teamEntities =
-            contexts.game.GetGroup(GameMatcher.AllOf(GameMatcher.Team, GameMatcher.MeshRenderer));
+        public TeamsInitSystem(Contexts contexts) => _teamEntities = contexts.game.GetGroup(GameMatcher
+                .AllOf(GameMatcher.Team, GameMatcher.MeshRenderer));
 
         public void Initialize()
         {

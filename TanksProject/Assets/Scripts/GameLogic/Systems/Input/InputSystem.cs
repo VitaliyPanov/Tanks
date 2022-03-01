@@ -1,5 +1,5 @@
 using Entitas;
-using General.Services;
+using Tanks.General.Services;
 using UnityEngine;
 
 namespace Tanks.GameLogic.Systems.Input
@@ -14,18 +14,33 @@ namespace Tanks.GameLogic.Systems.Input
         {
             _inputContext = contexts.input;
             _inputService = inputService;
-            
+
             _inputContext.SetDirection(Vector2.zero);
             _inputService.OnAttackButtonEvent += ActivateFire;
             _inputService.OnToggleNextEvent += ToggleNextMovable;
             _inputService.OnTogglePreviousEvent += TogglePreviousMovable;
-            
+
             //TODO: Realise dispose
         }
 
-        public void Execute() => _inputContext.ReplaceDirection(_inputService.Axis);
-        private void ToggleNextMovable(bool performed) => _inputContext.isToggleNext = performed;
-        private void TogglePreviousMovable(bool performed) => _inputContext.isTogglePrevious = performed;
-        private void ActivateFire(bool performed) => _inputContext.isAttack = performed;
+        public void Execute() => _inputContext.ReplaceDirection(_inputContext.isPause ? Vector2.zero : _inputService.Axis);
+
+        private void ToggleNextMovable(bool performed)
+        {
+            if (!_inputContext.isPause)
+                _inputContext.isToggleNext = performed;
+        }
+
+        private void TogglePreviousMovable(bool performed)
+        {
+            if (!_inputContext.isPause)
+                _inputContext.isTogglePrevious = performed;
+        }
+
+        private void ActivateFire(bool performed)
+        {
+            if (!_inputContext.isPause)
+                _inputContext.isAttack = performed;
+        }
     }
 }

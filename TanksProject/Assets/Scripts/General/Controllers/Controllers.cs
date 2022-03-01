@@ -1,7 +1,6 @@
 using System.Collections.Generic;
-using General.Controllers;
 
-namespace Tanks.Core.Controllers
+namespace Tanks.General.Controllers
 {
     public sealed class Controllers
     {
@@ -10,8 +9,8 @@ namespace Tanks.Core.Controllers
         private readonly List<IFixedUpdate> _fixedControllers;
         private readonly List<ILateUpdate> _lateControllers;
         private readonly List<IDestroy> _destroyControllers;
-        
-        internal Controllers()
+
+        public Controllers()
         {
             _startControllers = new List<IStart>(4);
             _updateControllers = new List<IUpdate>(4);
@@ -19,7 +18,8 @@ namespace Tanks.Core.Controllers
             _lateControllers = new List<ILateUpdate>(4);
             _destroyControllers = new List<IDestroy>(4);
         }
-        internal Controllers Add(IController controller)
+
+        public Controllers Add(IController controller)
         {
             if (controller is IStart initialize)
             {

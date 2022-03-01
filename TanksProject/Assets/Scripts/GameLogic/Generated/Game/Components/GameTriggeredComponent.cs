@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Tanks.GameLogic.Components.Game.Events.TriggeredComponent triggeredComponent = new Tanks.GameLogic.Components.Game.Events.TriggeredComponent();
+    static readonly Tanks.GameLogic.Components.Game.UnityEvents.TriggeredComponent triggeredComponent = new Tanks.GameLogic.Components.Game.UnityEvents.TriggeredComponent();
 
     public bool isTriggered {
         get { return HasComponent(GameComponentsLookup.Triggered); }

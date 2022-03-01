@@ -1,4 +1,4 @@
-namespace General.Controllers
+namespace Tanks.General.Controllers
 {
     public interface IUpdate : IController
     {

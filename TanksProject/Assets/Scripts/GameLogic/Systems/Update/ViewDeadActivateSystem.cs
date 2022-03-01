@@ -12,7 +12,9 @@ namespace Tanks.GameLogic.Systems.Update
 
         public ViewDeadActivateSystem(Contexts contexts)
         {
-            _entities = contexts.game.GetGroup(GameMatcher.AllOf(GameMatcher.View, GameMatcher.Dead).NoneOf(GameMatcher.Destroy));
+            _entities = contexts.game.GetGroup(GameMatcher
+                .AllOf(GameMatcher.View, GameMatcher.Dead)
+                .NoneOf(GameMatcher.Destroy));
             _context = contexts.input;
         }
 

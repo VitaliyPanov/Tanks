@@ -1,6 +1,6 @@
-﻿using General.Controllers;
-using General.Services;
-using Tanks.Core.Controllers;
+﻿using Tanks.Core.GameControllers;
+using Tanks.General.Controllers;
+using Tanks.General.Services;
 using UnityEngine;
 
 namespace Tanks.Core.Infrastructure.Services
@@ -11,15 +11,17 @@ namespace Tanks.Core.Infrastructure.Services
         private readonly ILogicController _logicController;
         private readonly ICameraController _cameraController;
         private readonly IUIController _uiController;
-        private const string c_gameController = "GameController";
+        private readonly Mediator _mediator;
+        private const string c_gameController = "[GAMECONTROLLER]";
 
         public GameFactory(IDataService dataService, ILogicController logicController,
-            ICameraController cameraController, IUIController uiController)
+            ICameraController cameraController, IUIController uiController, IControllersMediator mediator)
         {
             _dataService = dataService;
             _logicController = logicController;
             _cameraController = cameraController;
             _uiController = uiController;
+            _mediator = (Mediator) mediator;
 
             _dataService.Load();
         }
@@ -28,7 +30,7 @@ namespace Tanks.Core.Infrastructure.Services
         {
             GameObject gameController = new GameObject(c_gameController);
             gameController.AddComponent<GameController>().Construct(_logicController, _cameraController, _uiController,
-                _dataService, sceneName);
+                _dataService, _mediator, sceneName);
         }
     }
 }

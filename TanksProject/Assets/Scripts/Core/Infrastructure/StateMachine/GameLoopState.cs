@@ -1,4 +1,4 @@
-using Tanks.Core.Controllers;
+using Tanks.Core.GameControllers;
 using UnityEngine;
 
 namespace Tanks.Core.Infrastructure.StateMachine

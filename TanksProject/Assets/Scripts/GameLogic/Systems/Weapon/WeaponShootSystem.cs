@@ -17,8 +17,10 @@ namespace Tanks.GameLogic.Systems.Weapon
         public WeaponShootSystem(Contexts contexts) : base(contexts.game)
         {
             _context = contexts.game;
-            _shootStopGroup =
-                contexts.game.GetGroup(GameMatcher.AllOf(GameMatcher.WeaponActivate).NoneOf(GameMatcher.Control));
+            
+            _shootStopGroup = contexts.game.GetGroup(GameMatcher
+                    .AllOf(GameMatcher.WeaponActivate)
+                    .NoneOf(GameMatcher.Control));
         }
 
         protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context) =>
@@ -46,11 +48,16 @@ namespace Tanks.GameLogic.Systems.Weapon
                         break;
                     default: throw new ArgumentOutOfRangeException();
                 }
-
-                entity.isWeaponFired = true;
-                _context.SetTimer(movableTimeAfterFire, GameComponentsLookup.Movable, entity);
+                
+                ChangeMovable(entity);
                 CooldownWeapon(entity);
             }
+        }
+
+        private void ChangeMovable(GameEntity entity)
+        {
+            entity.isWeaponFired = true;
+            _context.SetTimer(movableTimeAfterFire, GameComponentsLookup.Movable, entity);
         }
 
         private GameEntity CreateBulletEntity(Transform fireTransform, float damage)

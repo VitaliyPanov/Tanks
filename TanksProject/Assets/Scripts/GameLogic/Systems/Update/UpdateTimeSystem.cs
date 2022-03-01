@@ -1,5 +1,5 @@
 using Entitas;
-using General.Services;
+using Tanks.General.Services;
 
 namespace Tanks.GameLogic.Systems.Update
 {

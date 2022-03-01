@@ -1,10 +1,10 @@
 using UnityEngine;
 
-namespace General.Controllers
+namespace Tanks.General.Controllers
 {
     public interface ICameraController : IController
     {
-        void SetCamera(Camera camera);
+        void Initialize(Camera camera);
         void SetTarget(Transform target);
     }
 }

@@ -7,7 +7,7 @@ namespace Tanks.GameLogic.Views
 {
     [SelectionBase]
     [RequireComponent(typeof(EntityLink))]
-    internal sealed class UnityView : MonoBehaviour, IView
+    public sealed class UnityView : MonoBehaviour, IView
     {
         private EntityLink _entityLink;
         Transform IView.Transform => transform;
@@ -24,6 +24,11 @@ namespace Tanks.GameLogic.Views
             foreach (var behaviour in eventBehaviours)
             {
                 behaviour.Initialize(entity);
+            }
+            var eventListeners = gameObject.GetComponents<IEventListener>();
+            foreach (var listener in eventListeners)
+            {
+                listener.AddListener(entity);
             }
 
             if (entity.hasPosition) SetPosition(entity.position.Value);

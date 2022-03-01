@@ -1,8 +1,10 @@
-namespace General.Controllers
+using Tanks.Data;
+
+namespace Tanks.General.Controllers
 {
     public interface ILogicController : IController
     {
-        void Initialize(string sceneName);
+        void Initialize(SceneStaticData staticData, RuntimeData runtimeData);
         void Pause(bool isPause);
     }
 }

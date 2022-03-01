@@ -1,7 +1,7 @@
 ﻿using Tanks.Data;
 using UnityEngine;
 
-namespace General.LevelDesign
+namespace Tanks.General.LevelDesign
 {
     public sealed class TankSpawnMarker : MonoBehaviour
     {

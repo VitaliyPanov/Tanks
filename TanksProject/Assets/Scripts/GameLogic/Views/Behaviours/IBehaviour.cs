@@ -2,7 +2,7 @@ using Entitas;
 
 namespace Tanks.GameLogic.Views.Behaviours
 {
-    public interface IBehaviour
+    internal interface IBehaviour
     {
         void Initialize(IEntity entity);
     }

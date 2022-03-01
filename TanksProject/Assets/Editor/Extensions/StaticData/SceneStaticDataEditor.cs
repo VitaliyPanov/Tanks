@@ -1,6 +1,7 @@
 ﻿using System.Linq;
-using General.LevelDesign;
+using Sirenix.OdinInspector.Editor;
 using Tanks.Data;
+using Tanks.General.LevelDesign;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,7 +9,7 @@ using UnityEngine.SceneManagement;
 namespace Tanks.Editor.Extensions.StaticData
 {
     [CustomEditor(typeof(SceneStaticData))]
-    public class SceneStaticDataEditor : UnityEditor.Editor//OdinEditor
+    public class SceneStaticDataEditor : OdinEditor
     {
         public override void OnInspectorGUI()
         {

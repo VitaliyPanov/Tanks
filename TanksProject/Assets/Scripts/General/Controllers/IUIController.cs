@@ -1,12 +1,12 @@
-﻿using System;
+﻿using System.Threading.Tasks;
+using Tanks.Data;
 using UnityEngine;
 
-namespace General.Controllers
+namespace Tanks.General.Controllers
 {
     public interface IUIController : IController
     {
-        void Initialize(GameObject prefab);
-        void ShowMessage(string team, float moveTime);
-        event Action OnMessageHideEvent;
+        void Initialize(UIData data);
+        Task ShowMessage(string team, float moveTime);
     }
 }

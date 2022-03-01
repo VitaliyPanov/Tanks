@@ -3,6 +3,7 @@ using System.Linq;
 using Entitas;
 using Tanks.Data;
 using Tanks.GameLogic.Services;
+using Tanks.General.Controllers;
 using UnityEngine;
 
 namespace Tanks.GameLogic.Systems.Update
@@ -11,15 +12,18 @@ namespace Tanks.GameLogic.Systems.Update
     {
         private const int c_maxAngle = 40;
         private readonly RuntimeData _runtimeData;
+        private readonly IControllersMediator _mediator;
         private readonly IGroup<GameEntity> _entities;
         private readonly IGroup<GameEntity> _movableEntities;
         private readonly Contexts _contexts;
         private List<GameEntity> _buffer = new();
         private List<TeamType> _activeTeams = new();
+        private TeamType _currentTeam;
 
-        public TeamMoveChangeSystem(Contexts contexts, RuntimeData runtimeData) : base(contexts.game)
+        public TeamMoveChangeSystem(Contexts contexts, RuntimeData runtimeData, IControllersMediator mediator) : base(contexts.game)
         {
             _runtimeData = runtimeData;
+            _mediator = mediator;
             _contexts = contexts;
             _entities = contexts.game.GetGroup(GameMatcher.Team);
             _movableEntities = contexts.game.GetGroup(GameMatcher.Movable);
@@ -39,14 +43,14 @@ namespace Tanks.GameLogic.Systems.Update
 
         protected override void Execute(List<GameEntity> entities)
         {
-            GameEntity firstMovable = FirstMovable(entities[0].team.Type);
+            GameEntity firstMovable = FirstMovable(_currentTeam);
             if (firstMovable != null)
             {
                 if (_contexts.game.controllable.Entity == entities[0]) 
                     firstMovable.tryControl = true;
             }
             else
-                ChangeMovableTeam(_activeTeams.GetNext(entities[0].team.Type));
+                ChangeMovableTeam(_activeTeams.GetNext(_currentTeam));
         }
 
         private GameEntity FirstMovable(TeamType team)
@@ -75,8 +79,8 @@ namespace Tanks.GameLogic.Systems.Update
                 _activeTeams.Remove(team);
                 team = _activeTeams.GetNext(previous);
             }
-
-            _runtimeData.ChangeTeam(team);
+            _mediator.ChangeTeam(team);
+            _currentTeam = team;
         }
 
         private void ReplaceMovableTeam(TeamType team)

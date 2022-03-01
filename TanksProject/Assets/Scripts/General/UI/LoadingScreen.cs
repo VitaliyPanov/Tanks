@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace General.UI
+namespace Tanks.General.UI
 {
     public class LoadingScreen : MonoBehaviour
     {

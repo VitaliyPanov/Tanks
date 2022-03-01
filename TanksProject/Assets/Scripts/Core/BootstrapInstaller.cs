@@ -1,11 +1,12 @@
-using General.Controllers;
-using General.Services;
-using Tanks.Core.Controllers;
+using Tanks.Core.GameControllers;
 using Tanks.Core.Infrastructure.Services;
 using Tanks.Core.Infrastructure.Services.Input;
 using Tanks.Core.Infrastructure.Services.Pool;
 using Tanks.GameLogic;
+using Tanks.General.Controllers;
+using Tanks.General.Services;
 using Tanks.UI;
+using UnityEngine;
 using Zenject;
 
 namespace Tanks.Core
@@ -29,6 +30,8 @@ namespace Tanks.Core
 
         private void BindControllers()
         {
+            Container.Bind<IControllersMediator>().To<Mediator>().FromInstance(new GameObject("[MEDIATOR]").AddComponent<Mediator>());
+            
             Container.Bind<ILogicController>().To<GameLogicController>().AsSingle();
             Container.Bind<ICameraController>().To<CameraController>().AsSingle();
             Container.Bind<IUIController>().To<UIController>().AsSingle();

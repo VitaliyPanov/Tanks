@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Entitas;
-using Tanks.Data;
+using Tanks.General.Controllers;
 using UnityEngine;
 
 namespace Tanks.GameLogic.Systems.Update
@@ -8,16 +8,16 @@ namespace Tanks.GameLogic.Systems.Update
     internal sealed class ControllableUpdateSystem : ReactiveSystem<GameEntity>, ICleanupSystem
     {
         private static readonly string s_emissioncolor = "_EmissionColor";
-        private readonly RuntimeData _runtimeData;
+        private readonly IControllersMediator _mediator;
         private readonly GameContext _game;
         private readonly IGroup<GameEntity> _selectGroup;
         private List<GameEntity> _buffer = new();
 
-        public ControllableUpdateSystem(Contexts contexts, RuntimeData runtimeData) : base(contexts.game)
+        public ControllableUpdateSystem(Contexts contexts, IControllersMediator mediator) : base(contexts.game)
         {
             _game = contexts.game;
             _selectGroup = contexts.game.GetGroup(GameMatcher.Control);
-            _runtimeData = runtimeData;
+            _mediator = mediator;
         }
 
         protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context) =>
@@ -32,7 +32,7 @@ namespace Tanks.GameLogic.Systems.Update
                 if (entity.tryControl)
                 {
                     _game.ReplaceControllable(entity);
-                    _runtimeData.ReplaceControllable(entity.transform.Value);
+                    _mediator.ReplaceControllable(entity.transform.Value);
                     SetEmission(entity, Color.white * 0.25f);
                 }
                 else

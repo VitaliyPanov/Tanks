@@ -6,11 +6,11 @@ namespace Tanks.GameLogic.Systems.FixedUpdate
 {
     internal sealed class FixedUpdateSystems : Feature
     {
-        public FixedUpdateSystems(Contexts contexts, RuntimeData runtimeData)
+        public FixedUpdateSystems(Contexts contexts, SceneStaticData staticData, RuntimeData runtimeData)
         {
             Add(new TimeTrippingSystem(contexts));
             Add(new MovementSystem(contexts, runtimeData));
-            Add(new EventsSystems(contexts));
+            Add(new EventsSystems(contexts, staticData));
         }
     }
 }

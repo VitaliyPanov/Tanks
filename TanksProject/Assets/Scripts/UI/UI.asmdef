@@ -3,7 +3,8 @@
     "rootNamespace": "Tanks",
     "references": [
         "Data",
-        "General"
+        "General",
+        "GameLogic"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

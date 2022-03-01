@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Tanks.GameLogic.Components.Game.AIComponent aI { get { return (Tanks.GameLogic.Components.Game.AIComponent)GetComponent(GameComponentsLookup.AI); } }
-    public bool hasAI { get { return HasComponent(GameComponentsLookup.AI); } }
+    static readonly Tanks.GameLogic.Components.Game.AIComponent aIComponent = new Tanks.GameLogic.Components.Game.AIComponent();
 
-    public void AddAI(Tanks.GameLogic.Views.Behaviours.NavMeshAgentBehaviour newAgent) {
-        var index = GameComponentsLookup.AI;
-        var component = (Tanks.GameLogic.Components.Game.AIComponent)CreateComponent(index, typeof(Tanks.GameLogic.Components.Game.AIComponent));
-        component.Agent = newAgent;
-        AddComponent(index, component);
-    }
+    public bool isAI {
+        get { return HasComponent(GameComponentsLookup.AI); }
+        set {
+            if (value != isAI) {
+                var index = GameComponentsLookup.AI;
+                if (value) {
+                    var componentPool = GetComponentPool(index);
+                    var component = componentPool.Count > 0
+                            ? componentPool.Pop()
+                            : aIComponent;
 
-    public void ReplaceAI(Tanks.GameLogic.Views.Behaviours.NavMeshAgentBehaviour newAgent) {
-        var index = GameComponentsLookup.AI;
-        var component = (Tanks.GameLogic.Components.Game.AIComponent)CreateComponent(index, typeof(Tanks.GameLogic.Components.Game.AIComponent));
-        component.Agent = newAgent;
-        ReplaceComponent(index, component);
-    }
-
-    public void RemoveAI() {
-        RemoveComponent(GameComponentsLookup.AI);
+                    AddComponent(index, component);
+                } else {
+                    RemoveComponent(index);
+                }
+            }
+        }
     }
 }
 

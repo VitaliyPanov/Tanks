@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Tanks.GameLogic.Components.Game.Events.DeadComponent deadComponent = new Tanks.GameLogic.Components.Game.Events.DeadComponent();
+    static readonly Tanks.GameLogic.Components.Game.Health.DeadComponent deadComponent = new Tanks.GameLogic.Components.Game.Health.DeadComponent();
 
     public bool isDead {
         get { return HasComponent(GameComponentsLookup.Dead); }

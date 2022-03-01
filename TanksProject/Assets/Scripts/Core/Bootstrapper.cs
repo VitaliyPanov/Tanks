@@ -1,6 +1,6 @@
-using General.Services;
-using General.UI;
 using Tanks.Core.Infrastructure.StateMachine;
+using Tanks.General.Services;
+using Tanks.General.UI;
 using UnityEngine;
 using Zenject;
 

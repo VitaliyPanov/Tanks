@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using General.Services;
 using Tanks.Data;
+using Tanks.General.Services;
 using UnityEngine;
 
 namespace Tanks.Core.Infrastructure.Services

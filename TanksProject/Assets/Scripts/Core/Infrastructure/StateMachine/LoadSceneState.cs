@@ -1,5 +1,5 @@
-using General.Services;
-using General.UI;
+using Tanks.General.Services;
+using Tanks.General.UI;
 
 namespace Tanks.Core.Infrastructure.StateMachine
 {

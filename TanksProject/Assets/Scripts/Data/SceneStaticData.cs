@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Tanks.Data
@@ -9,8 +10,10 @@ namespace Tanks.Data
         public string LevelKey;
         public TeamType FirstMoveTeam;
         public List<TankSpawnerData> TankSpawners;
-        //[FoldoutGroup("Prefab"), PreviewField]
+        [FoldoutGroup("Prefab"), PreviewField]
         public GameObject TankPrefab;
+        [FoldoutGroup("Prefab"), PreviewField]
+        public GameObject ShellExplosionPrefab;
 
         public float StartTankHealth;
         public TeamType PlayableTeam;

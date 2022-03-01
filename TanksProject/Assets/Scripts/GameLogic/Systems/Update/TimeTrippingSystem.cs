@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using Entitas;
-using General.Services;
+using Tanks.General.Services;
 
 namespace Tanks.GameLogic.Systems.Update
 {
@@ -13,7 +13,9 @@ namespace Tanks.GameLogic.Systems.Update
 
         public TimeTrippingSystem(Contexts contexts)
         {
-            _entities = contexts.game.GetGroup(GameMatcher.AllOf(GameMatcher.Timer, GameMatcher.Target, GameMatcher.ComponentIndex).NoneOf(GameMatcher.Destroy));
+            _entities = contexts.game.GetGroup(GameMatcher
+                .AllOf(GameMatcher.Timer, GameMatcher.Target, GameMatcher.ComponentIndex)
+                .NoneOf(GameMatcher.Destroy));
             _inputContext = contexts.input;
         }
         

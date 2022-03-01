@@ -1,4 +1,4 @@
-namespace General.Services
+namespace Tanks.General.Services
 {
     public interface ITimeService
     {

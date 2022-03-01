@@ -1,11 +1,11 @@
-﻿using General.Controllers;
-using General.Services;
-using Tanks.Data;
+﻿using Tanks.Data;
 using Tanks.GameLogic.Services.View;
 using Tanks.GameLogic.Systems.AI;
 using Tanks.GameLogic.Systems.FixedUpdate;
 using Tanks.GameLogic.Systems.Init;
 using Tanks.GameLogic.Systems.Update;
+using Tanks.General.Controllers;
+using Tanks.General.Services;
 
 namespace Tanks.GameLogic
 {
@@ -14,6 +14,7 @@ namespace Tanks.GameLogic
         private readonly IInputService _inputService;
         private readonly IDataService _dataService;
         private readonly ITimeService _timeService;
+        private readonly IControllersMediator _mediator;
         private readonly IPoolService _poolService;
         private InitSystems _initSystems;
         private UpdateSystems _updateSystems;
@@ -22,21 +23,20 @@ namespace Tanks.GameLogic
         private Contexts _contexts;
 
         public GameLogicController(IPoolService poolService, IInputService inputService, IDataService dataService,
-            ITimeService timeService)
+            ITimeService timeService, IControllersMediator mediator)
         {
             _inputService = inputService;
             _dataService = dataService;
             _timeService = timeService;
+            _mediator = mediator;
             _poolService = poolService;
         }
 
-        public void Initialize(string sceneName)
+        public void Initialize(SceneStaticData staticData, RuntimeData runtimeData)
         {
-            SceneStaticData staticData = _dataService.StaticData(sceneName);
-            RuntimeData runtimeData = _dataService.RuntimeData;
-            runtimeData.ChangeTeam(staticData.FirstMoveTeam);
-
+            runtimeData.CurrentTeamMove = staticData.FirstMoveTeam;
             _contexts = Contexts.sharedInstance;
+
             BindLocalServices();
             CreateSystems(staticData, runtimeData);
         }
@@ -63,8 +63,8 @@ namespace Tanks.GameLogic
         private void CreateSystems(SceneStaticData staticData, RuntimeData runtimeData)
         {
             _initSystems = new InitSystems(_contexts, staticData, runtimeData);
-            _updateSystems = new UpdateSystems(_contexts, runtimeData, _inputService, _timeService);
-            _fixedUpdateSystems = new FixedUpdateSystems(_contexts, runtimeData);
+            _updateSystems = new UpdateSystems(_contexts, runtimeData, _inputService, _timeService, _mediator);
+            _fixedUpdateSystems = new FixedUpdateSystems(_contexts, staticData, runtimeData);
             _aiSystems = new AISystems(_contexts);
         }
 

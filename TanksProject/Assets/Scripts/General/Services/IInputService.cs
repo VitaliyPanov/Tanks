@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace General.Services
+namespace Tanks.General.Services
 {
     public interface IInputService
     {

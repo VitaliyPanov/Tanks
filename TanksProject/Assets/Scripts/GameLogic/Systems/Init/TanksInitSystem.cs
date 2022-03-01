@@ -4,20 +4,19 @@ using Tanks.Data;
 using Tanks.GameLogic.Services;
 using Tanks.GameLogic.Views.Behaviours;
 using UnityEngine;
-using UnityEngine.AI;
 
 namespace Tanks.GameLogic.Systems.Init
 {
     internal sealed class TanksInitSystem : IInitializeSystem
     {
         private const string c_fireTransform = "FireTransform";
-        private readonly GameContext _context;
+        private readonly Contexts _contexts;
         private readonly SceneStaticData _staticData;
         private readonly RuntimeData _runtimeData;
 
         public TanksInitSystem(Contexts contexts, SceneStaticData staticData, RuntimeData runtimeData)
         {
-            _context = contexts.game;
+            _contexts = contexts;
             _staticData = staticData;
             _runtimeData = runtimeData;
         }
@@ -40,7 +39,7 @@ namespace Tanks.GameLogic.Systems.Init
 
         private GameEntity CreateTankEntity(TeamType team, Vector3 position, Quaternion rotation)
         {
-            var tankEntity = _context.CreateEntity();
+            var tankEntity = _contexts.game.CreateEntity();
             tankEntity.AddTeam(team);
             tankEntity.AddPosition(position);
             tankEntity.AddRotation(rotation);
@@ -49,15 +48,18 @@ namespace Tanks.GameLogic.Systems.Init
 
         private void CreateTankView(GameEntity tankEntity, TeamType playableTeam, float health, AmmoData ammoData)
         {
-            var tankView = _context.viewService.value.CreateView(_staticData.TankPrefab);
+            var tankView = _contexts.game.viewService.value.CreateView(_staticData.TankPrefab);
             if (tankEntity.team.Type == playableTeam)
                 tankEntity.isPlayable = true;
             else
             {
-                tankView.GameObject.GetOrAddComponent<NavMeshAgentBehaviour>();
+                tankEntity.isAI = true;
+                tankView.GameObject.GetOrAddComponent<NavMeshAgentBehaviour>().Initialize(_contexts.aI.CreateEntity());
             }
 
-            tankEntity.SetHealth(health);
+            tankView.GameObject.GetOrAddComponent<HealthBehaviour>();
+            tankView.GameObject.GetOrAddComponent<WeaponBehaviour>();
+            tankEntity.AddMaxHealth(health);
             tankEntity.AddWeaponAmmo(ammoData);
             tankEntity.AddTransform(tankView.Transform);
             tankEntity.AddRigidbody(tankView.GameObject.GetComponent<Rigidbody>());

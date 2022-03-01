@@ -8,42 +8,50 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
-    public const int AI = 0;
-    public const int Damage = 1;
-    public const int Shell = 2;
-    public const int ComponentIndex = 3;
-    public const int Control = 4;
-    public const int Controllable = 5;
-    public const int Destroy = 6;
-    public const int Dead = 7;
-    public const int Triggered = 8;
-    public const int CurrentHealth = 9;
-    public const int Health = 10;
-    public const int HealthDamage = 11;
-    public const int MaxHealth = 12;
-    public const int MeshRenderer = 13;
-    public const int Movable = 14;
-    public const int Playable = 15;
-    public const int Position = 16;
-    public const int Rigidbody = 17;
-    public const int Rotation = 18;
-    public const int Target = 19;
-    public const int Team = 20;
-    public const int Timer = 21;
-    public const int Transform = 22;
-    public const int View = 23;
-    public const int WeaponActivate = 24;
-    public const int WeaponAmmo = 25;
-    public const int WeaponCooldown = 26;
-    public const int WeaponFired = 27;
-    public const int WeaponLaunching = 28;
-    public const int WeaponLaunchTime = 29;
-    public const int WeaponTransform = 30;
-    public const int ViewService = 31;
+    public const int HealthDamageListener = 0;
+    public const int MovableListener = 1;
+    public const int MovableRemovedListener = 2;
+    public const int AI = 3;
+    public const int Damage = 4;
+    public const int Shell = 5;
+    public const int ComponentIndex = 6;
+    public const int Control = 7;
+    public const int Controllable = 8;
+    public const int Destroy = 9;
+    public const int CurrentHealth = 10;
+    public const int Dead = 11;
+    public const int Health = 12;
+    public const int HealthDamage = 13;
+    public const int MaxHealth = 14;
+    public const int MeshRenderer = 15;
+    public const int Movable = 16;
+    public const int Playable = 17;
+    public const int Position = 18;
+    public const int Rigidbody = 19;
+    public const int Rotation = 20;
+    public const int Target = 21;
+    public const int Team = 22;
+    public const int Timer = 23;
+    public const int Transform = 24;
+    public const int Triggered = 25;
+    public const int View = 26;
+    public const int WeaponActivate = 27;
+    public const int WeaponAmmo = 28;
+    public const int WeaponCooldown = 29;
+    public const int WeaponFired = 30;
+    public const int WeaponLaunching = 31;
+    public const int WeaponLaunchTime = 32;
+    public const int WeaponTransform = 33;
+    public const int ViewService = 34;
+    public const int WeaponActivateRemovedListener = 35;
+    public const int WeaponLaunchingListener = 36;
 
-    public const int TotalComponents = 32;
+    public const int TotalComponents = 37;
 
     public static readonly string[] componentNames = {
+        "HealthDamageListener",
+        "MovableListener",
+        "MovableRemovedListener",
         "AI",
         "Damage",
         "Shell",
@@ -51,9 +59,8 @@ public static class GameComponentsLookup {
         "Control",
         "Controllable",
         "Destroy",
-        "Dead",
-        "Triggered",
         "CurrentHealth",
+        "Dead",
         "Health",
         "HealthDamage",
         "MaxHealth",
@@ -67,6 +74,7 @@ public static class GameComponentsLookup {
         "Team",
         "Timer",
         "Transform",
+        "Triggered",
         "View",
         "WeaponActivate",
         "WeaponAmmo",
@@ -75,10 +83,15 @@ public static class GameComponentsLookup {
         "WeaponLaunching",
         "WeaponLaunchTime",
         "WeaponTransform",
-        "ViewService"
+        "ViewService",
+        "WeaponActivateRemovedListener",
+        "WeaponLaunchingListener"
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(HealthDamageListenerComponent),
+        typeof(MovableListenerComponent),
+        typeof(MovableRemovedListenerComponent),
         typeof(Tanks.GameLogic.Components.Game.AIComponent),
         typeof(Tanks.GameLogic.Components.Game.Ammunition.DamageComponent),
         typeof(Tanks.GameLogic.Components.Game.Ammunition.ShellComponent),
@@ -86,9 +99,8 @@ public static class GameComponentsLookup {
         typeof(Tanks.GameLogic.Components.Game.ControlComponent),
         typeof(Tanks.GameLogic.Components.Game.ControllableComponent),
         typeof(Tanks.GameLogic.Components.Game.DestroyComponent),
-        typeof(Tanks.GameLogic.Components.Game.Events.DeadComponent),
-        typeof(Tanks.GameLogic.Components.Game.Events.TriggeredComponent),
         typeof(Tanks.GameLogic.Components.Game.Health.CurrentHealthComponent),
+        typeof(Tanks.GameLogic.Components.Game.Health.DeadComponent),
         typeof(Tanks.GameLogic.Components.Game.Health.HealthComponent),
         typeof(Tanks.GameLogic.Components.Game.Health.HealthDamageComponent),
         typeof(Tanks.GameLogic.Components.Game.Health.MaxHealthComponent),
@@ -102,6 +114,7 @@ public static class GameComponentsLookup {
         typeof(Tanks.GameLogic.Components.Game.TeamComponent),
         typeof(Tanks.GameLogic.Components.Game.TimerComponent),
         typeof(Tanks.GameLogic.Components.Game.TransformComponent),
+        typeof(Tanks.GameLogic.Components.Game.UnityEvents.TriggeredComponent),
         typeof(Tanks.GameLogic.Components.Game.ViewComponent),
         typeof(Tanks.GameLogic.Components.Game.Weapon.WeaponActivateComponent),
         typeof(Tanks.GameLogic.Components.Game.Weapon.WeaponAmmoComponent),
@@ -110,6 +123,8 @@ public static class GameComponentsLookup {
         typeof(Tanks.GameLogic.Components.Game.Weapon.WeaponLaunchingComponent),
         typeof(Tanks.GameLogic.Components.Game.Weapon.WeaponLaunchTimeComponent),
         typeof(Tanks.GameLogic.Components.Game.Weapon.WeaponTransformComponent),
-        typeof(ViewServiceComponent)
+        typeof(ViewServiceComponent),
+        typeof(WeaponActivateRemovedListenerComponent),
+        typeof(WeaponLaunchingListenerComponent)
     };
 }

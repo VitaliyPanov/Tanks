@@ -1,6 +1,6 @@
 {
     "name": "General",
-    "rootNamespace": "",
+    "rootNamespace": "Tanks",
     "references": [
         "Unity.InputSystem",
         "Data"

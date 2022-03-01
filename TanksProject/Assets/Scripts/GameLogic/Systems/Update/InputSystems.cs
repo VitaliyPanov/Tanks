@@ -1,6 +1,6 @@
-﻿using General.Services;
-using Tanks.Data;
+﻿using Tanks.Data;
 using Tanks.GameLogic.Systems.Input;
+using Tanks.General.Services;
 
 namespace Tanks.GameLogic.Systems.Update
 {

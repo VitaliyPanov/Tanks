@@ -20,5 +20,5 @@ MonoBehaviour:
   ExplosionRadius: 5
   MinLaunchForce: 15
   MaxLaunchForce: 30
-  MaxLaunchingTime: 0.3
+  MaxLaunchingTime: 2
   CooldownTime: 0.3
