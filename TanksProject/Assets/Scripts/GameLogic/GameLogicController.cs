@@ -53,19 +53,24 @@ namespace Tanks.GameLogic
         {
             _updateSystems.Execute();
             _updateSystems.Cleanup();
-            _aiSystems.Execute();
         }
 
-        public void FixedUpdate() => _fixedUpdateSystems.Execute();
+        public void FixedUpdate()
+        {
+            _fixedUpdateSystems.Execute();
+            _fixedUpdateSystems.Cleanup();
+            _aiSystems.Execute();
+            _aiSystems.Cleanup();
+        }
 
         private void BindLocalServices() => _contexts.game.SetViewService(new ViewService(_poolService));
 
         private void CreateSystems(SceneStaticData staticData, RuntimeData runtimeData)
         {
             _initSystems = new InitSystems(_contexts, staticData, runtimeData);
-            _updateSystems = new UpdateSystems(_contexts, runtimeData, _inputService, _timeService, _mediator);
-            _fixedUpdateSystems = new FixedUpdateSystems(_contexts, staticData, runtimeData);
-            _aiSystems = new AISystems(_contexts);
+            _updateSystems = new UpdateSystems(_contexts, runtimeData, staticData, _inputService, _timeService,_poolService, _mediator);
+            _fixedUpdateSystems = new FixedUpdateSystems(_contexts, runtimeData, _poolService);
+            _aiSystems = new AISystems(_contexts, _dataService);
         }
 
         public void Pause(bool isPause) => _contexts.input.isPause = isPause;

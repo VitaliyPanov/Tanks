@@ -14,39 +14,42 @@ public static class GameComponentsLookup {
     public const int AI = 3;
     public const int Damage = 4;
     public const int Shell = 5;
-    public const int ComponentIndex = 6;
-    public const int Control = 7;
-    public const int Controllable = 8;
-    public const int Destroy = 9;
-    public const int CurrentHealth = 10;
-    public const int Dead = 11;
-    public const int Health = 12;
-    public const int HealthDamage = 13;
-    public const int MaxHealth = 14;
-    public const int MeshRenderer = 15;
-    public const int Movable = 16;
-    public const int Playable = 17;
-    public const int Position = 18;
-    public const int Rigidbody = 19;
-    public const int Rotation = 20;
-    public const int Target = 21;
-    public const int Team = 22;
-    public const int Timer = 23;
-    public const int Transform = 24;
-    public const int Triggered = 25;
-    public const int View = 26;
-    public const int WeaponActivate = 27;
-    public const int WeaponAmmo = 28;
-    public const int WeaponCooldown = 29;
-    public const int WeaponFired = 30;
-    public const int WeaponLaunching = 31;
-    public const int WeaponLaunchTime = 32;
-    public const int WeaponTransform = 33;
-    public const int ViewService = 34;
-    public const int WeaponActivateRemovedListener = 35;
-    public const int WeaponLaunchingListener = 36;
+    public const int ShellSteam = 6;
+    public const int ComponentIndex = 7;
+    public const int Control = 8;
+    public const int Controllable = 9;
+    public const int Destroy = 10;
+    public const int CurrentHealth = 11;
+    public const int Dead = 12;
+    public const int Health = 13;
+    public const int HealthDamage = 14;
+    public const int MaxHealth = 15;
+    public const int MeshRenderer = 16;
+    public const int Movable = 17;
+    public const int Particle = 18;
+    public const int Playable = 19;
+    public const int Position = 20;
+    public const int Rigidbody = 21;
+    public const int Rotation = 22;
+    public const int Target = 23;
+    public const int Team = 24;
+    public const int Timer = 25;
+    public const int Transform = 26;
+    public const int Triggered = 27;
+    public const int View = 28;
+    public const int WeaponActivate = 29;
+    public const int WeaponAmmo = 30;
+    public const int WeaponCooldown = 31;
+    public const int WeaponFired = 32;
+    public const int WeaponLaunching = 33;
+    public const int WeaponLaunchTime = 34;
+    public const int WeaponTransform = 35;
+    public const int WinnersTeam = 36;
+    public const int ViewService = 37;
+    public const int WeaponActivateRemovedListener = 38;
+    public const int WeaponLaunchingListener = 39;
 
-    public const int TotalComponents = 37;
+    public const int TotalComponents = 40;
 
     public static readonly string[] componentNames = {
         "HealthDamageListener",
@@ -55,6 +58,7 @@ public static class GameComponentsLookup {
         "AI",
         "Damage",
         "Shell",
+        "ShellSteam",
         "ComponentIndex",
         "Control",
         "Controllable",
@@ -66,6 +70,7 @@ public static class GameComponentsLookup {
         "MaxHealth",
         "MeshRenderer",
         "Movable",
+        "Particle",
         "Playable",
         "Position",
         "Rigidbody",
@@ -83,6 +88,7 @@ public static class GameComponentsLookup {
         "WeaponLaunching",
         "WeaponLaunchTime",
         "WeaponTransform",
+        "WinnersTeam",
         "ViewService",
         "WeaponActivateRemovedListener",
         "WeaponLaunchingListener"
@@ -95,6 +101,7 @@ public static class GameComponentsLookup {
         typeof(Tanks.GameLogic.Components.Game.AIComponent),
         typeof(Tanks.GameLogic.Components.Game.Ammunition.DamageComponent),
         typeof(Tanks.GameLogic.Components.Game.Ammunition.ShellComponent),
+        typeof(Tanks.GameLogic.Components.Game.Ammunition.ShellSteamComponent),
         typeof(Tanks.GameLogic.Components.Game.ComponentIndexComponent),
         typeof(Tanks.GameLogic.Components.Game.ControlComponent),
         typeof(Tanks.GameLogic.Components.Game.ControllableComponent),
@@ -106,6 +113,7 @@ public static class GameComponentsLookup {
         typeof(Tanks.GameLogic.Components.Game.Health.MaxHealthComponent),
         typeof(Tanks.GameLogic.Components.Game.MeshRendererComponent),
         typeof(Tanks.GameLogic.Components.Game.MovableComponent),
+        typeof(Tanks.GameLogic.Components.Game.ParticleComponent),
         typeof(Tanks.GameLogic.Components.Game.PlayableComponent),
         typeof(Tanks.GameLogic.Components.Game.PositionComponent),
         typeof(Tanks.GameLogic.Components.Game.RigidbodyComponent),
@@ -123,6 +131,7 @@ public static class GameComponentsLookup {
         typeof(Tanks.GameLogic.Components.Game.Weapon.WeaponLaunchingComponent),
         typeof(Tanks.GameLogic.Components.Game.Weapon.WeaponLaunchTimeComponent),
         typeof(Tanks.GameLogic.Components.Game.Weapon.WeaponTransformComponent),
+        typeof(Tanks.GameLogic.Components.Game.WinnersTeamComponent),
         typeof(ViewServiceComponent),
         typeof(WeaponActivateRemovedListenerComponent),
         typeof(WeaponLaunchingListenerComponent)

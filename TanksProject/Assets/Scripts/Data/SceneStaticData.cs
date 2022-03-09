@@ -12,8 +12,8 @@ namespace Tanks.Data
         public List<TankSpawnerData> TankSpawners;
         [FoldoutGroup("Prefab"), PreviewField]
         public GameObject TankPrefab;
-        [FoldoutGroup("Prefab"), PreviewField]
-        public GameObject ShellExplosionPrefab;
+        [FoldoutGroup("Prefab")]
+        public GameObject ExplosionPrefab;
 
         public float StartTankHealth;
         public TeamType PlayableTeam;

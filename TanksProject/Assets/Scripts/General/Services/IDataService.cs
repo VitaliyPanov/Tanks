@@ -7,6 +7,7 @@ namespace Tanks.General.Services
         void Load();
         SceneStaticData StaticData(string sceneName);
         RuntimeData RuntimeData { get; }
+        AmmoData AmmunitionData(AmmoType type);
         UIData UIData { get; }
     }
 }
