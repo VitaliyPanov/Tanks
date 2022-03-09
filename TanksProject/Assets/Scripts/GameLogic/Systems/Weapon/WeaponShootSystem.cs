@@ -3,21 +3,23 @@ using System.Collections.Generic;
 using Entitas;
 using Tanks.Data;
 using Tanks.GameLogic.Services;
+using Tanks.General.Services;
 using UnityEngine;
 
 namespace Tanks.GameLogic.Systems.Weapon
 {
     internal sealed class WeaponShootSystem : ReactiveSystem<GameEntity>, ICleanupSystem
     {
+        private readonly IPoolService _poolService;
         private readonly float movableTimeAfterFire = 3f;
         private readonly GameContext _context;
         private readonly IGroup<GameEntity> _shootStopGroup;
         private List<GameEntity> _buffer = new();
 
-        public WeaponShootSystem(Contexts contexts) : base(contexts.game)
+        public WeaponShootSystem(Contexts contexts, IPoolService poolService) : base(contexts.game)
         {
+            _poolService = poolService;
             _context = contexts.game;
-            
             _shootStopGroup = contexts.game.GetGroup(GameMatcher
                     .AllOf(GameMatcher.WeaponActivate)
                     .NoneOf(GameMatcher.Control));
@@ -39,9 +41,9 @@ namespace Tanks.GameLogic.Systems.Weapon
                 switch (ammoData.Type)
                 {
                     case AmmoType.Shell:
-                        bulletEntity.AddShell(ammoData.ExplosionForce, ammoData.ExplosionRadius);
                         var force = CalculateLaunchingForce(ammoData, entity.weaponLaunchTime.Value);
-                        InstantiateWithForce(ammoData.Prefab, bulletEntity, fireTransform.forward, force);
+                        bulletEntity.AddShell(ammoData.ExplosionForce, ammoData.ExplosionRadius);
+                        InstantiateWithForce(ammoData, bulletEntity, fireTransform.forward, force);
                         break;
                     case AmmoType.Bullet:
                         Debug.Log("Tra-ta-ta-ta-ta-ta");
@@ -69,10 +71,15 @@ namespace Tanks.GameLogic.Systems.Weapon
             return bulletEntity;
         }
 
-        private void InstantiateWithForce(GameObject prefab, GameEntity bulletEntity, Vector3 direction, float force)
+        private void InstantiateWithForce(AmmoData ammoData, GameEntity bulletEntity, Vector3 direction, float force)
         {
-            Rigidbody shellBody = _context.viewService.value.CreateImmediately(prefab, bulletEntity)
+            Rigidbody shellBody = _context.viewService.value.CreateImmediately(ammoData.Prefab, bulletEntity)
                 .GameObject.GetOrAddComponent<Rigidbody>();
+
+            ParticleSystem shellSteam = _poolService.Instantiate<ParticleSystem>(ammoData.Steam, shellBody.transform);
+            shellSteam.Play();
+            _context.CreateEntity().AddParticle(shellSteam);
+            bulletEntity.AddShellSteam(shellSteam.transform);
             shellBody.velocity = direction * force;
         }
 

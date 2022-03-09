@@ -26,7 +26,7 @@ namespace Tanks.GameLogic.Systems.Weapon
                 if (!entity.isWeaponLaunching)
                 {
                     entity.isWeaponLaunching = true;
-                    _contexts.game.SetTimer(entity.weaponAmmo.Data.MaxLaunchingTime, GameComponentsLookup.WeaponLaunching, entity);
+                    _contexts.game.SetTimer(entity.weaponAmmo.Data.MaxLaunchingTime, GameComponentsLookup.WeaponActivate, entity);
                     entity.ReplaceWeaponLaunchTime(0);
                 }
                 else

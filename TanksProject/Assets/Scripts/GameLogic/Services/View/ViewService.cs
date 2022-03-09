@@ -9,9 +9,9 @@ namespace Tanks.GameLogic.Services.View
         private readonly IPoolService _poolService;
         public ViewService(IPoolService poolService) => _poolService = poolService;
 
-        public IView CreateView(GameObject prefab)
+        public IView CreateView(GameObject prefab, Transform parent = null)
         {
-            var view = _poolService.Instantiate<UnityView>(prefab);
+            var view = _poolService.Instantiate<UnityView>(prefab, parent);
             return view;
         }
 

@@ -57,6 +57,7 @@ namespace Tanks.UI
             }
         }
 
-        public async Task ShowMessage(string team, float moveTime) => await _interface.ShowMessage(team, moveTime);
+        public async Task ShowTeamMove(TeamType team, float moveTime) => await _interface.ShowMessage($"The {team} team`s turn for {moveTime} seconds");
+        public async void ShowWinner(TeamType team) => await _interface.ShowMessage($"The {team} team is WINNER");
     }
 }

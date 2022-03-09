@@ -1,4 +1,5 @@
-﻿using Entitas;
+﻿using System;
+using Entitas;
 using Tanks.GameLogic.Services;
 using UnityEngine;
 using UnityEngine.AI;
@@ -16,9 +17,7 @@ namespace Tanks.GameLogic.Views.Behaviours
             if (entity is AIEntity aiEntity)
             {
                 _aiEntity = aiEntity;
-                var agent = gameObject.GetOrAddComponent<NavMeshAgent>();
-                _aiEntity.AddNavMesh(agent);
-                agent.enabled = false;
+                _aiEntity.AddNavMesh(gameObject.GetOrAddComponent<NavMeshAgent>());
             }
         }
         
@@ -28,6 +27,10 @@ namespace Tanks.GameLogic.Views.Behaviours
             {
                 gameEntity.AddMovableListener(this);
                 gameEntity.AddMovableRemovedListener(this);
+                if (_aiEntity != null)
+                    _aiEntity.AddGameEntity(gameEntity);
+                else
+                    throw new Exception("AIEntity must be initialized before GameEntity");
             }
         }
 
@@ -43,6 +46,6 @@ namespace Tanks.GameLogic.Views.Behaviours
             SetAIActivity(entity.isMovable);
         }
 
-        private void SetAIActivity(bool active) => _aiEntity.isActive = active;
+        private void SetAIActivity(bool active) => _aiEntity.isCanBeActive = active;
     }
 }

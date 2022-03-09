@@ -25,8 +25,15 @@ namespace Tanks.Core.Infrastructure.Services.Pool
                 gameObject.name = _prefab.name;
             }
             else
+            {
                 gameObject = _stack.Pop();
-            
+                if (parent != null)
+                {
+                    gameObject.transform.position = parent.position;
+                    gameObject.transform.rotation = parent.rotation;
+                }
+            }
+            gameObject.transform.SetParent(parent);
             gameObject.SetActive(true);
             return gameObject;
         }

@@ -11,6 +11,11 @@ namespace Tanks.Data
         [FoldoutGroup(SOInspectorNames.PREFABS), PreviewField]
         public GameObject Prefab;
 
+        [FoldoutGroup(SOInspectorNames.VARIABLES)] [ShowIf(nameof(Type), AmmoType.Shell)]
+        public GameObject Steam;
+        [FoldoutGroup(SOInspectorNames.VARIABLES)] [ShowIf(nameof(Type), AmmoType.Shell)]
+        public GameObject ShellExplosion;
+
         [FoldoutGroup(SOInspectorNames.VARIABLES)]
         public float Damage;
 

@@ -7,6 +7,7 @@ namespace Tanks.General.Controllers
     public interface IUIController : IController
     {
         void Initialize(UIData data);
-        Task ShowMessage(string team, float moveTime);
+        Task ShowTeamMove(TeamType team, float moveTime);
+        void ShowWinner(TeamType team);
     }
 }
