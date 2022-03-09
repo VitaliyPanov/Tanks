@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 0
   Prefab: {fileID: 192454, guid: a5cc3026845878e4a8c0290b68e4455b, type: 3}
+  Steam: {fileID: 1735024089641582, guid: 378b2c30ef426554495292cb902cb8f4, type: 3}
+  ShellExplosion: {fileID: 1828176872806910, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
   Damage: 150
-  AimSlider: {fileID: 0}
   ExplosionForce: 500
   ExplosionRadius: 5
   MinLaunchForce: 15

@@ -8,18 +8,45 @@
 //------------------------------------------------------------------------------
 public static class AIComponentsLookup {
 
-    public const int Active = 0;
-    public const int NavMesh = 1;
+    public const int ActiveAgent = 0;
+    public const int AgentDestination = 1;
+    public const int AgentShot = 2;
+    public const int CanBeActive = 3;
+    public const int Disabled = 4;
+    public const int GameEntity = 5;
+    public const int MaxBallisticDistance = 6;
+    public const int MinBallisticDistance = 7;
+    public const int NavMesh = 8;
+    public const int ReadyToShoot = 9;
+    public const int Target = 10;
 
-    public const int TotalComponents = 2;
+    public const int TotalComponents = 11;
 
     public static readonly string[] componentNames = {
-        "Active",
-        "NavMesh"
+        "ActiveAgent",
+        "AgentDestination",
+        "AgentShot",
+        "CanBeActive",
+        "Disabled",
+        "GameEntity",
+        "MaxBallisticDistance",
+        "MinBallisticDistance",
+        "NavMesh",
+        "ReadyToShoot",
+        "Target"
     };
 
     public static readonly System.Type[] componentTypes = {
-        typeof(Tanks.GameLogic.Components.AI.ActiveComponent),
-        typeof(Tanks.GameLogic.Components.AI.NavMeshComponent)
+        typeof(Tanks.GameLogic.Components.AI.ActiveAgentComponent),
+        typeof(Tanks.GameLogic.Components.AI.AgentDestinationComponent),
+        typeof(Tanks.GameLogic.Components.AI.AgentShotComponent),
+        typeof(Tanks.GameLogic.Components.AI.CanBeActiveComponent),
+        typeof(Tanks.GameLogic.Components.AI.DisabledComponent),
+        typeof(Tanks.GameLogic.Components.AI.GameEntityComponent),
+        typeof(Tanks.GameLogic.Components.AI.MaxBallisticDistanceComponent),
+        typeof(Tanks.GameLogic.Components.AI.MinBallisticDistanceComponent),
+        typeof(Tanks.GameLogic.Components.AI.NavMeshComponent),
+        typeof(Tanks.GameLogic.Components.AI.ReadyToShootComponent),
+        typeof(Tanks.GameLogic.Components.AI.TargetComponent)
     };
 }

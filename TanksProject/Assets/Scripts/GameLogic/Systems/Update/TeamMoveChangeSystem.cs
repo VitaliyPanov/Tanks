@@ -20,7 +20,8 @@ namespace Tanks.GameLogic.Systems.Update
         private List<TeamType> _activeTeams = new();
         private TeamType _currentTeam;
 
-        public TeamMoveChangeSystem(Contexts contexts, RuntimeData runtimeData, IControllersMediator mediator) : base(contexts.game)
+        public TeamMoveChangeSystem(Contexts contexts, RuntimeData runtimeData, IControllersMediator mediator) : base(
+            contexts.game)
         {
             _runtimeData = runtimeData;
             _mediator = mediator;
@@ -34,6 +35,7 @@ namespace Tanks.GameLogic.Systems.Update
             _activeTeams = _entities.GetEntities(_buffer).Select(e => e.team.Type).Distinct().ToList();
             _contexts.game.SetControllable(_buffer.First());
             ChangeMovableTeam(_runtimeData.CurrentTeamMove);
+            CheckWinner();
         }
 
         protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context) =>
@@ -46,11 +48,14 @@ namespace Tanks.GameLogic.Systems.Update
             GameEntity firstMovable = FirstMovable(_currentTeam);
             if (firstMovable != null)
             {
-                if (_contexts.game.controllable.Entity == entities[0]) 
+                if (_contexts.game.controllable.Entity == entities[0])
                     firstMovable.tryControl = true;
             }
             else
+            {
                 ChangeMovableTeam(_activeTeams.GetNext(_currentTeam));
+                CheckWinner();
+            }
         }
 
         private GameEntity FirstMovable(TeamType team)
@@ -60,6 +65,7 @@ namespace Tanks.GameLogic.Systems.Update
                 if (movableEntity.team.Type == team)
                     return movableEntity;
             }
+
             return null;
         }
 
@@ -79,7 +85,7 @@ namespace Tanks.GameLogic.Systems.Update
                 _activeTeams.Remove(team);
                 team = _activeTeams.GetNext(previous);
             }
-            _mediator.ChangeTeam(team);
+
             _currentTeam = team;
         }
 
@@ -104,8 +110,20 @@ namespace Tanks.GameLogic.Systems.Update
 
         private void CheckRotation(Transform tank)
         {
-            if (Mathf.Abs(tank.rotation.eulerAngles.x) > c_maxAngle || Mathf.Abs(tank.rotation.eulerAngles.z) > c_maxAngle)
+            if (Mathf.Abs(tank.rotation.eulerAngles.x) > c_maxAngle ||
+                Mathf.Abs(tank.rotation.eulerAngles.z) > c_maxAngle)
                 tank.SetPositionAndRotation(tank.position += Vector3.up, Quaternion.identity);
+        }
+
+        private void CheckWinner()
+        {
+            if (_activeTeams.Count > 1)
+                _mediator.ChangeTeam(_currentTeam);
+            else
+            {
+                _mediator.SetWinner(_currentTeam);
+                _contexts.game.ReplaceWinnersTeam(_currentTeam);
+            }
         }
     }
 }

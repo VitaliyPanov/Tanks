@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Tanks.Data;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -28,10 +29,10 @@ namespace Tanks.UI
             HideLabel(infoLabel);
         }
         
-        public async Task ShowMessage(string team, float moveTime)
+        public async Task ShowMessage(string message)
         {
             ToggleVisibility(_roundLabel, true);
-            _roundLabel.text = $"The {team} team`s turn for {moveTime} seconds";
+            _roundLabel.text = message;
             await Task.Delay(3000);
             ToggleVisibility(_roundLabel, false);
         }

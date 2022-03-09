@@ -32,8 +32,10 @@ namespace Tanks.Core.GameControllers
         {
             _logicController.Pause(true);
             _runtimeData.CurrentTeamMove = team;
-            await _uiController.ShowMessage(team.ToString(), _runtimeData.MoveTime);
+            await _uiController.ShowTeamMove(team, _runtimeData.MoveTime);
             _logicController.Pause(false);
         }
+
+        public void SetWinner(TeamType team) => _uiController.ShowWinner(team);
     }
 }

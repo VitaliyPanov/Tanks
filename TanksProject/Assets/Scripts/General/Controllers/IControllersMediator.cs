@@ -7,5 +7,6 @@ namespace Tanks.General.Controllers
     {
         void ReplaceControllable(Transform transformValue);
         void ChangeTeam(TeamType team);
+        void SetWinner(TeamType team);
     }
 }
