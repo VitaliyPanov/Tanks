@@ -63,8 +63,8 @@ namespace Tanks.GameLogic.Systems.AI
         private void RefreshNavMesh(AIEntity entity, Vector3 destination)
         {
             NavMeshAgent navMeshAgent = entity.navMesh.Value;
-            navMeshAgent.enabled = true;
-            navMeshAgent.SetDestination(destination);
+            navMeshAgent.destination = destination;
+            navMeshAgent.isStopped = false;
         }
     }
 }

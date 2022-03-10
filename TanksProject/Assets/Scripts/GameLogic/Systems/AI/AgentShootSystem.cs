@@ -32,7 +32,8 @@ namespace Tanks.GameLogic.Systems.AI
         {
             foreach (var entity in _entities.GetEntities(_buffer))
             {
-                entity.navMesh.Value.enabled = false;
+                entity.navMesh.Value.isStopped = true;
+                
                 Transform agentTransform = entity.gameEntity.Value.transform.Value;
                 Vector3 targetDirection = entity.target.Value.position - agentTransform.position;
                 agentTransform.rotation = Quaternion.LookRotation(Vector3.RotateTowards(agentTransform.forward,

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Entitas;
 using Tanks.Data;
 using Tanks.General.Services;
@@ -22,7 +23,7 @@ namespace Tanks.GameLogic.Systems.Events
             _context = contexts.game;
             _triggeredEntities = contexts.game.GetGroup(GameMatcher
                 .AllOf(GameMatcher.Shell, GameMatcher.ShellSteam, GameMatcher.Position, GameMatcher.Triggered));
-            
+
             _targetEntities = contexts.game.GetGroup(GameMatcher
                 .AllOf(GameMatcher.CurrentHealth, GameMatcher.Rigidbody)
                 .NoneOf(GameMatcher.Dead));
@@ -47,6 +48,8 @@ namespace Tanks.GameLogic.Systems.Events
                     {
                         var factor = 1 - distance / explosionRadius;
                         targetEntity.ReplaceHealthDamage(damage * factor);
+                        if (targetEntity.isAI)
+                            DisableKinematicForOneSecond(targetBody);
                         targetBody.AddExplosionForce(explosionForce, explosionPosition, explosionRadius);
                     }
                 }
@@ -62,6 +65,13 @@ namespace Tanks.GameLogic.Systems.Events
             explosion.transform.position = explosionPosition;
             explosion.Play();
             _context.CreateEntity().AddParticle(explosion);
+        }
+
+        private async void DisableKinematicForOneSecond(Rigidbody rigidbody)
+        {
+            rigidbody.isKinematic = false;
+            await Task.Delay(1000);
+            rigidbody.isKinematic = true;
         }
     }
 }

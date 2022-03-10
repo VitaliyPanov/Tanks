@@ -22,7 +22,7 @@ namespace Tanks.GameLogic.Systems.AI
                 {
                     _context.RemoveActiveAgent();
                 }
-                entity.navMesh.Value.enabled = false;
+                entity.navMesh.Value.isStopped = true;
                 entity.isDisabled = true;
             }
         }

@@ -19,6 +19,16 @@ namespace Tanks.GameLogic.Views.Behaviours
                 _aiEntity = aiEntity;
                 _aiEntity.AddNavMesh(gameObject.GetOrAddComponent<NavMeshAgent>());
             }
+
+            if (entity is GameEntity gameEntity)
+            {
+                if (_aiEntity != null)
+                {
+                    _aiEntity.AddGameEntity(gameEntity);
+                }
+                else 
+                    throw new Exception("AIEntity must be initialized before GameEntity");
+            }
         }
         
         public void AddListener(IEntity entity)
@@ -27,10 +37,6 @@ namespace Tanks.GameLogic.Views.Behaviours
             {
                 gameEntity.AddMovableListener(this);
                 gameEntity.AddMovableRemovedListener(this);
-                if (_aiEntity != null)
-                    _aiEntity.AddGameEntity(gameEntity);
-                else
-                    throw new Exception("AIEntity must be initialized before GameEntity");
             }
         }
 

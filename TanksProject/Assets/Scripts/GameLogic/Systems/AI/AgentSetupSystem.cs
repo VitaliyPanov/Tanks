@@ -2,6 +2,7 @@
 using Tanks.Data;
 using Tanks.General.Services;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Tanks.GameLogic.Systems.AI
 {
@@ -19,6 +20,7 @@ namespace Tanks.GameLogic.Systems.AI
         public AgentSetupSystem(Contexts contexts, IDataService dataService)
         {
             _dataService = dataService;
+            
             _context = contexts.aI;
             _entities = contexts.aI.GetGroup(AIMatcher.NavMesh);
         }
@@ -28,10 +30,17 @@ namespace Tanks.GameLogic.Systems.AI
             SetBallisticDistances();
             foreach (var entity in _entities)
             {
+                entity.gameEntity.Value.rigidbody.Value.isKinematic = true;
                 entity.isDisabled = true;
-                entity.navMesh.Value.enabled = false;
-                entity.navMesh.Value.stoppingDistance = 4f;
-                entity.navMesh.Value.avoidancePriority = Random.Range(25, 50);
+                NavMeshAgent meshAgent = entity.navMesh.Value;
+                meshAgent.isStopped = true;
+                meshAgent.stoppingDistance = 4f;
+                meshAgent.speed = _dataService.RuntimeData.MovementSpeed;
+                meshAgent.angularSpeed = _dataService.RuntimeData.TurnSpeed;
+                meshAgent.autoBraking = false;
+                meshAgent.obstacleAvoidanceType = ObstacleAvoidanceType.HighQualityObstacleAvoidance;
+                meshAgent.avoidancePriority = Random.Range(25, 50);
+                meshAgent.radius = 3f;
             }
         }
 
