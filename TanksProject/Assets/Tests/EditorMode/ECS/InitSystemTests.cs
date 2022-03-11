@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using Entitas;
+﻿using Entitas;
 using FluentAssertions;
 using NSubstitute;
 using NUnit.Framework;
@@ -19,7 +18,7 @@ namespace Tanks.Tests.EditorMode.ECS
         private IDataService _dataService;
 
         [SetUp]
-        public void SetUp()
+        public void Init()
         {
             SceneStaticData staticData = Resources.Load<SceneStaticData>(DataPaths.SCENE + "/MainSceneStaticData");
             RuntimeData runtimeData = Resources.Load<RuntimeData>(DataPaths.RUNTIME + "/RuntimeData");
@@ -33,7 +32,7 @@ namespace Tanks.Tests.EditorMode.ECS
             _contexts = new Contexts();
             _contexts.game.SetViewService(new ViewService(new PoolService()));
         }
-
+        
         [Test]
         public void WhenTankInitSystem_AndMainScene_ThenTeamEntitiesShouldBeEqualSpawnersCount()
         {
