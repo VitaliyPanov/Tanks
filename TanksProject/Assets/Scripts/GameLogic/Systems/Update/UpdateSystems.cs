@@ -18,7 +18,6 @@ namespace Tanks.GameLogic.Systems.Update
             Add(new HealthControlSystem(contexts));
             Add(new ViewDeadActivateSystem(contexts, staticData, poolService));
             
-
             Add(new DestroySystem(contexts));
         }
     }

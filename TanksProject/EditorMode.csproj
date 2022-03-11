@@ -41,7 +41,7 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Tests\EditorMode\ECS\InitSystemTests.cs" />
+     <Compile Include="Assets\Tests\EditorMode\ECS\InitSystemsTests.cs" />
      <None Include="Assets\Tests\EditorMode\EditorMode.asmdef" />
      <Reference Include="UnityEngine">
      <HintPath>C:\Program Files\Unity\2021.2.11f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
