@@ -1,4 +1,5 @@
-﻿using Entitas;
+﻿using System.Linq;
+using Entitas;
 using FluentAssertions;
 using NSubstitute;
 using NUnit.Framework;
@@ -42,9 +43,13 @@ namespace Tanks.Tests.EditorMode.ECS
             IGroup<GameEntity> entities = _contexts.game.GetGroup(GameMatcher.Team);
             // Act.
             system.Initialize();
+            
+            var teamsAtSystem = entities.GetEntities().Select(e => e.team.Type).Distinct().ToList();
+            var teamsAtData = staticData.TankSpawners.Select(t => t.Type).Distinct().ToList();
             // Assert.
             entities.count.Should().Be(staticData.TankSpawners.Count);
+            teamsAtSystem.Count.Should().Be(teamsAtData.Count);
         }
-        
+
     }
 }
