@@ -1,4 +1,4 @@
-# Video Presentation
+# Gameplay presentation (Youtube link)
 [![IMAGE ALT TEXT](./Preview/Preview.jpg)](https://www.youtube.com/watch?v=4rBqlFNnFhQ "Tanks")
 
 # CI with code inspection (Team City)
