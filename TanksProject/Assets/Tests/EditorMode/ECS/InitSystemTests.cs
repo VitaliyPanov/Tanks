@@ -12,7 +12,7 @@ using UnityEngine;
 
 namespace Tanks.Tests.EditorMode.ECS
 {
-    public class UpdateSystemTests
+    public class InitSystemTests
     {
         private const string c_mainScene = "MainScene";
         private Contexts _contexts;
@@ -50,6 +50,7 @@ namespace Tanks.Tests.EditorMode.ECS
             entities.count.Should().Be(staticData.TankSpawners.Count);
             teamsAtSystem.Count.Should().Be(teamsAtData.Count);
         }
+        
 
     }
 }
