@@ -32,8 +32,10 @@ namespace Tanks.GameLogic
             _poolService = poolService;
         }
 
-        public void Initialize(SceneStaticData staticData, RuntimeData runtimeData)
+        public void Initialize(string sceneName)
         {
+            SceneStaticData staticData = _dataService.StaticData(sceneName);
+            RuntimeData runtimeData = _dataService.RuntimeData;
             runtimeData.CurrentTeamMove = staticData.FirstMoveTeam;
             _contexts = Contexts.sharedInstance;
 

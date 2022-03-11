@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Tanks.GameLogic.Services.View
 {
-    internal sealed class ViewService : IViewService
+    public sealed class ViewService : IViewService
     {
         private readonly IPoolService _poolService;
         public ViewService(IPoolService poolService) => _poolService = poolService;

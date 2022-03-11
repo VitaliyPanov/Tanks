@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Tanks.GameLogic.Systems.Init
 {
-    internal sealed class TanksInitSystem : IInitializeSystem
+    public sealed class TanksInitSystem : IInitializeSystem
     {
         private const string c_fireTransform = "FireTransform";
         private readonly Contexts _contexts;

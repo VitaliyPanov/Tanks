@@ -6,7 +6,7 @@ namespace Tanks.Core.Infrastructure.StateMachine
     public class GameLoopState : IState
     {
         private readonly GameStateMachine _stateMachine;
-        private GameController _gameController;
+        private GeneralController _gameController;
 
         public GameLoopState(GameStateMachine stateMachine)
         {
@@ -15,7 +15,7 @@ namespace Tanks.Core.Infrastructure.StateMachine
 
         public void Enter()
         {
-            _gameController = Object.FindObjectOfType<GameController>();
+            _gameController = Object.FindObjectOfType<GeneralController>();
             Debug.Log(_gameController.name);
         }
 

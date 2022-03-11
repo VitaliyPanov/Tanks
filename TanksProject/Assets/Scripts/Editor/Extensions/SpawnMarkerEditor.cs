@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Tanks.Editor.Extensions
 {
-    [UnityEditor.CustomEditor(typeof(TankSpawnMarker))]
+    [CustomEditor(typeof(TankSpawnMarker))]
     public sealed class SpawnMarkerEditor:UnityEditor.Editor
     {
         [DrawGizmo(GizmoType.Active | GizmoType.Pickable | GizmoType.NonSelected)]

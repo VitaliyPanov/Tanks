@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Tanks.Core.Infrastructure.Services
 {
-    internal sealed class DataService : IDataService
+    public class DataService : IDataService
     {
         private Dictionary<string, SceneStaticData> _scenes;
         private Dictionary<AmmoType, AmmoData> _ammunition;

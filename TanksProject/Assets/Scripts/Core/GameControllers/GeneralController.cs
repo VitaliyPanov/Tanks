@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Tanks.Core.GameControllers
 {
-    internal sealed class GameController : MonoBehaviour
+    internal sealed class GeneralController : MonoBehaviour
     {
         private IDataService _dataService;
         private ILogicController _logicController;
@@ -32,7 +32,7 @@ namespace Tanks.Core.GameControllers
 
         private void InitializeControllers(string sceneName)
         {
-            _logicController.Initialize(_dataService.StaticData(sceneName), _dataService.RuntimeData);
+            _logicController.Initialize(sceneName);
             _cameraController.Initialize(Camera.main);
             _uiController.Initialize(_dataService.UIData);
         }

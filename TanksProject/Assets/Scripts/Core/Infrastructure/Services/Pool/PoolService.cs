@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Tanks.Core.Infrastructure.Services.Pool
 {
-    internal sealed class PoolService : IPoolService
+    public sealed class PoolService : IPoolService
     {
         private readonly Dictionary<string, ObjectPool> _viewCache = new(16);
         

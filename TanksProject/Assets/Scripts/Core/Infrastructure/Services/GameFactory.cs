@@ -29,7 +29,7 @@ namespace Tanks.Core.Infrastructure.Services
         public void CreateGameController(string sceneName)
         {
             GameObject gameController = new GameObject(c_gameController);
-            gameController.AddComponent<GameController>().Construct(_logicController, _cameraController, _uiController,
+            gameController.AddComponent<GeneralController>().Construct(_logicController, _cameraController, _uiController,
                 _dataService, _mediator, sceneName);
         }
     }
