@@ -1,13 +1,12 @@
-using System;
-using Tanks.GameLogic.Views.Behaviours;
+using Tanks.General.UI.ViewModels;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Tanks.UI
+namespace Tanks.UI.Views
 {
-    public class UIAimController:MonoBehaviour
+    public class AimView : MonoBehaviour
     {
-        private const string c_fireTransform = "FireTransform";
+        private IWeaponViewModel _viewModel;
         private Slider _weaponSlider;
         private bool _isActive;
         private float _launchingSpeed;
@@ -25,10 +24,11 @@ namespace Tanks.UI
             _weaponSlider.value += _launchingSpeed * Time.deltaTime;
         }
 
-        public void Construct(WeaponBehaviour weaponHandler)
+        public void Construct(IWeaponViewModel viewModel, Vector3 viewLocalPosition)
         {
-            transform.localPosition = weaponHandler.transform.Find(c_fireTransform).localPosition;
-            weaponHandler.OnWeaponShellActivateEvent += ToggleArrow;
+            transform.localPosition = viewLocalPosition;
+            _viewModel = viewModel;
+            _viewModel.OnWeaponShellActivateEvent += ToggleArrow;
         }
 
         private void ToggleArrow(bool isActive, float maxLaunchingTime)
@@ -39,5 +39,7 @@ namespace Tanks.UI
             _weaponSlider.value = 0;
             _isActive = isActive;
         }
+
+        private void OnDestroy() => _viewModel.OnWeaponShellActivateEvent -= ToggleArrow;
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine.UIElements;
 
 namespace Tanks.UI
 {
-    internal sealed class Interface : MonoBehaviour
+    internal sealed class HUD : MonoBehaviour
     {
         private VisualElement _root;
         private Label _roundLabel;

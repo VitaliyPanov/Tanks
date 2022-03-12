@@ -9,7 +9,7 @@ namespace Tanks.GameLogic.Views.Behaviours
     {
         private GameEntity _gameEntity;
 
-        public void Initialize(IEntity entity)
+        public void Construct(IEntity entity)
         {
             if (entity is GameEntity gameEntity)
                 _gameEntity = gameEntity;

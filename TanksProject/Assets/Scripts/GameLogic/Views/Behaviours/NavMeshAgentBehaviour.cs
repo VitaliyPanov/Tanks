@@ -12,7 +12,7 @@ namespace Tanks.GameLogic.Views.Behaviours
     {
         private AIEntity _aiEntity;
 
-        public void Initialize(IEntity entity)
+        public void Construct(IEntity entity)
         {
             if (entity is AIEntity aiEntity)
             {

@@ -54,7 +54,7 @@ namespace Tanks.GameLogic.Systems.Init
             else
             {
                 tankEntity.isAI = true;
-                tankView.GameObject.GetOrAddComponent<NavMeshAgentBehaviour>().Initialize(_contexts.aI.CreateEntity());
+                tankView.GameObject.GetOrAddComponent<NavMeshAgentBehaviour>().Construct(_contexts.aI.CreateEntity());
             }
 
             tankView.GameObject.GetOrAddComponent<HealthBehaviour>();

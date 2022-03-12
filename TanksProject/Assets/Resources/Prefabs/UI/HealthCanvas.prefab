@@ -291,7 +291,7 @@ GameObject:
   - component: {fileID: 1519502109998520300}
   - component: {fileID: 2352570926444651451}
   - component: {fileID: 3228033625342439800}
-  - component: {fileID: 9169156083236429683}
+  - component: {fileID: 7174028678626802699}
   m_Layer: 7
   m_Name: HealthCanvas
   m_TagString: Untagged
@@ -381,7 +381,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 55
---- !u!114 &9169156083236429683
+--- !u!114 &7174028678626802699
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

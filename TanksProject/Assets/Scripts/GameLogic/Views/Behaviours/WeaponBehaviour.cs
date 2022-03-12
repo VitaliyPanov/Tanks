@@ -2,6 +2,7 @@ using System;
 using Entitas;
 using Tanks.Data;
 using Tanks.GameLogic.Services;
+using Tanks.General.UI.ViewModels;
 using UnityEngine;
 
 namespace Tanks.GameLogic.Views.Behaviours
@@ -10,15 +11,17 @@ namespace Tanks.GameLogic.Views.Behaviours
     public class WeaponBehaviour : MonoBehaviour, IBehaviour, IEventListener, IWeaponLaunchingListener,
         IWeaponActivateRemovedListener
     {
-        public event Action<bool, float> OnWeaponShellActivateEvent;
         private GameEntity _gameEntity;
+        private IWeaponViewModel _viewModel;
 
 
-        public void Initialize(IEntity entity)
+        public void Construct(IEntity entity)
         {
             if (entity is not GameEntity gameEntity) return;
             _gameEntity = gameEntity;
         }
+
+        public void Construct(IWeaponViewModel viewModel) => _viewModel ??= viewModel;
 
         public void AddListener(IEntity entity)
         {
@@ -29,13 +32,13 @@ namespace Tanks.GameLogic.Views.Behaviours
         public void OnWeaponLaunching(GameEntity entity)
         {
             if (_gameEntity.weaponAmmo.Data.Type == AmmoType.Shell)
-                OnWeaponShellActivateEvent?.Invoke(true, _gameEntity.weaponAmmo.Data.MaxLaunchingTime);
+                _viewModel.ToggleShellAim(true);
         }
 
         public void OnWeaponActivateRemoved(GameEntity entity)
         {
             _gameEntity.isWeaponLaunching = false;
-            OnWeaponShellActivateEvent?.Invoke(false, 0);
+            _viewModel.ToggleShellAim(false);
         }
     }
 }

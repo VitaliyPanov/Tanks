@@ -23,7 +23,7 @@ namespace Tanks.GameLogic.Views
             var eventBehaviours = gameObject.GetComponents<IBehaviour>();
             foreach (var behaviour in eventBehaviours)
             {
-                behaviour.Initialize(entity);
+                behaviour.Construct(entity);
             }
             var eventListeners = gameObject.GetComponents<IEventListener>();
             foreach (var listener in eventListeners)

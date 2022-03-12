@@ -1,19 +1,25 @@
 using System;
-using Tanks.GameLogic.Views.Behaviours;
+using Tanks.General.UI.ViewModels;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Tanks.UI
+namespace Tanks.UI.Views
 {
-    public sealed class UIHealthController : MonoBehaviour
+    public sealed class HealthView : MonoBehaviour
     {
         private const string c_fillImage = "Fill Image";
         private Slider _healthSlider;
         private Image _healthImage;
         private Color _fullHealthColor = Color.green;
         private Color _zeroHealthColor = Color.red;
-        
-        private HealthBehaviour _handler;
+        private IHealthViewModel _viewModel;
+
+
+        public void Construct(IHealthViewModel viewModel)
+        {
+            _viewModel = viewModel;
+            _viewModel.OnHealthChangedEvent += ChangeSlider;
+        }
 
         private void Awake()
         {
@@ -27,16 +33,7 @@ namespace Tanks.UI
             if (_healthImage == null || _healthSlider == null) throw new ArgumentException($"Can`t find components on {gameObject}");
         }
 
-        private void Start()
-        {
-            ChangeSlider(_handler.CurrentHealth, _handler.MaxHealth);
-        }
-
-        public void Construct(HealthBehaviour handler)
-        {
-            _handler = handler;
-            _handler.OnHealthChangedEvent += ChangeSlider;
-        }
+        private void Start() => ChangeSlider(_viewModel.HealthModel.CurrentHealth, _viewModel.HealthModel.MaxHealth);
 
         private void ChangeSlider(float current, float max)
         {
@@ -44,6 +41,6 @@ namespace Tanks.UI
             _healthImage.color = Color.Lerp(_zeroHealthColor, _fullHealthColor, current / max);
         }
 
-        private void OnDestroy() => _handler.OnHealthChangedEvent -= ChangeSlider;
+        private void OnDestroy() => _viewModel.OnHealthChangedEvent -= ChangeSlider;
     }
 }
