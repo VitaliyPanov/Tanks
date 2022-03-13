@@ -14,9 +14,9 @@ namespace Tanks.UI
     public sealed class UIController : IUIController, IStart
     {
         private const string c_fireTransform = "FireTransform";
-        private HUD _hud;
         private readonly IPoolService _poolService;
         private readonly IDataService _dataService;
+        private HUD _hud;
         private UIData _uiData;
         private float _maxLaunchingTime;
         private Slider _slider;

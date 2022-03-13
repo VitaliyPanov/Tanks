@@ -54,7 +54,6 @@ namespace Tanks.GameLogic.Systems.AI
 
         private async void LaunchWeapon(GameEntity entity, float time)
         {
-            Debug.Log(time);
             entity.ReplaceWeaponLaunchTime(time);
             entity.isWeaponLaunching = true;
             await Task.Delay((int) (1000 * time));

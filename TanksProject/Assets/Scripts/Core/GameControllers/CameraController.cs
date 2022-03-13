@@ -21,9 +21,9 @@ namespace Tanks.Core.GameControllers
             if (_target == null)
                 return;
             Quaternion rotation = Quaternion.Euler(_rotationAngleX, 0, 0);
-            Vector3 position = rotation * new Vector3(0, 0, -_distance) + _target.position;
             _cameraTransform.rotation = rotation;
-            _cameraTransform.position = position;
+            _cameraTransform.position = Vector3.Lerp(_cameraTransform.position,
+                rotation * new Vector3(0, 0, -_distance) + _target.position, Time.deltaTime);
         }
 
         public void Initialize(Camera camera)
@@ -32,6 +32,5 @@ namespace Tanks.Core.GameControllers
         }
 
         public void SetTarget(Transform target) => _target = target;
-        
     }
 }

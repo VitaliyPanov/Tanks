@@ -51,6 +51,7 @@
      <Compile Include="Assets\Scripts\General\UI\StartMenu.cs" />
      <Compile Include="Assets\Scripts\General\Services\ITimeService.cs" />
      <Compile Include="Assets\Scripts\General\Services\IPoolService.cs" />
+     <Compile Include="Assets\Scripts\General\UI\ViewModels\IWeaponViewModel.cs" />
      <Compile Include="Assets\Scripts\General\Controllers\IUIController.cs" />
      <Compile Include="Assets\Scripts\General\Services\IDataService.cs" />
      <Compile Include="Assets\Scripts\General\LevelDesign\TankSpawnMarker.cs" />
@@ -58,12 +59,11 @@
      <Compile Include="Assets\Scripts\General\Controllers\ICameraController.cs" />
      <Compile Include="Assets\Scripts\General\Controllers\IControllersMediator.cs" />
      <Compile Include="Assets\Scripts\General\Controllers\IFixedUpdate.cs" />
+     <Compile Include="Assets\Scripts\General\UI\ViewModels\IHealthViewModel.cs" />
      <Compile Include="Assets\Scripts\General\Controllers\ILogicController.cs" />
+     <Compile Include="Assets\Scripts\General\UI\Models\IWeaponModel.cs" />
      <Compile Include="Assets\Scripts\General\Services\IGameFactory.cs" />
      <Compile Include="Assets\Scripts\General\Controllers\IStart.cs" />
-     <Compile Include="Assets\Scripts\General\UI\ViewModels\IHealthViewModel.cs" />
-     <Compile Include="Assets\Scripts\General\UI\ViewModels\IWeaponViewModel.cs" />
-     <Compile Include="Assets\Scripts\General\UI\Models\IWeaponModel.cs" />
      <None Include="Assets\Scripts\General\General.asmdef" />
      <Reference Include="UnityEngine">
      <HintPath>C:\Program Files\Unity\2021.2.11f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
