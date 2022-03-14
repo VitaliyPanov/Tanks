@@ -3,21 +3,24 @@ using System.Linq;
 using Entitas;
 using FluentAssertions;
 using NSubstitute;
+using NSubstitute.Extensions;
 using NUnit.Framework;
-using Tanks.Core.Infrastructure.Services.Pool;
 using Tanks.Data;
 using Tanks.GameLogic.Services.View;
 using Tanks.GameLogic.Systems.Init;
 using Tanks.GameLogic.Systems.Update;
+using Tanks.GameLogic.Views;
 using Tanks.General.Services;
 using UnityEngine;
 
 namespace Tanks.Tests.EditorMode.ECS
 {
-    public class InitSystemsTests
+    public class GeneralSystemsTests
     {
         private Contexts _contexts;
         private IDataService _dataService;
+        private IPoolService _poolService;
+        private IViewService _viewService;
 
         [SetUp]
         public void Init()
@@ -25,18 +28,20 @@ namespace Tanks.Tests.EditorMode.ECS
             var staticData = TestsSetups.InstantiateStaticData();
             var shellData = TestsSetups.InstantiateShellData();
             var runtimeData = TestsSetups.InstantiateRuntimeData(staticData, shellData);
-            
+
             _dataService = Substitute.For<IDataService>();
             _dataService.StaticData("").Returns(staticData);
             _dataService.RuntimeData.Returns(runtimeData);
             _dataService.AmmunitionData(AmmoType.Shell).Returns(shellData);
-            
+
+            _viewService = Substitute.For<IViewService>();
+
             _contexts = new Contexts();
-            _contexts.game.SetViewService(new ViewService(new PoolService()));
+            _contexts.game.SetViewService(_viewService);
         }
 
         [Test]
-        public void WhenTankInitSystem_AndTeamsAndTanksAre3_ThenTeamEntitiesShouldBeEqualSpawnersCount()
+        public void WhenTankInitSystemInitialize_AndTeamsAndTanksAre3_ThenTeamEntitiesShouldBeEqualSpawnersCount()
         {
             // Arrange.
             var staticData = _dataService.StaticData("");
@@ -46,6 +51,9 @@ namespace Tanks.Tests.EditorMode.ECS
                 new(TeamType.Red, new Vector3(10, 0, 10)),
                 new(TeamType.Black, new Vector3(15, 0, 15)),
             };
+            _viewService.CreateView(staticData.TankPrefab)
+                .Returns(_ => new GameObject("Tank").AddComponent<UnityView>());
+
             var system = new TanksInitSystem(_contexts, staticData, _dataService.RuntimeData);
             IGroup<GameEntity> entities = _contexts.game.GetGroup(GameMatcher.Team);
             // Act.
@@ -59,7 +67,7 @@ namespace Tanks.Tests.EditorMode.ECS
         }
 
         [Test]
-        public void WhenHealthControlSystem_AndCurrentHealthIsZero_ThenEntityShouldBeDead()
+        public void WhenHealthControlSystemExecute_AndCurrentHealthIsZero_ThenEntityShouldBeDead()
         {
             // Arrange.
             var system = new HealthControlSystem(_contexts);
@@ -70,6 +78,38 @@ namespace Tanks.Tests.EditorMode.ECS
             // Assert.
             entity.isDead.Should().BeTrue();
         }
-        
+
+        [Test]
+        public void WhenDestroySystemCleanup_AndEntityIsDestroy_ThenEntityIsNotEnabled()
+        {
+            // Arrange.
+            var system = new DestroySystem(_contexts);
+            var entity = _contexts.game.CreateEntity();
+            // Act.
+            entity.isDestroy = true;
+            system.Cleanup();
+            // Assert.
+            entity.isEnabled.Should().BeFalse();
+        }
+
+        [Test]
+        public void WhenViewDeadActivateSystemExecute_AndEntityIsDead_ThenCreatesExplosion()
+        {
+            // Arrange.
+            var poolService = Substitute.For<IPoolService>();
+            poolService.Instantiate<ParticleSystem>(_dataService.StaticData("").ExplosionPrefab)
+                .Returns(_ => new GameObject("Explosion").AddComponent<ParticleSystem>());
+            var system = new ViewDeadActivateSystem(_contexts, _dataService.StaticData(""), poolService);
+            var deadEntity = _contexts.game.CreateEntity();
+            var view = Substitute.For<IView>();
+            view.Transform.Returns(new GameObject().transform);
+            var explosionEntities = _contexts.game.GetGroup(GameMatcher.Particle);
+            // Act.
+            deadEntity.AddView(view);
+            deadEntity.isDead = true;
+            system.Execute();
+            // Assert.
+            explosionEntities.GetEntities().Length.Should().Be(1);
+        }
     }
 }

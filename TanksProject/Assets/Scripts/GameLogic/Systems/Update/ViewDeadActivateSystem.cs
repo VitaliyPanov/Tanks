@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Tanks.GameLogic.Systems.Update
 {
-    internal sealed class ViewDeadActivateSystem : IExecuteSystem
+    public sealed class ViewDeadActivateSystem : IExecuteSystem
     {
         private readonly SceneStaticData _staticData;
         private readonly IPoolService _poolService;

@@ -3,7 +3,7 @@ using Entitas;
 
 namespace Tanks.GameLogic.Systems.Update
 {
-    internal sealed class DestroySystem : ICleanupSystem
+    public sealed class DestroySystem : ICleanupSystem
     {
         private readonly Contexts _context;
         private readonly IGroup<GameEntity> _destroyGroup;
