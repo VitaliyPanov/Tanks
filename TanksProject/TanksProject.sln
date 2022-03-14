@@ -19,7 +19,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sirenix.OdinInspector.Compa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-firstpass", "Assembly-CSharp-firstpass.csproj", "{57f2d67e-5bcd-3302-572a-4e809160deb8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{b1bd229a-b8b4-88e9-31d3-4d73ce49cb8c}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Editor", "Editor.csproj", "{c92384a8-6c5e-e54f-428a-25ff75deb252}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sirenix.OdinInspector.CompatibilityLayer.Editor", "Sirenix.OdinInspector.CompatibilityLayer.Editor.csproj", "{ebdabca3-167d-b149-6d34-6e70e20f6bdd}"
 EndProject
@@ -54,8 +54,8 @@ Global
 		{3439c4c9-163c-153b-79c5-0c98ae589b25}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{57f2d67e-5bcd-3302-572a-4e809160deb8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{57f2d67e-5bcd-3302-572a-4e809160deb8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{b1bd229a-b8b4-88e9-31d3-4d73ce49cb8c}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{b1bd229a-b8b4-88e9-31d3-4d73ce49cb8c}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{c92384a8-6c5e-e54f-428a-25ff75deb252}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{c92384a8-6c5e-e54f-428a-25ff75deb252}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ebdabca3-167d-b149-6d34-6e70e20f6bdd}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{ebdabca3-167d-b149-6d34-6e70e20f6bdd}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{381f60ba-9612-8b33-ecac-cbc12089cc03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU

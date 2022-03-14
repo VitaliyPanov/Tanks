@@ -3,12 +3,9 @@ using Entitas;
 
 namespace Tanks.GameLogic.Systems.Update
 {
-    internal sealed class HealthControlSystem : ReactiveSystem<GameEntity>
+    public sealed class HealthControlSystem : ReactiveSystem<GameEntity>
     {
-        public HealthControlSystem(Contexts contexts) : base(contexts.game)
-        {
-        }
-
+        public HealthControlSystem(Contexts contexts) : base(contexts.game) {}
         protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context) =>
             context.CreateCollector(GameMatcher.CurrentHealth);
 

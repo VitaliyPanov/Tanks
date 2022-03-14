@@ -6,11 +6,10 @@ namespace Tanks.UI.ViewModels
 {
     public sealed class HealthViewModel : IHealthViewModel
     {
-        private bool _isDead;
         public event Action<float, float> OnHealthChangedEvent;
         public IHealthModel HealthModel { get; }
-
         public bool IsDead => _isDead;
+        private bool _isDead;
         public HealthViewModel(IHealthModel healthModel) => HealthModel = healthModel;
 
         public void ApplyDamage(float damage)

@@ -10,9 +10,9 @@ namespace Tanks.UI.Views
         private const string c_fillImage = "Fill Image";
         private readonly Color _zeroHealthColor = Color.red;
         private readonly Color _fullHealthColor = Color.green;
+        private IHealthViewModel _viewModel;
         private Slider _healthSlider;
         private Image _healthImage;
-        private IHealthViewModel _viewModel;
         private float _startRotationX;
         private Transform _parentTransform;
 

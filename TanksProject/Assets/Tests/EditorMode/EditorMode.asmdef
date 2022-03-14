@@ -5,9 +5,10 @@
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
         "Core",
+        "Data",
         "GameLogic",
         "General",
-        "Data"
+        "UI"
     ],
     "includePlatforms": [
         "Editor"

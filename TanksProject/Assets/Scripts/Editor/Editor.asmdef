@@ -1,11 +1,13 @@
 {
-    "name": "General",
+    "name": "Editor",
     "rootNamespace": "Tanks",
     "references": [
-        "Unity.InputSystem",
+        "General",
         "Data"
     ],
-    "includePlatforms": [],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,

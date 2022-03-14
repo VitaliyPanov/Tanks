@@ -860,14 +860,6 @@
      </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="UI.csproj">
-      <Project>{7838fe7f-1d16-8bcc-1f51-d62e2eb2aee6}</Project>
-      <Name>UI</Name>
-    </ProjectReference>
-    <ProjectReference Include="General.csproj">
-      <Project>{dd93ea50-0f05-72df-c514-220d2e6ea40f}</Project>
-      <Name>General</Name>
-    </ProjectReference>
     <ProjectReference Include="Zenject-Editor.csproj">
       <Project>{4290ec7f-9f03-4d52-bb53-7986a23d2e4b}</Project>
       <Name>Zenject-Editor</Name>
@@ -884,21 +876,9 @@
       <Project>{2a0e9602-28bf-cd68-9058-19ad91a1b2a5}</Project>
       <Name>Zenject</Name>
     </ProjectReference>
-    <ProjectReference Include="Data.csproj">
-      <Project>{77cfaac9-bb60-d734-d0c3-5d2a3ecd69f4}</Project>
-      <Name>Data</Name>
-    </ProjectReference>
     <ProjectReference Include="Sirenix.OdinInspector.CompatibilityLayer.csproj">
       <Project>{3439c4c9-163c-153b-79c5-0c98ae589b25}</Project>
       <Name>Sirenix.OdinInspector.CompatibilityLayer</Name>
-    </ProjectReference>
-    <ProjectReference Include="GameLogic.csproj">
-      <Project>{26c6b49e-340e-53ab-24c0-b1b2406f9118}</Project>
-      <Name>GameLogic</Name>
-    </ProjectReference>
-    <ProjectReference Include="Core.csproj">
-      <Project>{b6071119-29c2-3bbe-8475-769d4901b2f5}</Project>
-      <Name>Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
