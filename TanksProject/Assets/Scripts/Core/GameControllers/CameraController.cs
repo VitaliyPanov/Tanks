@@ -1,36 +1,18 @@
+using Tanks.Core.Infrastructure.StateMachine.Camera;
 using Tanks.General.Controllers;
 using UnityEngine;
 
 namespace Tanks.Core.GameControllers
 {
-    internal sealed class CameraController : ICameraController, IStart, ILateUpdate
+    internal sealed class CameraController : ICameraController, ILateUpdate
     {
-        private Transform _cameraTransform;
-        private float _rotationAngleX;
-        private float _distance;
-        private Transform _target;
+        private CameraStateMachine _stateMachine;
+        
+        public void Initialize(Camera camera) => _stateMachine = new CameraStateMachine(camera.transform);
 
-        public void Start()
-        {
-            _rotationAngleX = 60f;
-            _distance = 35f;
-        }
+        public void LateUpdate() => _stateMachine.Update();
 
-        public void LateUpdate()
-        {
-            if (_target == null)
-                return;
-            Quaternion rotation = Quaternion.Euler(_rotationAngleX, 0, 0);
-            _cameraTransform.rotation = rotation;
-            _cameraTransform.position = Vector3.Lerp(_cameraTransform.position,
-                rotation * new Vector3(0, 0, -_distance) + _target.position, Time.deltaTime);
-        }
-
-        public void Initialize(Camera camera)
-        {
-            _cameraTransform = camera.transform;
-        }
-
-        public void SetTarget(Transform target) => _target = target;
+        public void SetTarget(Transform target) => _stateMachine.SwitchTarget(target);
     }
+    
 }

@@ -1,7 +1,10 @@
+using System;
+using Tanks.Core.Infrastructure.StateMachine.Interfaces;
 using Tanks.General.Services;
 using Tanks.General.UI;
+using UnityEngine;
 
-namespace Tanks.Core.Infrastructure.StateMachine
+namespace Tanks.Core.Infrastructure.StateMachine.Game
 {
     public sealed class LoadSceneState : ILoadingState<string>
     {
@@ -30,7 +33,7 @@ namespace Tanks.Core.Infrastructure.StateMachine
         private void OnSceneLoaded()
         {
             _gameFactory.CreateGameController(_sceneName);
-            _stateMachine.Enter<GameLoopState>();
+            _stateMachine.EnterGameLoop();
         }
 
         public void Exit() => _loadingCurtain.Hide();

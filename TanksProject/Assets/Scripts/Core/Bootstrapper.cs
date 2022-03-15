@@ -1,4 +1,5 @@
 using Tanks.Core.Infrastructure.StateMachine;
+using Tanks.Core.Infrastructure.StateMachine.Game;
 using Tanks.General.Services;
 using Tanks.General.UI;
 using UnityEngine;
@@ -20,7 +21,7 @@ namespace Tanks.Core
         private void OnContextRun(IGameFactory gameFactory)
         {
             _game = new Game(SceneNames.MAIN, Instantiate(_loadingScreenPrefab), gameFactory);
-            _game.StateMachine.Enter<BootstrapState>();
+            _game.StateMachine.Start();
         }
 
         private void CreateServices()

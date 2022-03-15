@@ -67,7 +67,7 @@ namespace Tanks.Tests.EditorMode.ECS
         }
 
         [Test]
-        public void WhenHealthControlSystemExecute_AndCurrentHealthIsZero_ThenEntityShouldBeDead()
+        public void WhenHealthControlSystemExecute_AndCurrentHealthIsZero_ThenEntityIsDead()
         {
             // Arrange.
             var system = new HealthControlSystem(_contexts);

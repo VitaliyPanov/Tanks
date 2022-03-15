@@ -1,4 +1,6 @@
-namespace Tanks.Core.Infrastructure.StateMachine
+using Tanks.Core.Infrastructure.StateMachine.Interfaces;
+
+namespace Tanks.Core.Infrastructure.StateMachine.Game
 {
     public sealed class BootstrapState : IState
     {
@@ -15,10 +17,7 @@ namespace Tanks.Core.Infrastructure.StateMachine
 
         public void Enter() => _sceneLoader.Load(SceneNames.LOADING, EnterSceneLoadingState);
 
-        private void EnterSceneLoadingState() => _stateMachine.Enter<LoadSceneState, string>(_startScene);
-
-        public void Exit()
-        {
-        }
+        private void EnterSceneLoadingState() => _stateMachine.LoadScene(_startScene);
+        public void Exit() {}
     }
 }

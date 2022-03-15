@@ -1,18 +1,15 @@
 using Tanks.Core.GameControllers;
+using Tanks.Core.Infrastructure.StateMachine.Interfaces;
 using UnityEngine;
-using Zenject;
 
-namespace Tanks.Core.Infrastructure.StateMachine
+namespace Tanks.Core.Infrastructure.StateMachine.Game
 {
     public class GameLoopState : IState
     {
         private readonly GameStateMachine _stateMachine;
         private GeneralController _gameController;
 
-        public GameLoopState(GameStateMachine stateMachine)
-        {
-            _stateMachine = stateMachine;
-        }
+        public GameLoopState(GameStateMachine stateMachine) => _stateMachine = stateMachine;
 
         public void Enter()
         {
@@ -20,8 +17,6 @@ namespace Tanks.Core.Infrastructure.StateMachine
             Debug.Log(_gameController.name);
         }
 
-        public void Exit()
-        {
-        }
+        public void Exit() {}
     }
 }
