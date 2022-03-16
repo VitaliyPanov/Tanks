@@ -1,6 +1,7 @@
 using Tanks.Data;
 using Tanks.General.Controllers;
 using Tanks.General.Services;
+using Tanks.General.Services.Input;
 
 namespace Tanks.GameLogic.Systems.Update
 {
@@ -15,7 +16,7 @@ namespace Tanks.GameLogic.Systems.Update
             Add(new WeaponSystems(contexts, poolService));
             Add(new ControllableUpdateSystem(contexts, mediator));
             Add(new HealthControlSystem(contexts));
-            Add(new ViewDeadActivateSystem(contexts, staticData, poolService));
+            Add(new ViewDeadActivateSystem(contexts, staticData, poolService, mediator));
             
             Add(new DestroySystem(contexts));
         }

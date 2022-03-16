@@ -23,7 +23,7 @@ namespace Tanks.GameLogic.Systems.Update
         protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context) =>
             context.CreateCollector(GameMatcher.Control.AddedOrRemoved());
 
-        protected override bool Filter(GameEntity entity) => entity.hasTransform;
+        protected override bool Filter(GameEntity entity) => entity.hasView && entity.hasTransform;
 
         protected override void Execute(List<GameEntity> entities)
         {
@@ -32,7 +32,7 @@ namespace Tanks.GameLogic.Systems.Update
                 if (entity.tryControl)
                 {
                     _game.ReplaceControllable(entity);
-                    _mediator.ReplaceControllable(entity.transform.Value);
+                    _mediator.ReplaceControllable(entity.transform.Value, entity.view.Value.UniqID);
                     SetEmission(entity, Color.white * 0.25f);
                 }
                 else

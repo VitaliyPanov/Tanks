@@ -1,13 +1,15 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Tanks.General.Services
+namespace Tanks.General.Services.Input
 {
     public interface IInputService
     {
+        Vector2 Axis { get; }
         event Action<bool> OnAttackButtonEvent;
         event Action<bool> OnToggleNextEvent;
         event Action<bool> OnTogglePreviousEvent;
-        Vector2 Axis { get; }
+        event Action<bool> OnToggleMiniMapEvent;
+
     }
 }

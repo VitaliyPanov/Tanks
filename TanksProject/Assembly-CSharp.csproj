@@ -46,7 +46,9 @@
      <None Include="Assets\Resources\Fonts\Bowlby_One\FontLicense.txt" />
      <None Include="Assets\Resources\UI\LoadingScreen.uxml" />
      <None Include="Assets\Resources\UI\Styles\MainMenu.uss" />
+     <None Include="Assets\Resources\UI\Styles\Minimap.uss" />
      <None Include="Assets\Resources\UI\MainMenu.uxml" />
+     <None Include="Assets\Resources\UI\Minimap.uxml" />
      <Reference Include="UnityEngine">
      <HintPath>C:\Program Files\Unity\2021.2.11f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
      </Reference>

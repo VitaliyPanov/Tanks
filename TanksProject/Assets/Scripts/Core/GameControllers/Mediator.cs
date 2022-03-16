@@ -22,11 +22,14 @@ namespace Tanks.Core.GameControllers
             _runtimeData = runtimeData;
         }
 
-        public void ReplaceControllable(Transform target)
+        public void ReplaceControllable(Transform target, string id)
         {
             _runtimeData.Controllable = target;
             _cameraController.SetTarget(target);
+            _uiController.SetPlayer(target, id);
         }
+
+        public void OnDestroyView(Transform target, string id) => _uiController.RemoveMapElement(id);
 
         public async void ChangeTeam(TeamType team)
         {

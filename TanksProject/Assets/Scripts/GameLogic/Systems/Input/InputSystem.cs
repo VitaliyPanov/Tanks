@@ -1,5 +1,6 @@
 using Entitas;
 using Tanks.General.Services;
+using Tanks.General.Services.Input;
 using UnityEngine;
 
 namespace Tanks.GameLogic.Systems.Input

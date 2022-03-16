@@ -1,4 +1,5 @@
-﻿using Entitas.Unity;
+﻿using System;
+using Entitas.Unity;
 using Tanks.GameLogic.Services;
 using Tanks.GameLogic.Views.Behaviours;
 using UnityEngine;
@@ -10,13 +11,15 @@ namespace Tanks.GameLogic.Views
     public sealed class UnityView : MonoBehaviour, IView
     {
         private EntityLink _entityLink;
+        public string UniqID { get; private set; }
         Transform IView.Transform => transform;
         GameObject IView.GameObject => gameObject;
 
         public void InitializeView(GameEntity entity)
         {
+            UniqID = $"{transform.name}_{Guid.NewGuid().ToString()}";
+            
             _entityLink = gameObject.GetOrAddComponent<EntityLink>();
-
             entity.AddView(this);
             _entityLink = gameObject.Link(entity);
             

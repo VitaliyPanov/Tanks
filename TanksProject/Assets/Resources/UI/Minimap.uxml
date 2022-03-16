@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Resources/UI/Styles/Minimap.uss?fileID=7433441132597879392&amp;guid=6a927ef8cadfafc46919411c11cc5ebe&amp;type=3#Minimap" />
+    <ui:VisualElement name="Container" class="root-container-mini">
+        <ui:VisualElement name="Map" class="map-container">
+            <ui:VisualElement name="Image" class="map-img" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

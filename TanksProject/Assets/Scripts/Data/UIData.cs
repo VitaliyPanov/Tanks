@@ -6,6 +6,7 @@ namespace Tanks.Data
     public sealed class UIData : ScriptableObject
     {
         public GameObject InterfacePrefab;
+        public GameObject MinimapPrefab;
         public GameObject HealthAimCanvas;
         public GameObject AimCanvas;
     }

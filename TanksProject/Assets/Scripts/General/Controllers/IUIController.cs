@@ -9,5 +9,7 @@ namespace Tanks.General.Controllers
         void Initialize(UIData data);
         Task ShowTeamMove(TeamType team, float moveTime);
         void ShowWinner(TeamType team);
+        void SetPlayer(Transform target, string id);
+        void RemoveMapElement(string id);
     }
 }

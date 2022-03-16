@@ -49,6 +49,8 @@
      <Compile Include="Assets\Scripts\UI\Models\HealthModel.cs" />
      <Compile Include="Assets\Scripts\UI\ViewModels\WeaponViewModel.cs" />
      <Compile Include="Assets\Scripts\UI\ViewModels\HealthViewModel.cs" />
+     <Compile Include="Assets\Scripts\UI\MiniMapController.cs" />
+     <Compile Include="Assets\Scripts\UI\MapElement.cs" />
      <None Include="Assets\Scripts\UI\UI.asmdef" />
      <Reference Include="UnityEngine">
      <HintPath>C:\Program Files\Unity\2021.2.11f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
@@ -790,6 +792,12 @@
      </Reference>
      <Reference Include="System.Xml.Serialization">
      <HintPath>C:\Program Files\Unity\2021.2.11f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.VisualScripting.Core">
+     <HintPath>D:\Unity Projects\Tanks\TanksProject\Library\ScriptAssemblies\Unity.VisualScripting.Core.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.VisualScripting.Core.Editor">
+     <HintPath>D:\Unity Projects\Tanks\TanksProject\Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll</HintPath>
      </Reference>
      <Reference Include="UnityEditor.UI">
      <HintPath>D:\Unity Projects\Tanks\TanksProject\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>

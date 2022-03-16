@@ -10,6 +10,7 @@ using Tanks.GameLogic.Services.View;
 using Tanks.GameLogic.Systems.Init;
 using Tanks.GameLogic.Systems.Update;
 using Tanks.GameLogic.Views;
+using Tanks.General.Controllers;
 using Tanks.General.Services;
 using UnityEngine;
 
@@ -99,13 +100,15 @@ namespace Tanks.Tests.EditorMode.ECS
             var poolService = Substitute.For<IPoolService>();
             poolService.Instantiate<ParticleSystem>(_dataService.StaticData("").ExplosionPrefab)
                 .Returns(_ => new GameObject("Explosion").AddComponent<ParticleSystem>());
-            var system = new ViewDeadActivateSystem(_contexts, _dataService.StaticData(""), poolService);
+            var mediator = Substitute.For<IControllersMediator>();
+            var system = new ViewDeadActivateSystem(_contexts, _dataService.StaticData(""), poolService, mediator);
             var deadEntity = _contexts.game.CreateEntity();
             var view = Substitute.For<IView>();
             view.Transform.Returns(new GameObject().transform);
             var explosionEntities = _contexts.game.GetGroup(GameMatcher.Particle);
             // Act.
             deadEntity.AddView(view);
+            deadEntity.AddTransform(view.Transform);
             deadEntity.isDead = true;
             system.Execute();
             // Assert.

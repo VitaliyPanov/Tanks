@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: UIData
   m_EditorClassIdentifier: 
   InterfacePrefab: {fileID: 9029552431497079760, guid: fca6fa4275202aa40bfc6b6e6b6e8935, type: 3}
+  MinimapPrefab: {fileID: 8391449897657079326, guid: 98e892847d8da7a4ca9e6f5cab74e149, type: 3}
   HealthAimCanvas: {fileID: 8890098305426011067, guid: a282fbb4b38e54547aff45abf0a511c2, type: 3}
   AimCanvas: {fileID: 8890098305426011067, guid: 6d94487a00ab75140a24c916e4e00167, type: 3}

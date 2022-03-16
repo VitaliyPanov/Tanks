@@ -4,7 +4,9 @@
     "references": [
         "Data",
         "General",
-        "GameLogic"
+        "GameLogic",
+        "Unity.VisualScripting.Core",
+        "Unity.VisualScripting.Core.Editor"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -41,8 +41,8 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Core\Infrastructure\Services\Input\InputControls.cs" />
      <Compile Include="Assets\Scripts\Core\GameControllers\GeneralController.cs" />
+     <Compile Include="Assets\Scripts\Core\Infrastructure\StateMachine\Camera\SpeedUpState.cs" />
      <Compile Include="Assets\Scripts\Core\Infrastructure\Services\DataService.cs" />
      <Compile Include="Assets\Scripts\Core\BootstrapInstaller.cs" />
      <Compile Include="Assets\Scripts\Core\Game.cs" />
@@ -50,6 +50,7 @@
      <Compile Include="Assets\Scripts\Core\Infrastructure\StateMachine\Camera\SwitchTargetState.cs" />
      <Compile Include="Assets\Scripts\Core\Infrastructure\StateMachine\Interfaces\ILoadingState.cs" />
      <Compile Include="Assets\Scripts\Core\Infrastructure\Services\Input\InputService.cs" />
+     <Compile Include="Assets\Scripts\Core\Infrastructure\StateMachine\Interfaces\IUpdateCameraState.cs" />
      <Compile Include="Assets\Scripts\Core\Infrastructure\StateMachine\Game\GameLoopState.cs" />
      <Compile Include="Assets\Scripts\Core\Infrastructure\StateMachine\Game\BootstrapState.cs" />
      <Compile Include="Assets\Scripts\Core\Infrastructure\StateMachine\Camera\CameraStateMachine.cs" />
@@ -69,8 +70,6 @@
      <Compile Include="Assets\Scripts\Core\SceneNames.cs" />
      <Compile Include="Assets\Scripts\Core\Infrastructure\Services\GameFactory.cs" />
      <Compile Include="Assets\Scripts\Core\Infrastructure\Services\Pool\ObjectPool.cs" />
-     <Compile Include="Assets\Scripts\Core\Infrastructure\StateMachine\Interfaces\IUpdateCameraState.cs" />
-     <Compile Include="Assets\Scripts\Core\Infrastructure\StateMachine\Camera\SpeedUpState.cs" />
      <None Include="Assets\Scripts\Core\Core.asmdef" />
      <Reference Include="UnityEngine">
      <HintPath>C:\Program Files\Unity\2021.2.11f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>

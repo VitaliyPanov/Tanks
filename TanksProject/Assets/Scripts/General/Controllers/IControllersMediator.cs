@@ -5,7 +5,8 @@ namespace Tanks.General.Controllers
 {
     public interface IControllersMediator
     {
-        void ReplaceControllable(Transform transformValue);
+        void ReplaceControllable(Transform target, string id);
+        void OnDestroyView(Transform target, string id);
         void ChangeTeam(TeamType team);
         void SetWinner(TeamType team);
     }

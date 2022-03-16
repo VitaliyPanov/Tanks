@@ -5,9 +5,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameLogic", "GameLogic.cspr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zenject", "Zenject.csproj", "{2a0e9602-28bf-cd68-9058-19ad91a1b2a5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core.csproj", "{b6071119-29c2-3bbe-8475-769d4901b2f5}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "General", "General.csproj", "{dd93ea50-0f05-72df-c514-220d2e6ea40f}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core.csproj", "{b6071119-29c2-3bbe-8475-769d4901b2f5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "UI.csproj", "{7838fe7f-1d16-8bcc-1f51-d62e2eb2aee6}"
 EndProject
@@ -40,10 +40,10 @@ Global
 		{26c6b49e-340e-53ab-24c0-b1b2406f9118}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2a0e9602-28bf-cd68-9058-19ad91a1b2a5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2a0e9602-28bf-cd68-9058-19ad91a1b2a5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{b6071119-29c2-3bbe-8475-769d4901b2f5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{b6071119-29c2-3bbe-8475-769d4901b2f5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{dd93ea50-0f05-72df-c514-220d2e6ea40f}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{dd93ea50-0f05-72df-c514-220d2e6ea40f}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{b6071119-29c2-3bbe-8475-769d4901b2f5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{b6071119-29c2-3bbe-8475-769d4901b2f5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7838fe7f-1d16-8bcc-1f51-d62e2eb2aee6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7838fe7f-1d16-8bcc-1f51-d62e2eb2aee6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77cfaac9-bb60-d734-d0c3-5d2a3ecd69f4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU

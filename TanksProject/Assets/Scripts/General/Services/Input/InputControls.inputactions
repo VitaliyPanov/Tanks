@@ -42,9 +42,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Aiminig",
+                    "name": "ToggleMinimap",
                     "type": "Button",
-                    "id": "1df2d674-e8f4-4536-af3f-dcec17b398a7",
+                    "id": "36e854f7-c3f1-4178-b55a-b4a8978bd987",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -124,7 +124,7 @@
                     "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "PC",
                     "action": "ToggleNextTank",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -135,19 +135,19 @@
                     "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "PC",
                     "action": "TogglePreviousTank",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "423637f1-207f-4f4e-a8fb-83c1d415094b",
-                    "path": "<Mouse>/leftButton",
+                    "id": "6276ecb0-6555-4f20-ba42-df760b89dcea",
+                    "path": "<Keyboard>/m",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Aiminig",
+                    "groups": "PC",
+                    "action": "ToggleMinimap",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -41,11 +41,12 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\General\Services\Input\InputControls.cs" />
      <Compile Include="Assets\Scripts\General\UI\Models\IHealthModel.cs" />
      <Compile Include="Assets\Scripts\General\Controllers\IUpdate.cs" />
      <Compile Include="Assets\Scripts\General\Controllers\IController.cs" />
      <Compile Include="Assets\Scripts\General\Controllers\ILateUpdate.cs" />
-     <Compile Include="Assets\Scripts\General\Services\IInputService.cs" />
+     <Compile Include="Assets\Scripts\General\Services\Input\IInputService.cs" />
      <Compile Include="Assets\Scripts\General\Controllers\Controllers.cs" />
      <Compile Include="Assets\Scripts\General\UI\LoadingScreen.cs" />
      <Compile Include="Assets\Scripts\General\UI\StartMenu.cs" />
