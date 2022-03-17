@@ -3,7 +3,8 @@
     "rootNamespace": "Tanks",
     "references": [
         "GUID:210409e924ce8a44489db370c4276168",
-        "GUID:1d0b670215dc277408a7c5f08083a8d7"
+        "GUID:1d0b670215dc277408a7c5f08083a8d7",
+        "GUID:75469ad4d38634e559750d17036d5f7c"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

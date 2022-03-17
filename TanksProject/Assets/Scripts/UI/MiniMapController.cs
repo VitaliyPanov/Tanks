@@ -3,18 +3,18 @@ using System.Linq;
 using Tanks.GameLogic.Views;
 using Tanks.General.Services.Input;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
 namespace Tanks.UI
 {
-    public sealed class MiniMapController : MonoBehaviour
+    public sealed class MiniMapController : MonoBehaviour, InputControls.IUIActions
     {
         private const string c_miniMap = "root-container-mini";
         private const string c_fullMap = "root-container-full";
         private const float c_miniMultiplier = 2.9f;
         private const float c_fullMultiplier = 7.5f;
 
-        private IInputService _inputService;
         private VisualElement _root;
         private VisualElement _mapImage;
         private VisualElement _mapContainer;
@@ -26,8 +26,7 @@ namespace Tanks.UI
 
         public void Construct(IInputService inputService)
         {
-            _inputService = inputService;
-            _inputService.OnToggleMiniMapEvent += OpenMap;
+            inputService.RegisterUIListener(this);
             _root = GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("Container");
             _mapImage = _root.Q<VisualElement>("Image");
             _mapContainer = _root.Q<VisualElement>("Map");
@@ -109,6 +108,12 @@ namespace Tanks.UI
             ? new TeamMapElement(team.Team)
             : new MapElement();
 
-        private void OnDisable() => _inputService.OnToggleMiniMapEvent -= OpenMap;
+        public void OnToggleMinimap(InputAction.CallbackContext context)
+        {
+            if (context.started)
+                OpenMap(true);
+            else if (context.canceled)
+                OpenMap(false);
+        }
     }
 }

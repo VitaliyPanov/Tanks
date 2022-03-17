@@ -1,4 +1,5 @@
 ﻿using Tanks.Data;
+using Tanks.GameLogic.Services.Input;
 using Tanks.GameLogic.Services.View;
 using Tanks.GameLogic.Systems.AI;
 using Tanks.GameLogic.Systems.FixedUpdate;
@@ -66,12 +67,16 @@ namespace Tanks.GameLogic
             _aiSystems.Cleanup();
         }
 
-        private void BindLocalServices() => _contexts.game.SetViewService(new ViewService(_poolService));
+        private void BindLocalServices()
+        {
+            _contexts.game.SetViewService(new ViewService(_poolService));
+            _contexts.input.SetInputService(new TankInputService(_contexts.input, _inputService));
+        }
 
         private void CreateSystems(SceneStaticData staticData, RuntimeData runtimeData)
         {
             _initSystems = new InitSystems(_contexts, staticData, runtimeData);
-            _updateSystems = new UpdateSystems(_contexts, runtimeData, staticData, _inputService, _timeService,_poolService, _mediator);
+            _updateSystems = new UpdateSystems(_contexts, runtimeData, staticData, _timeService,_poolService, _mediator);
             _fixedUpdateSystems = new FixedUpdateSystems(_contexts, runtimeData, _poolService);
             _aiSystems = new AISystems(_contexts, _dataService);
         }

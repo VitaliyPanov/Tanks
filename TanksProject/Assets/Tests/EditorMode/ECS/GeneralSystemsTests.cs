@@ -133,5 +133,6 @@ namespace Tanks.Tests.EditorMode.ECS
             // Assert.
             entity.hasPosition.Should().BeFalse();
         }
+        
     }
 }

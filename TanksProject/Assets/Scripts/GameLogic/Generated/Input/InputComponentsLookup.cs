@@ -8,18 +8,20 @@
 //------------------------------------------------------------------------------
 public static class InputComponentsLookup {
 
-    public const int Attack = 0;
-    public const int Direction = 1;
-    public const int Pause = 2;
-    public const int DeltaTime = 3;
-    public const int FixedDeltaTime = 4;
-    public const int RealtimeSinceStartup = 5;
-    public const int ToggleNext = 6;
-    public const int TogglePrevious = 7;
+    public const int InputService = 0;
+    public const int Attack = 1;
+    public const int Direction = 2;
+    public const int Pause = 3;
+    public const int DeltaTime = 4;
+    public const int FixedDeltaTime = 5;
+    public const int RealtimeSinceStartup = 6;
+    public const int ToggleNext = 7;
+    public const int TogglePrevious = 8;
 
-    public const int TotalComponents = 8;
+    public const int TotalComponents = 9;
 
     public static readonly string[] componentNames = {
+        "InputService",
         "Attack",
         "Direction",
         "Pause",
@@ -31,6 +33,7 @@ public static class InputComponentsLookup {
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(InputServiceComponent),
         typeof(Tanks.GameLogic.Components.Input.AttackComponent),
         typeof(Tanks.GameLogic.Components.Input.DirectionComponent),
         typeof(Tanks.GameLogic.Components.Input.PauseComponent),

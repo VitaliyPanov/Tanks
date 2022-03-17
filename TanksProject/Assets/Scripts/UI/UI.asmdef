@@ -6,7 +6,8 @@
         "General",
         "GameLogic",
         "Unity.VisualScripting.Core",
-        "Unity.VisualScripting.Core.Editor"
+        "Unity.VisualScripting.Core.Editor",
+        "Unity.InputSystem"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

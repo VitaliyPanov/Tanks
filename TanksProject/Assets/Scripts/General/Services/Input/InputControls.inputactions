@@ -40,15 +40,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "ToggleMinimap",
-                    "type": "Button",
-                    "id": "36e854f7-c3f1-4178-b55a-b4a8978bd987",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -139,10 +130,27 @@
                     "action": "TogglePreviousTank",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
+                }
+            ]
+        },
+        {
+            "name": "UI",
+            "id": "272d107c-53c2-4314-9882-94a0291de1d0",
+            "actions": [
+                {
+                    "name": "ToggleMinimap",
+                    "type": "Button",
+                    "id": "fb9f4bb0-f2d1-4fbc-ac86-ed7a9a9928a1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
                 {
                     "name": "",
-                    "id": "6276ecb0-6555-4f20-ba42-df760b89dcea",
+                    "id": "2b8782aa-a852-4a78-842d-9db05a0f5f24",
                     "path": "<Keyboard>/m",
                     "interactions": "",
                     "processors": "",

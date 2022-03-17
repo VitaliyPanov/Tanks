@@ -803,6 +803,9 @@
      <Reference Include="Unity.VisualScripting.Core.Editor">
      <HintPath>D:\Unity Projects\Tanks\TanksProject\Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll</HintPath>
      </Reference>
+     <Reference Include="Unity.InputSystem">
+     <HintPath>D:\Unity Projects\Tanks\TanksProject\Library\ScriptAssemblies\Unity.InputSystem.dll</HintPath>
+     </Reference>
      <Reference Include="UnityEditor.UI">
      <HintPath>D:\Unity Projects\Tanks\TanksProject\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
      </Reference>
