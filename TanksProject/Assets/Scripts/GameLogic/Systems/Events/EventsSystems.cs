@@ -7,7 +7,7 @@ namespace Tanks.GameLogic.Systems.Events
     {
         public EventsSystems(Contexts contexts, RuntimeData runtimeData, IPoolService poolService)
         {
-            Add(new TriggeredShellExplosionSystem(contexts, runtimeData, poolService));
+            Add(new TriggeredShellExplosionSystem(contexts.game, runtimeData, poolService));
             Add(new GameEventSystems(contexts));
         }
     }

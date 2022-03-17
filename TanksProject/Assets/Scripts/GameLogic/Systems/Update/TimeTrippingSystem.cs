@@ -4,19 +4,18 @@ using Tanks.General.Services;
 
 namespace Tanks.GameLogic.Systems.Update
 {
-    internal sealed class TimeTrippingSystem : IExecuteSystem
+    public sealed class TimeTrippingSystem : IExecuteSystem
     {
-        private readonly ITimeService _timeService;
         private readonly IGroup<GameEntity> _entities;
         private readonly InputContext _inputContext;
         private List<GameEntity> _buffer = new();
 
-        public TimeTrippingSystem(Contexts contexts)
+        public TimeTrippingSystem(GameContext gameContext, InputContext inputContext)
         {
-            _entities = contexts.game.GetGroup(GameMatcher
+            _entities = gameContext.GetGroup(GameMatcher
                 .AllOf(GameMatcher.Timer, GameMatcher.Target, GameMatcher.ComponentIndex)
                 .NoneOf(GameMatcher.Destroy));
-            _inputContext = contexts.input;
+            _inputContext = inputContext;
         }
         
         public void Execute()

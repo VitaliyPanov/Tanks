@@ -9,14 +9,14 @@ namespace Tanks.GameLogic.Systems.Update
     {
         private static readonly string s_emissioncolor = "_EmissionColor";
         private readonly IControllersMediator _mediator;
-        private readonly GameContext _game;
+        private readonly GameContext _context;
         private readonly IGroup<GameEntity> _selectGroup;
         private List<GameEntity> _buffer = new();
 
-        public ControllableUpdateSystem(Contexts contexts, IControllersMediator mediator) : base(contexts.game)
+        public ControllableUpdateSystem(GameContext gameContext, IControllersMediator mediator) : base(gameContext)
         {
-            _game = contexts.game;
-            _selectGroup = contexts.game.GetGroup(GameMatcher.Control);
+            _context = gameContext;
+            _selectGroup = gameContext.GetGroup(GameMatcher.Control);
             _mediator = mediator;
         }
 
@@ -31,7 +31,7 @@ namespace Tanks.GameLogic.Systems.Update
             {
                 if (entity.tryControl)
                 {
-                    _game.ReplaceControllable(entity);
+                    _context.ReplaceControllable(entity);
                     _mediator.ReplaceControllable(entity.transform.Value, entity.view.Value.UniqID);
                     SetEmission(entity, Color.white * 0.25f);
                 }
@@ -49,7 +49,7 @@ namespace Tanks.GameLogic.Systems.Update
         }
         public void Cleanup()
         { 
-            GameEntity controllableEntity = _game.controllableEntity.controllable.Entity;
+            GameEntity controllableEntity = _context.controllableEntity.controllable.Entity;
             foreach (var entity in _selectGroup.GetEntities(_buffer))
             {
                 if (controllableEntity != entity)

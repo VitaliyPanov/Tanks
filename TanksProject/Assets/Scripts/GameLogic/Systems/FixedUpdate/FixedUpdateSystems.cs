@@ -10,10 +10,10 @@ namespace Tanks.GameLogic.Systems.FixedUpdate
         public FixedUpdateSystems(Contexts contexts, RuntimeData runtimeData,
             IPoolService poolService)
         {
-            Add(new TimeTrippingSystem(contexts));
-            Add(new MovementSystem(contexts, runtimeData));
+            Add(new TimeTrippingSystem(contexts.game, contexts.input));
+            Add(new MovementSystem(contexts.game, contexts.input, runtimeData));
             Add(new EventsSystems(contexts, runtimeData, poolService));
-            Add(new ParticlesRemoveSystem(contexts, poolService));
+            Add(new ParticlesRemoveSystem(contexts.game, poolService));
         }
     }
 }

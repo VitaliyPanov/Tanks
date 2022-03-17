@@ -16,15 +16,15 @@ namespace Tanks.GameLogic.Systems.Update
         private readonly GameContext _context;
         private List<GameEntity> _buffer = new();
 
-        public ViewDeadActivateSystem(Contexts contexts, SceneStaticData staticData, IPoolService poolService, IControllersMediator mediator)
+        public ViewDeadActivateSystem(GameContext gameContext, SceneStaticData staticData, IPoolService poolService, IControllersMediator mediator)
         {
+            _context = gameContext;
             _staticData = staticData;
             _poolService = poolService;
             _mediator = mediator;
-            _entities = contexts.game.GetGroup(GameMatcher
+            _entities = _context.GetGroup(GameMatcher
                 .AllOf(GameMatcher.View, GameMatcher.Transform, GameMatcher.Dead)
                 .NoneOf(GameMatcher.Destroy));
-            _context = contexts.game;
         }
 
         public void Execute()

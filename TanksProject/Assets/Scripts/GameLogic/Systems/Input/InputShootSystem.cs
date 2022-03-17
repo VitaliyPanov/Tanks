@@ -7,10 +7,10 @@ namespace Tanks.GameLogic.Systems.Input
         private readonly InputContext _inputContext;
         private readonly GameContext _gameContext;
 
-        public InputShootSystem(Contexts contexts)
+        public InputShootSystem(GameContext gameContext, InputContext inputContext)
         {
-            _gameContext = contexts.game;
-            _inputContext = contexts.input;
+            _gameContext = gameContext;
+            _inputContext = inputContext;
         }
         public void Execute()
         {

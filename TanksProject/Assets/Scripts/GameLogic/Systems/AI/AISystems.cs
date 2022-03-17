@@ -6,12 +6,12 @@ namespace Tanks.GameLogic.Systems.AI
     {
         public AISystems(Contexts contexts, IDataService dataService)
         {
-            Add(new AgentSetupSystem(contexts, dataService));
-            Add(new AgentControlSystem(contexts));
-            Add(new AgentToggleActiveSystem(contexts));
-            Add(new AgentDeactivateSystem(contexts));
-            Add(new AgentActivateSystem(contexts));
-            Add(new AgentShootSystem(contexts, dataService));
+            Add(new AgentSetupSystem(contexts.aI, dataService));
+            Add(new AgentControlSystem(contexts.aI));
+            Add(new AgentToggleActiveSystem(contexts.aI));
+            Add(new AgentDeactivateSystem(contexts.aI));
+            Add(new AgentActivateSystem(contexts.aI, contexts.game));
+            Add(new AgentShootSystem(contexts.aI, contexts.input, dataService));
         }
     }
 }

@@ -5,10 +5,10 @@ namespace Tanks.GameLogic.Systems.Update
 {
     internal sealed class WeaponSystems : Feature
     {
-        public WeaponSystems(Contexts contexts, IPoolService poolService)
+        public WeaponSystems(GameContext gameContext, InputContext inputContext, IPoolService poolService)
         {
-            Add(new WeaponShootSystem(contexts, poolService));
-            Add(new WeaponLaunchLoopSystem(contexts));
+            Add(new WeaponShootSystem(gameContext, poolService));
+            Add(new WeaponLaunchLoopSystem(gameContext, inputContext));
         }
     }
 }

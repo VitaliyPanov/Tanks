@@ -16,11 +16,11 @@ namespace Tanks.GameLogic.Systems.Weapon
         private readonly IGroup<GameEntity> _shootStopGroup;
         private List<GameEntity> _buffer = new();
 
-        public WeaponShootSystem(Contexts contexts, IPoolService poolService) : base(contexts.game)
+        public WeaponShootSystem(GameContext gameContext, IPoolService poolService) : base(gameContext)
         {
             _poolService = poolService;
-            _context = contexts.game;
-            _shootStopGroup = contexts.game.GetGroup(GameMatcher
+            _context = gameContext;
+            _shootStopGroup = gameContext.GetGroup(GameMatcher
                     .AllOf(GameMatcher.WeaponActivate)
                     .NoneOf(GameMatcher.Control));
         }
@@ -59,7 +59,7 @@ namespace Tanks.GameLogic.Systems.Weapon
         private void ChangeMovable(GameEntity entity)
         {
             entity.isWeaponFired = true;
-            _context.SetTimer(movableTimeAfterFire, GameComponentsLookup.Movable, entity);
+            _context.SetTimer(entity, GameComponentsLookup.Movable, movableTimeAfterFire);
         }
 
         private GameEntity CreateBulletEntity(Transform fireTransform, float damage)
@@ -90,7 +90,7 @@ namespace Tanks.GameLogic.Systems.Weapon
         private void CooldownWeapon(GameEntity entity)
         {
             entity.isWeaponCooldown = true;
-            _context.SetTimer(entity.weaponAmmo.Data.CooldownTime, GameComponentsLookup.WeaponCooldown, entity);
+            _context.SetTimer(entity, GameComponentsLookup.WeaponCooldown, entity.weaponAmmo.Data.CooldownTime);
         }
 
         public void Cleanup()

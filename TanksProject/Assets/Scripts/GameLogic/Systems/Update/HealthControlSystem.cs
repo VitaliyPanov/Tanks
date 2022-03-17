@@ -5,7 +5,7 @@ namespace Tanks.GameLogic.Systems.Update
 {
     public sealed class HealthControlSystem : ReactiveSystem<GameEntity>
     {
-        public HealthControlSystem(Contexts contexts) : base(contexts.game) {}
+        public HealthControlSystem(GameContext gameContext) : base(gameContext) {}
         protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context) =>
             context.CreateCollector(GameMatcher.CurrentHealth);
 

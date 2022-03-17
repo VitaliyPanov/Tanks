@@ -5,6 +5,7 @@ using FluentAssertions;
 using Moq;
 using NUnit.Framework;
 using Tanks.Data;
+using Tanks.GameLogic.Services;
 using Tanks.GameLogic.Services.View;
 using Tanks.GameLogic.Systems.Init;
 using Tanks.GameLogic.Systems.Update;
@@ -56,7 +57,7 @@ namespace Tanks.Tests.EditorMode.ECS
                 .Setup(m => m.CreateView(It.IsAny<GameObject>(), null))
                 .Returns(() => new GameObject().AddComponent<UnityView>());
 
-            var system = new TanksInitSystem(_contexts, staticData, _dataService.RuntimeData);
+            var system = new TanksInitSystem(_contexts.game, _contexts.aI, staticData, _dataService.RuntimeData);
             IGroup<GameEntity> entities = _contexts.game.GetGroup(GameMatcher.Team);
             // Act.
             system.Initialize();
@@ -72,7 +73,7 @@ namespace Tanks.Tests.EditorMode.ECS
         public void WhenHealthControlSystemExecute_AndCurrentHealthIsZero_ThenEntityIsDead()
         {
             // Arrange.
-            var system = new HealthControlSystem(_contexts);
+            var system = new HealthControlSystem(_contexts.game);
             var entity = _contexts.game.CreateEntity();
             // Act.
             entity.AddCurrentHealth(0);
@@ -85,7 +86,7 @@ namespace Tanks.Tests.EditorMode.ECS
         public void WhenDestroySystemCleanup_AndEntityIsDestroy_ThenEntityIsNotEnabled()
         {
             // Arrange.
-            var system = new DestroySystem(_contexts);
+            var system = new DestroySystem(_contexts.game);
             var entity = _contexts.game.CreateEntity();
             // Act.
             entity.isDestroy = true;
@@ -105,7 +106,7 @@ namespace Tanks.Tests.EditorMode.ECS
             var mediator = Mock.Of<IControllersMediator>();
             var view = Mock.Of<IView>(m => m.Transform == new GameObject().transform);
 
-            var system = new ViewDeadActivateSystem(_contexts, _dataService.StaticData(""), poolService, mediator);
+            var system = new ViewDeadActivateSystem(_contexts.game, _dataService.StaticData(""), poolService, mediator);
             var deadEntity = _contexts.game.CreateEntity();
             var explosionEntities = _contexts.game.GetGroup(GameMatcher.Particle);
 
@@ -116,6 +117,21 @@ namespace Tanks.Tests.EditorMode.ECS
             system.Execute();
             // Assert.
             explosionEntities.GetEntities().Length.Should().Be(1);
+        }
+
+        [Test]
+        public void WhenTimeTrippingSystemExecute_AndEntityHasTimerZeroOnComponent_ThenComponentDeleted()
+        {
+            // Arrange.
+            _contexts.input.ReplaceFixedDeltaTime(0);
+            var system = new TimeTrippingSystem(_contexts.game, _contexts.input);
+            var entity = _contexts.game.CreateEntity();
+            // Act.
+            entity.AddPosition(new Vector3(0, 0, 0));
+            _contexts.game.SetTimer(entity, GameComponentsLookup.Position, 0);
+            system.Execute();
+            // Assert.
+            entity.hasPosition.Should().BeFalse();
         }
     }
 }

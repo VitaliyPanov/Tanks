@@ -5,21 +5,21 @@ namespace Tanks.GameLogic.Systems.Update
 {
     public sealed class DestroySystem : ICleanupSystem
     {
-        private readonly Contexts _context;
+        private readonly GameContext _context;
         private readonly IGroup<GameEntity> _destroyGroup;
         private List<GameEntity> _buffer = new();
 
-        public DestroySystem(Contexts contexts)
+        public DestroySystem(GameContext gameContext)
         {
-            _context = contexts;
-            _destroyGroup = contexts.game.GetGroup(GameMatcher.Destroy);
+            _context = gameContext;
+            _destroyGroup = gameContext.GetGroup(GameMatcher.Destroy);
         }
         public void Cleanup()
         {
             foreach (var entity in _destroyGroup.GetEntities(_buffer))
             {
                 if (entity.hasView)
-                    _context.game.viewService.value.DestroyView(entity);
+                    _context.viewService.value.DestroyView(entity);
                 entity.Destroy();
             }
         }

@@ -176,6 +176,7 @@
      <Compile Include="Assets\Scripts\GameLogic\Systems\Update\TimeTrippingSystem.cs" />
      <Compile Include="Assets\Scripts\GameLogic\Generated\AI\AIContext.cs" />
      <Compile Include="Assets\Scripts\GameLogic\Generated\Game\Components\GameComponentIndexComponent.cs" />
+     <Compile Include="Assets\Scripts\GameLogic\Views\TeamBehaviour.cs" />
      <Compile Include="Assets\Scripts\GameLogic\Generated\Game\Components\GameMovableListenerComponent.cs" />
      <Compile Include="Assets\Scripts\GameLogic\Generated\Game\Components\GameAIComponent.cs" />
      <Compile Include="Assets\Scripts\GameLogic\Generated\Game\Components\GameHealthDamageComponent.cs" />
@@ -231,7 +232,6 @@
      <Compile Include="Assets\Scripts\GameLogic\Generated\Game\Components\GameControlComponent.cs" />
      <Compile Include="Assets\Scripts\GameLogic\Generated\Game\Components\GameWeaponCooldownComponent.cs" />
      <Compile Include="Assets\Scripts\GameLogic\Generated\Input\Components\InputAttackComponent.cs" />
-     <Compile Include="Assets\Scripts\GameLogic\Views\TeamBehaviour.cs" />
      <None Include="Assets\Scripts\GameLogic\GameLogic.asmdef" />
      <Reference Include="UnityEngine">
      <HintPath>C:\Program Files\Unity\2021.2.11f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>

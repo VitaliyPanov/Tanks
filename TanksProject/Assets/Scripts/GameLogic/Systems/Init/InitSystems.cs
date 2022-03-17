@@ -6,8 +6,8 @@ namespace Tanks.GameLogic.Systems.Init
     {
         public InitSystems(Contexts contexts, SceneStaticData staticData, RuntimeData runtimeData)
         {
-            Add(new TanksInitSystem(contexts, staticData, runtimeData));
-            Add(new TeamsInitSystem(contexts));
+            Add(new TanksInitSystem(contexts.game, contexts.aI, staticData, runtimeData));
+            Add(new TeamsInitSystem(contexts.game));
         }
     }
 }

@@ -7,7 +7,7 @@ namespace Tanks.GameLogic.Systems.AI
     {
         private readonly AIContext _context;
 
-        public AgentDeactivateSystem(Contexts contexts) : base(contexts.aI) => _context = contexts.aI;
+        public AgentDeactivateSystem(AIContext aiContext) : base(aiContext) => _context = aiContext;
 
         protected override ICollector<AIEntity> GetTrigger(IContext<AIEntity> context) =>
             context.CreateCollector(AIMatcher.CanBeActive.Removed());

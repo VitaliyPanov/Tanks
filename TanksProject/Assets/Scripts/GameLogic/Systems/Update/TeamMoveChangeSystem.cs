@@ -15,25 +15,24 @@ namespace Tanks.GameLogic.Systems.Update
         private readonly IControllersMediator _mediator;
         private readonly IGroup<GameEntity> _entities;
         private readonly IGroup<GameEntity> _movableEntities;
-        private readonly Contexts _contexts;
+        private readonly GameContext _context;
         private List<GameEntity> _buffer = new();
         private List<TeamType> _activeTeams = new();
         private TeamType _currentTeam;
 
-        public TeamMoveChangeSystem(Contexts contexts, RuntimeData runtimeData, IControllersMediator mediator) : base(
-            contexts.game)
+        public TeamMoveChangeSystem(GameContext gameContext, RuntimeData runtimeData, IControllersMediator mediator) : base(gameContext)
         {
+            _context = gameContext;
             _runtimeData = runtimeData;
             _mediator = mediator;
-            _contexts = contexts;
-            _entities = contexts.game.GetGroup(GameMatcher.Team);
-            _movableEntities = contexts.game.GetGroup(GameMatcher.Movable);
+            _entities = _context.GetGroup(GameMatcher.Team);
+            _movableEntities = _context.GetGroup(GameMatcher.Movable);
         }
 
         public void Initialize()
         {
             _activeTeams = _entities.GetEntities(_buffer).Select(e => e.team.Type).Distinct().ToList();
-            _contexts.game.SetControllable(_buffer.First());
+            _context.SetControllable(_buffer.First());
             ChangeMovableTeam(_runtimeData.CurrentTeamMove);
             CheckWinner();
         }
@@ -48,7 +47,7 @@ namespace Tanks.GameLogic.Systems.Update
             GameEntity firstMovable = FirstMovable(_currentTeam);
             if (firstMovable != null)
             {
-                if (_contexts.game.controllable.Entity == entities[0])
+                if (_context.controllable.Entity == entities[0])
                     firstMovable.tryControl = true;
             }
             else
@@ -97,7 +96,7 @@ namespace Tanks.GameLogic.Systems.Update
                 {
                     SetUnitMovableAndAbleToFire(entity);
                     CheckRotation(entity.transform.Value);
-                    _contexts.game.SetTimer(_runtimeData.MoveTime, GameComponentsLookup.Movable, entity);
+                    _context.SetTimer(entity, GameComponentsLookup.Movable, _runtimeData.MoveTime);
                 }
             }
         }
@@ -122,7 +121,7 @@ namespace Tanks.GameLogic.Systems.Update
             else
             {
                 _mediator.SetWinner(_currentTeam);
-                _contexts.game.ReplaceWinnersTeam(_currentTeam);
+                _context.ReplaceWinnersTeam(_currentTeam);
             }
         }
     }

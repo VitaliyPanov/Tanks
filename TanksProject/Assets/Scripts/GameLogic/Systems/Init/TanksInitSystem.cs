@@ -10,13 +10,16 @@ namespace Tanks.GameLogic.Systems.Init
     public sealed class TanksInitSystem : IInitializeSystem
     {
         private const string c_fireTransform = "FireTransform";
-        private readonly Contexts _contexts;
+        private readonly GameContext _gameContext;
+        private readonly AIContext _aiContext;
         private readonly SceneStaticData _staticData;
         private readonly RuntimeData _runtimeData;
 
-        public TanksInitSystem(Contexts contexts, SceneStaticData staticData, RuntimeData runtimeData)
+        public TanksInitSystem(GameContext gameContext, AIContext aiContext, SceneStaticData staticData,
+            RuntimeData runtimeData)
         {
-            _contexts = contexts;
+            _gameContext = gameContext;
+            _aiContext = aiContext;
             _staticData = staticData;
             _runtimeData = runtimeData;
         }
@@ -39,7 +42,7 @@ namespace Tanks.GameLogic.Systems.Init
 
         private GameEntity CreateTankEntity(TeamType team, Vector3 position, Quaternion rotation)
         {
-            var tankEntity = _contexts.game.CreateEntity();
+            var tankEntity = _gameContext.CreateEntity();
             tankEntity.AddTeam(team);
             tankEntity.AddPosition(position);
             tankEntity.AddRotation(rotation);
@@ -48,13 +51,13 @@ namespace Tanks.GameLogic.Systems.Init
 
         private void CreateTankView(GameEntity tankEntity, TeamType playableTeam, float health, AmmoData ammoData)
         {
-            var tankView = _contexts.game.viewService.value.CreateView(_staticData.TankPrefab, null);
+            var tankView = _gameContext.viewService.value.CreateView(_staticData.TankPrefab, null);
             if (tankEntity.team.Type == playableTeam)
                 tankEntity.isPlayable = true;
             else
             {
                 tankEntity.isAI = true;
-                tankView.GameObject.GetOrAddComponent<NavMeshAgentBehaviour>().Construct(_contexts.aI.CreateEntity());
+                tankView.GameObject.GetOrAddComponent<NavMeshAgentBehaviour>().Construct(_aiContext.CreateEntity());
             }
 
             tankView.GameObject.GetOrAddComponent<HealthBehaviour>();

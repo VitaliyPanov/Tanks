@@ -16,15 +16,15 @@ namespace Tanks.GameLogic.Systems.Events
         private List<GameEntity> _buffer = new();
         private readonly AmmoData _shellData;
 
-        public TriggeredShellExplosionSystem(Contexts contexts, RuntimeData runtimeData, IPoolService poolService)
+        public TriggeredShellExplosionSystem(GameContext gameContext, RuntimeData runtimeData, IPoolService poolService)
         {
             _shellData = runtimeData.Shell;
             _poolService = poolService;
-            _context = contexts.game;
-            _triggeredEntities = contexts.game.GetGroup(GameMatcher
+            _context = gameContext;
+            _triggeredEntities = _context.GetGroup(GameMatcher
                 .AllOf(GameMatcher.Shell, GameMatcher.ShellSteam, GameMatcher.Position, GameMatcher.Triggered));
 
-            _targetEntities = contexts.game.GetGroup(GameMatcher
+            _targetEntities = _context.GetGroup(GameMatcher
                 .AllOf(GameMatcher.CurrentHealth, GameMatcher.Rigidbody)
                 .NoneOf(GameMatcher.Dead));
         }

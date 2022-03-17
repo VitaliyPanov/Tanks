@@ -10,11 +10,11 @@ namespace Tanks.GameLogic.Systems.FixedUpdate
         private readonly InputContext _inputContext;
         private readonly GameContext _gameContext;
 
-        public MovementSystem(Contexts contexts, RuntimeData runtimeData)
+        public MovementSystem(GameContext gameContext, InputContext inputContext, RuntimeData runtimeData)
         {
             _runtimeData = runtimeData;
-            _inputContext = contexts.input;
-            _gameContext = contexts.game;
+            _gameContext = gameContext;
+            _inputContext = inputContext;
         }
 
         public void Execute()

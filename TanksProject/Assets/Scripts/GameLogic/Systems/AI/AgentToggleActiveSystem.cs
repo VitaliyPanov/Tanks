@@ -10,10 +10,10 @@ namespace Tanks.GameLogic.Systems.AI
         private readonly IGroup<AIEntity> _deactivateEntities;
         private List<AIEntity> _buffer = new List<AIEntity>();
 
-        public AgentToggleActiveSystem(Contexts contexts)
+        public AgentToggleActiveSystem(AIContext aiContext)
         {
-            _context = contexts.aI;
-            _entities = contexts.aI.GetGroup(AIMatcher
+            _context = aiContext;
+            _entities = _context.GetGroup(AIMatcher
                 .AllOf(AIMatcher.NavMesh, AIMatcher.CanBeActive));
         }
 

@@ -11,10 +11,10 @@ namespace Tanks.GameLogic.Systems.AI
         private readonly AIContext _context;
         private readonly float _maxDistance = float.MaxValue;
 
-        public AgentActivateSystem(Contexts contexts) : base(contexts.aI)
+        public AgentActivateSystem(AIContext aiContext, GameContext gameContext) : base(aiContext)
         {
-            _context = contexts.aI;
-            _tankEntities = contexts.game.GetGroup(GameMatcher
+            _context = aiContext;
+            _tankEntities = gameContext.GetGroup(GameMatcher
                 .AllOf(GameMatcher.Health, GameMatcher.Transform)
                 .NoneOf(GameMatcher.Movable, GameMatcher.Dead));
         }

@@ -1,9 +1,9 @@
 ﻿namespace Tanks.GameLogic.Services
 {
-    internal static class ContextsExtensions
+    public static class ContextsExtensions
     {
-        public static void SetTimer(this GameContext context, float lifeTime, int componentIndex,
-            GameEntity targetEntity)
+        public static void SetTimer(this GameContext context, GameEntity targetEntity, int componentIndex,
+            float lifeTime)
         {
             var timerEntity = context.CreateEntity();
             timerEntity.AddTimer(lifeTime);

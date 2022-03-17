@@ -14,10 +14,10 @@ namespace Tanks.GameLogic.Systems.AI
         private List<AIEntity> _buffer = new List<AIEntity>();
         private RaycastHit _hit;
 
-        public AgentControlSystem(Contexts contexts)
+        public AgentControlSystem(AIContext aiContext)
         {
-            _context = contexts.aI;
-            _entities = contexts.aI.GetGroup(AIMatcher
+            _context = aiContext;
+            _entities = _context.GetGroup(AIMatcher
                 .AllOf(AIMatcher.NavMesh, AIMatcher.CanBeActive, AIMatcher.GameEntity, AIMatcher.Target,
                     AIMatcher.AgentDestination)
                 .NoneOf(AIMatcher.Disabled, AIMatcher.ReadyToShoot));

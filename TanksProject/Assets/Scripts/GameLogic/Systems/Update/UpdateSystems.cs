@@ -10,15 +10,15 @@ namespace Tanks.GameLogic.Systems.Update
         public UpdateSystems(Contexts contexts, RuntimeData runtimeData, SceneStaticData staticData,
             IInputService inputService, ITimeService timeService, IPoolService poolService, IControllersMediator mediator)
         {
-            Add(new UpdateTimeSystem(contexts, timeService));
-            Add(new InputSystems(contexts, runtimeData, inputService));
-            Add(new TeamMoveChangeSystem(contexts, runtimeData, mediator));
-            Add(new WeaponSystems(contexts, poolService));
-            Add(new ControllableUpdateSystem(contexts, mediator));
-            Add(new HealthControlSystem(contexts));
-            Add(new ViewDeadActivateSystem(contexts, staticData, poolService, mediator));
+            Add(new UpdateTimeSystem(contexts.input, timeService));
+            Add(new InputSystems(contexts.game, contexts.input, inputService));
+            Add(new TeamMoveChangeSystem(contexts.game, runtimeData, mediator));
+            Add(new WeaponSystems(contexts.game, contexts.input, poolService));
+            Add(new ControllableUpdateSystem(contexts.game, mediator));
+            Add(new HealthControlSystem(contexts.game));
+            Add(new ViewDeadActivateSystem(contexts.game, staticData, poolService, mediator));
             
-            Add(new DestroySystem(contexts));
+            Add(new DestroySystem(contexts.game));
         }
     }
 }

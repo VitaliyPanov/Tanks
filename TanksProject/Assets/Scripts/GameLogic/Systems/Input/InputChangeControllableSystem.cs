@@ -7,13 +7,13 @@ namespace Tanks.GameLogic.Systems.Input
     internal sealed class InputChangeControllableSystem : ReactiveSystem<InputEntity>
     {
         private readonly IGroup<GameEntity> _entities;
-        private readonly GameContext _game;
+        private readonly GameContext _context;
         private List<GameEntity> _buffer = new();
 
-        public InputChangeControllableSystem(Contexts contexts) : base(contexts.input)
+        public InputChangeControllableSystem(GameContext gameContextContext, InputContext inputContext) : base(inputContext)
         {
-            _entities = contexts.game.GetGroup(GameMatcher.Movable);
-            _game = contexts.game;
+            _entities = gameContextContext.GetGroup(GameMatcher.Movable);
+            _context = gameContextContext;
         }
 
         protected override ICollector<InputEntity> GetTrigger(IContext<InputEntity> context) =>
@@ -26,8 +26,8 @@ namespace Tanks.GameLogic.Systems.Input
             if (_entities.count > 1)
             {
                 GameEntity nextSelected = entities[0].isToggleNext
-                    ? _entities.GetEntities(_buffer).GetNext(_game.controllable.Entity)
-                    : _entities.GetEntities(_buffer).GetPrevious(_game.controllable.Entity);
+                    ? _entities.GetEntities(_buffer).GetNext(_context.controllable.Entity)
+                    : _entities.GetEntities(_buffer).GetPrevious(_context.controllable.Entity);
                 nextSelected.tryControl = true;
             }
         }

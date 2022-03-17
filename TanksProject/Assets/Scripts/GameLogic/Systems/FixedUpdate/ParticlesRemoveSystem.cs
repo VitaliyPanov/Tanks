@@ -8,15 +8,13 @@ namespace Tanks.GameLogic.Systems.FixedUpdate
     internal sealed class ParticlesRemoveSystem : IExecuteSystem
     {
         private readonly IPoolService _poolService;
-        private readonly GameContext _context;
         private readonly IGroup<GameEntity> _entities;
         private List<GameEntity> _buffer = new List<GameEntity>();
 
-        public ParticlesRemoveSystem(Contexts contexts, IPoolService poolService)
+        public ParticlesRemoveSystem(GameContext gameContext, IPoolService poolService)
         {
             _poolService = poolService;
-            _context = contexts.game;
-            _entities = contexts.game.GetGroup(GameMatcher.Particle);
+            _entities = gameContext.GetGroup(GameMatcher.Particle);
         }
 
         public void Execute()

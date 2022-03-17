@@ -8,9 +8,9 @@ namespace Tanks.GameLogic.Systems.Update
         private readonly InputContext _context;
         private readonly ITimeService _timeService;
 
-        public UpdateTimeSystem(Contexts contexts, ITimeService timeService)
+        public UpdateTimeSystem(InputContext inputContext, ITimeService timeService)
         {
-            _context = contexts.input;
+            _context = inputContext;
             _timeService = timeService;
         }
 

@@ -8,13 +8,15 @@ namespace Tanks.GameLogic.Systems.Weapon
     internal sealed class WeaponLaunchLoopSystem : IExecuteSystem
     {
         private readonly IGroup<GameEntity> _entities;
-        private readonly Contexts _contexts;
+        private readonly GameContext _gameContext;
+        private readonly InputContext _inputContext;
         private List<GameEntity> _buffer = new List<GameEntity>();
 
-        public WeaponLaunchLoopSystem(Contexts contexts)
+        public WeaponLaunchLoopSystem(GameContext gameContext, InputContext inputContext)
         {
-            _contexts = contexts;
-            _entities = contexts.game.GetGroup(GameMatcher
+            _gameContext = gameContext;
+            _inputContext = inputContext;
+            _entities = gameContext.GetGroup(GameMatcher
                 .AllOf(GameMatcher.WeaponActivate, GameMatcher.WeaponTransform)
                 .NoneOf(GameMatcher.WeaponFired, GameMatcher.WeaponCooldown));
         }
@@ -26,12 +28,12 @@ namespace Tanks.GameLogic.Systems.Weapon
                 if (!entity.isWeaponLaunching)
                 {
                     entity.isWeaponLaunching = true;
-                    _contexts.game.SetTimer(entity.weaponAmmo.Data.MaxLaunchingTime, GameComponentsLookup.WeaponActivate, entity);
+                    _gameContext.SetTimer(entity, GameComponentsLookup.WeaponActivate, entity.weaponAmmo.Data.MaxLaunchingTime);
                     entity.ReplaceWeaponLaunchTime(0);
                 }
                 else
                 {
-                    entity.weaponLaunchTime.Value += _contexts.input.deltaTime.Value;
+                    entity.weaponLaunchTime.Value += _inputContext.deltaTime.Value;
                 }
             }
         }

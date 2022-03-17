@@ -12,17 +12,17 @@ namespace Tanks.GameLogic.Systems.AI
         private readonly RuntimeData _runtimeData;
         private readonly IGroup<AIEntity> _entities;
         private List<AIEntity> _buffer = new List<AIEntity>();
-        private readonly AIContext _ai;
+        private readonly AIContext _aiContext;
         private readonly AmmoData _shellData;
-        private readonly InputContext _input;
+        private readonly InputContext _inputContext;
 
-        public AgentShootSystem(Contexts contexts, IDataService dataService)
+        public AgentShootSystem(AIContext aiContext, InputContext inputContext, IDataService dataService)
         {
-            _ai = contexts.aI;
-            _input = contexts.input;
+            _aiContext = aiContext;
+            _inputContext = inputContext;
             _runtimeData = dataService.RuntimeData;
             _shellData = dataService.AmmunitionData(AmmoType.Shell);
-            _entities = contexts.aI.GetGroup(AIMatcher
+            _entities = _aiContext.GetGroup(AIMatcher
                 .AllOf(AIMatcher.NavMesh, AIMatcher.CanBeActive, AIMatcher.GameEntity, AIMatcher.AgentDestination,
                     AIMatcher.Target, AIMatcher.ReadyToShoot)
                 .NoneOf(AIMatcher.AgentShot, AIMatcher.Disabled));
@@ -37,13 +37,13 @@ namespace Tanks.GameLogic.Systems.AI
                 Transform agentTransform = entity.gameEntity.Value.transform.Value;
                 Vector3 targetDirection = entity.target.Value.position - agentTransform.position;
                 agentTransform.rotation = Quaternion.LookRotation(Vector3.RotateTowards(agentTransform.forward,
-                    targetDirection, _input.fixedDeltaTime.Value, 0.0f));
+                    targetDirection, _inputContext.fixedDeltaTime.Value, 0.0f));
                 if (Vector3.Angle(agentTransform.forward, targetDirection) <= 1)
                 {
                     float deltaDistance = Vector3.Distance(agentTransform.position, entity.target.Value.position) -
-                                          _ai.minBallisticDistance.Value;
-                    float launchingTime = 0 + (_shellData.MaxLaunchingTime / (_ai.maxBallisticDistance.Value -
-                                                                              _ai.minBallisticDistance.Value)) *
+                                          _aiContext.minBallisticDistance.Value;
+                    float launchingTime = 0 + (_shellData.MaxLaunchingTime / (_aiContext.maxBallisticDistance.Value -
+                                                                              _aiContext.minBallisticDistance.Value)) *
                         deltaDistance;
                     launchingTime = Mathf.Clamp(launchingTime, 0f, _shellData.MaxLaunchingTime);
                     LaunchWeapon(entity.gameEntity.Value, launchingTime);

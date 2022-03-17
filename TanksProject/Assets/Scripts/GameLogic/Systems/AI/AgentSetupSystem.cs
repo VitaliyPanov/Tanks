@@ -17,12 +17,12 @@ namespace Tanks.GameLogic.Systems.AI
         private float _tankFireX = 1.35f;
         private float _gravity = Physics.gravity.y;
 
-        public AgentSetupSystem(Contexts contexts, IDataService dataService)
+        public AgentSetupSystem(AIContext aiContext, IDataService dataService)
         {
             _dataService = dataService;
             
-            _context = contexts.aI;
-            _entities = contexts.aI.GetGroup(AIMatcher.NavMesh);
+            _context = aiContext;
+            _entities = _context.GetGroup(AIMatcher.NavMesh);
         }
 
         public void Initialize()
