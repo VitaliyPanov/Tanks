@@ -28,7 +28,7 @@ namespace Tanks.GameLogic.Systems.Weapon
         protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context) =>
             context.CreateCollector(GameMatcher.WeaponLaunching.Removed());
 
-        protected override bool Filter(GameEntity entity) => entity.hasTransform;
+        protected override bool Filter(GameEntity entity) => entity.hasWeaponTransform && entity.hasWeaponLaunchTime;
 
         protected override void Execute(List<GameEntity> entities)
         {

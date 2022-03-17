@@ -97,6 +97,7 @@
      <Compile Include="Assets\Scripts\GameLogic\Components\Game\Weapon\WeaponTransformComponent.cs" />
      <Compile Include="Assets\Scripts\GameLogic\Components\Game\Weapon\WeaponAmmoComponent.cs" />
      <Compile Include="Assets\Scripts\GameLogic\Systems\Init\TanksInitSystem.cs" />
+     <Compile Include="Assets\Scripts\GameLogic\Services\Input\TankInputService.cs" />
      <Compile Include="Assets\Scripts\GameLogic\Generated\Game\Components\GameMovableComponent.cs" />
      <Compile Include="Assets\Scripts\GameLogic\Generated\Input\InputEntity.cs" />
      <Compile Include="Assets\Scripts\GameLogic\Generated\Input\Components\InputDirectionComponent.cs" />
@@ -126,6 +127,7 @@
      <Compile Include="Assets\Scripts\GameLogic\Services\ContextsExtensions.cs" />
      <Compile Include="Assets\Scripts\GameLogic\Generated\Game\Components\GameTriggeredComponent.cs" />
      <Compile Include="Assets\Scripts\GameLogic\Generated\Events\Systems\WeaponActivateRemovedEventSystem.cs" />
+     <Compile Include="Assets\Scripts\GameLogic\Generated\Input\Components\InputInputServiceComponent.cs" />
      <Compile Include="Assets\Scripts\GameLogic\Generated\AI\Components\AIMinBallisticDistanceComponent.cs" />
      <Compile Include="Assets\Scripts\GameLogic\Services\View\IViewService.cs" />
      <Compile Include="Assets\Scripts\GameLogic\Components\AI\GameEntityComponent.cs" />
@@ -161,6 +163,7 @@
      <Compile Include="Assets\Scripts\GameLogic\Views\Behaviours\HealthBehaviour.cs" />
      <Compile Include="Assets\Scripts\GameLogic\Components\Input\Time\DeltaTime.cs" />
      <Compile Include="Assets\Scripts\GameLogic\Generated\AI\Components\AIDisabledComponent.cs" />
+     <Compile Include="Assets\Scripts\GameLogic\Services\Input\ITankInputService.cs" />
      <Compile Include="Assets\Scripts\GameLogic\Systems\Update\TeamMoveChangeSystem.cs" />
      <Compile Include="Assets\Scripts\GameLogic\Components\Game\WinnersTeamComponent.cs" />
      <Compile Include="Assets\Scripts\GameLogic\Generated\Game\Components\GameTargetComponent.cs" />
@@ -215,6 +218,7 @@
      <Compile Include="Assets\Scripts\GameLogic\Systems\FixedUpdate\ParticlesRemoveSystem.cs" />
      <Compile Include="Assets\Scripts\GameLogic\Generated\Feature.cs" />
      <Compile Include="Assets\Scripts\GameLogic\Components\AI\TargetComponent.cs" />
+     <Compile Include="Assets\Scripts\GameLogic\Generated\Components\InputServiceComponent.cs" />
      <Compile Include="Assets\Scripts\GameLogic\Systems\Update\InputSystems.cs" />
      <Compile Include="Assets\Scripts\GameLogic\Generated\Events\Interfaces\IMovableListener.cs" />
      <Compile Include="Assets\Scripts\GameLogic\Generated\Input\InputMatcher.cs" />
@@ -231,10 +235,6 @@
      <Compile Include="Assets\Scripts\GameLogic\Generated\Game\Components\GameControlComponent.cs" />
      <Compile Include="Assets\Scripts\GameLogic\Generated\Game\Components\GameWeaponCooldownComponent.cs" />
      <Compile Include="Assets\Scripts\GameLogic\Generated\Input\Components\InputAttackComponent.cs" />
-     <Compile Include="Assets\Scripts\GameLogic\Services\Input\ITankInputService.cs" />
-     <Compile Include="Assets\Scripts\GameLogic\Services\Input\TankInputService.cs" />
-     <Compile Include="Assets\Scripts\GameLogic\Generated\Input\Components\InputInputServiceComponent.cs" />
-     <Compile Include="Assets\Scripts\GameLogic\Generated\Components\InputServiceComponent.cs" />
      <None Include="Assets\Scripts\GameLogic\GameLogic.asmdef" />
      <Reference Include="UnityEngine">
      <HintPath>C:\Program Files\Unity\2021.2.11f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>

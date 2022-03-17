@@ -123,16 +123,17 @@ namespace Tanks.Tests.EditorMode.ECS
         public void WhenTimeTrippingSystemExecute_AndEntityHasTimerZeroOnComponent_ThenComponentDeleted()
         {
             // Arrange.
-            _contexts.input.ReplaceFixedDeltaTime(0);
             var system = new TimeTrippingSystem(_contexts.game, _contexts.input);
             var entity = _contexts.game.CreateEntity();
             // Act.
             entity.AddPosition(new Vector3(0, 0, 0));
+            _contexts.input.ReplaceFixedDeltaTime(0);
             _contexts.game.SetTimer(entity, GameComponentsLookup.Position, 0);
             system.Execute();
             // Assert.
             entity.hasPosition.Should().BeFalse();
         }
+        
         
     }
 }
