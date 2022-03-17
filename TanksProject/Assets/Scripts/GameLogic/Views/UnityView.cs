@@ -34,6 +34,7 @@ namespace Tanks.GameLogic.Views
                 listener.AddListener(entity);
             }
 
+            if (entity.hasTeam) gameObject.GetOrAddComponent<TeamBehaviour>().Construct(entity.team.Type);
             if (entity.hasPosition) SetPosition(entity.position.Value);
             if (entity.hasRotation) SetRotation(entity.rotation.Value);
         }

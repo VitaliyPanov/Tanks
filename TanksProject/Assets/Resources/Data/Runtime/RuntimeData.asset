@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b86fd07c7a634578a5a052a88757042e, type: 3}
   m_Name: RuntimeData
   m_EditorClassIdentifier: 
-  MoveTime: 600
+  MoveTime: 20
   MovementSpeed: 10
   TurnSpeed: 200
   Shell: {fileID: 11400000, guid: e5066dc554d11b04da1fdd5d6e702208, type: 2}
-  CurrentTeamMove: 0
+  CurrentTeamMove: 1
   Controllable: {fileID: 0}

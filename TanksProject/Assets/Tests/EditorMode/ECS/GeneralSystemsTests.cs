@@ -34,9 +34,9 @@ namespace Tanks.Tests.EditorMode.ECS
                 .Where(m => m.StaticData(It.IsAny<string>()) == staticData)
                 .Where(m => m.RuntimeData == runtimeData)
                 .First(m => m.AmmunitionData(AmmoType.Shell) == shellData);
-            
+
             _viewService = Mock.Of<IViewService>();
-            
+
             _contexts = new Contexts();
             _contexts.game.SetViewService(_viewService);
         }
@@ -52,10 +52,10 @@ namespace Tanks.Tests.EditorMode.ECS
                 new(TeamType.Red, new Vector3(10, 0, 10)),
                 new(TeamType.Black, new Vector3(15, 0, 15)),
             };
-            Mock<IViewService> viewServiceMock = Mock.Get(_viewService);
-            viewServiceMock.Setup(m => m.CreateView(It.IsAny<GameObject>(), null))
+            Mock.Get(_viewService)
+                .Setup(m => m.CreateView(It.IsAny<GameObject>(), null))
                 .Returns(() => new GameObject().AddComponent<UnityView>());
-            
+
             var system = new TanksInitSystem(_contexts, staticData, _dataService.RuntimeData);
             IGroup<GameEntity> entities = _contexts.game.GetGroup(GameMatcher.Team);
             // Act.

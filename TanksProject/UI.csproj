@@ -51,6 +51,7 @@
      <Compile Include="Assets\Scripts\UI\Models\HealthModel.cs" />
      <Compile Include="Assets\Scripts\UI\ViewModels\WeaponViewModel.cs" />
      <Compile Include="Assets\Scripts\UI\ViewModels\HealthViewModel.cs" />
+     <Compile Include="Assets\Scripts\UI\TeamMapElement.cs" />
      <None Include="Assets\Scripts\UI\UI.asmdef" />
      <Reference Include="UnityEngine">
      <HintPath>C:\Program Files\Unity\2021.2.11f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>

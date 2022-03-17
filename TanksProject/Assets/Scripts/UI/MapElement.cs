@@ -1,16 +1,21 @@
-﻿using UnityEngine.Scripting;
+﻿using Tanks.Data;
+using UnityEngine;
+using UnityEngine.Scripting;
 using UnityEngine.UIElements;
 
 namespace Tanks.UI
 {
-    public sealed class MapElement : VisualElement
+    public class MapElement : VisualElement
     {
+        private const string c_elementStyle = "element-icon";
+        private const string c_containerStyle = "element-container";
+
         public MapElement()
         {
             var icon = new Image();
             Add(icon);
-            icon.AddToClassList("element-icon");
-            AddToClassList("element-container");
+            icon.AddToClassList(c_elementStyle);
+            AddToClassList(c_containerStyle);
         }
 
         [Preserve]

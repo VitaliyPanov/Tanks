@@ -12,16 +12,16 @@ namespace Tanks.UI
         private const string c_miniMap = "root-container-mini";
         private const string c_fullMap = "root-container-full";
         private const float c_miniMultiplier = 2.9f;
-        private const float c_fullMultiplier = 7.7f;
+        private const float c_fullMultiplier = 7.5f;
 
         private IInputService _inputService;
         private VisualElement _root;
         private VisualElement _mapImage;
-        private VisualElement _playerRepresentation;
         private VisualElement _mapContainer;
 
-        private Dictionary<string, MapElement> _existingElements;
+        private Dictionary<string, MapElement> _elementsContainer;
         private Transform _currentPlayer;
+        private MapElement _playerRepresentation;
         private bool _isMapOpen;
 
         public void Construct(IInputService inputService)
@@ -33,18 +33,15 @@ namespace Tanks.UI
             _mapContainer = _root.Q<VisualElement>("Map");
 
             UnityView[] views = FindObjectsOfType<UnityView>();
-            _existingElements = new Dictionary<string, MapElement>(views.Length);
+            _elementsContainer = new Dictionary<string, MapElement>(views.Length);
             CreateMapElements(views);
-            _playerRepresentation = _existingElements.Values.First();
+            _playerRepresentation = _elementsContainer.Values.First();
         }
 
         private void LateUpdate()
         {
             var multiplier = _isMapOpen ? c_fullMultiplier : c_miniMultiplier;
-            _playerRepresentation.style.translate = new Translate(_currentPlayer.transform.position.x * multiplier,
-                _currentPlayer.transform.position.z * -multiplier, 0);
-            _playerRepresentation.style.rotate = new Rotate(new Angle(_currentPlayer.transform.rotation.eulerAngles.y));
-
+            SetElementPosition(_playerRepresentation, _currentPlayer, multiplier);
             if (!_isMapOpen)
             {
                 var clampWidth = _mapImage.worldBound.width / 2 - _mapContainer.worldBound.width / 2;
@@ -59,7 +56,7 @@ namespace Tanks.UI
 
         public void TrySetPlayer(Transform target, string id)
         {
-            if (_existingElements.TryGetValue(id, out MapElement element))
+            if (_elementsContainer.TryGetValue(id, out MapElement element))
             {
                 _currentPlayer = target;
                 _playerRepresentation = element;
@@ -68,7 +65,7 @@ namespace Tanks.UI
 
         public void TryRemoveElement(string id)
         {
-            if (_existingElements.Remove(id,out MapElement element))
+            if (_elementsContainer.Remove(id, out MapElement element))
                 _mapImage.Remove(element);
         }
 
@@ -82,10 +79,10 @@ namespace Tanks.UI
 
         private void ScaleCoordinates(float multiplier)
         {
-            foreach (MapElement element in _existingElements.Values)
+            foreach (var visualElement in _elementsContainer.Values)
             {
-                element.style.translate = new Translate(element.transform.position.x * multiplier,
-                    element.transform.position.y * multiplier, 0);
+                visualElement.style.translate = new Translate(visualElement.transform.position.x * multiplier,
+                    visualElement.transform.position.y * multiplier, 0);
             }
         }
 
@@ -95,19 +92,22 @@ namespace Tanks.UI
             foreach (var view in views)
             {
                 var viewElement = CreateElement(view);
-                viewElement.style.translate = new Translate(view.transform.position.x * multiplier,
-                    view.transform.position.z * -multiplier, 0);
-                viewElement.style.rotate = new Rotate(new Angle(view.transform.rotation.eulerAngles.y));
+                _mapImage.Add(viewElement);
+                _elementsContainer[view.UniqID] = viewElement;
+                SetElementPosition(viewElement, view.transform, multiplier);
             }
         }
 
-        private MapElement CreateElement(IView view)
+        private static void SetElementPosition(MapElement element, Transform transform, float multiplier)
         {
-            var viewElement = new MapElement();
-            _mapImage.Add(viewElement);
-            _existingElements[view.UniqID] = viewElement;
-            return viewElement;
+            element.style.translate = new Translate(transform.position.x * multiplier, transform.position.z * -multiplier, 0);
+            element.style.rotate = new Rotate(new Angle(transform.rotation.eulerAngles.y));
         }
+
+        private MapElement CreateElement(IView view) => 
+            view.GameObject.TryGetComponent(out TeamBehaviour team)
+            ? new TeamMapElement(team.Team)
+            : new MapElement();
 
         private void OnDisable() => _inputService.OnToggleMiniMapEvent -= OpenMap;
     }

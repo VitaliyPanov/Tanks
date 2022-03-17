@@ -12,7 +12,7 @@ namespace Tanks.UI
 
         private const string c_infoLabel = "InfoLabel";
         private const string c_roundLabel = "RoundLabel";
-        private const string c_movementInfo = "Movement - WASD\nAttack - SPACE\nToggle tanks - Arrows(L-R)";
+        private const string c_movementInfo = "Movement - WASD\nAttack - SPACE\nToggle tanks - Arrows(L-R)\nToggle map - M";
         
         private void Awake()
         {
@@ -39,7 +39,7 @@ namespace Tanks.UI
 
         private async void HideLabel(Label label)
         {
-            await Task.Delay(5000);
+            await Task.Delay(10000);
             ToggleVisibility(label, false);
         }
 

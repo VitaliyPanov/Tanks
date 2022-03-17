@@ -80,4 +80,13 @@
     padding-right: 0;
     padding-top: 0;
     padding-bottom: 0;
+    position: absolute;
+    bottom: 15%;
+}
+
+.element-team {
+    background-image: resource('Sprites/Health Wheel');
+    position: absolute;
+    width: 100%;
+    height: 100%;
 }
