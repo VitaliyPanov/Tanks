@@ -44,13 +44,13 @@
      <Compile Include="Assets\Scripts\UI\Models\WeaponModel.cs" />
      <Compile Include="Assets\Scripts\UI\HUD.cs" />
      <Compile Include="Assets\Scripts\UI\Views\AimView.cs" />
+     <Compile Include="Assets\Scripts\UI\MapElement.cs" />
      <Compile Include="Assets\Scripts\UI\UIController.cs" />
+     <Compile Include="Assets\Scripts\UI\MiniMapController.cs" />
      <Compile Include="Assets\Scripts\UI\Views\HealthView.cs" />
      <Compile Include="Assets\Scripts\UI\Models\HealthModel.cs" />
      <Compile Include="Assets\Scripts\UI\ViewModels\WeaponViewModel.cs" />
      <Compile Include="Assets\Scripts\UI\ViewModels\HealthViewModel.cs" />
-     <Compile Include="Assets\Scripts\UI\MiniMapController.cs" />
-     <Compile Include="Assets\Scripts\UI\MapElement.cs" />
      <None Include="Assets\Scripts\UI\UI.asmdef" />
      <Reference Include="UnityEngine">
      <HintPath>C:\Program Files\Unity\2021.2.11f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
@@ -414,6 +414,9 @@
      </Reference>
      <Reference Include="Sirenix.Serialization">
      <HintPath>D:\Unity Projects\Tanks\TanksProject\Assets\Plugins\Sirenix\Assemblies\Sirenix.Serialization.dll</HintPath>
+     </Reference>
+     <Reference Include="Moq">
+     <HintPath>D:\Unity Projects\Tanks\TanksProject\Assets\Tests\Dependencies\Moq.dll</HintPath>
      </Reference>
      <Reference Include="DesperateDevs.CodeGeneration">
      <HintPath>D:\Unity Projects\Tanks\TanksProject\Assets\Plugins\DesperateDevs\Editor\DesperateDevs.CodeGeneration.dll</HintPath>

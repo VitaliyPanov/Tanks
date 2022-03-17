@@ -351,6 +351,9 @@
      <Reference Include="Sirenix.Serialization">
      <HintPath>D:\Unity Projects\Tanks\TanksProject\Assets\Plugins\Sirenix\Assemblies\Sirenix.Serialization.dll</HintPath>
      </Reference>
+     <Reference Include="Moq">
+     <HintPath>D:\Unity Projects\Tanks\TanksProject\Assets\Tests\Dependencies\Moq.dll</HintPath>
+     </Reference>
      <Reference Include="Unity.Android.Types">
      <HintPath>C:\Program Files\Unity\2021.2.11f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Types.dll</HintPath>
      </Reference>

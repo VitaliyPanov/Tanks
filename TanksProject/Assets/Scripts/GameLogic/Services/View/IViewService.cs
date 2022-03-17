@@ -7,7 +7,7 @@ namespace Tanks.GameLogic.Services.View
     [Game, Unique, ComponentName("ViewService")]
     public interface IViewService
     {
-        IView CreateView(GameObject prefab, Transform parent = null);
+        IView CreateView(GameObject prefab, Transform parent);
         IView CreateImmediately(GameObject prefab, GameEntity entity);
         void DestroyView(GameEntity entity);
     }

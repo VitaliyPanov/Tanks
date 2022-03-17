@@ -20,7 +20,7 @@
         "nunit.framework.dll",
         "FluentAssertions.dll",
         "Castle.Core.dll",
-        "NSubstitute.dll",
+        "Moq.dll",
         "System.Collections.NonGeneric.dll",
         "System.Collections.Specialized.dll",
         "System.ComponentModel.TypeConverter.dll",

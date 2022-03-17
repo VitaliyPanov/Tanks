@@ -308,8 +308,8 @@
      <Reference Include="Castle.Core">
      <HintPath>D:\Unity Projects\Tanks\TanksProject\Assets\Tests\Dependencies\Castle.Core.dll</HintPath>
      </Reference>
-     <Reference Include="NSubstitute">
-     <HintPath>D:\Unity Projects\Tanks\TanksProject\Assets\Tests\Dependencies\NSubstitute.dll</HintPath>
+     <Reference Include="Moq">
+     <HintPath>D:\Unity Projects\Tanks\TanksProject\Assets\Tests\Dependencies\Moq.dll</HintPath>
      </Reference>
      <Reference Include="System.Collections.NonGeneric">
      <HintPath>D:\Unity Projects\Tanks\TanksProject\Assets\Tests\Dependencies\System.Collections.NonGeneric.dll</HintPath>

@@ -2,8 +2,7 @@
 using System.Linq;
 using Entitas;
 using FluentAssertions;
-using NSubstitute;
-using NSubstitute.Extensions;
+using Moq;
 using NUnit.Framework;
 using Tanks.Data;
 using Tanks.GameLogic.Services.View;
@@ -30,13 +29,14 @@ namespace Tanks.Tests.EditorMode.ECS
             var shellData = TestsSetups.InstantiateShellData();
             var runtimeData = TestsSetups.InstantiateRuntimeData(staticData, shellData);
 
-            _dataService = Substitute.For<IDataService>();
-            _dataService.StaticData("").Returns(staticData);
-            _dataService.RuntimeData.Returns(runtimeData);
-            _dataService.AmmunitionData(AmmoType.Shell).Returns(shellData);
-
-            _viewService = Substitute.For<IViewService>();
-
+            _dataService = new MockRepository(MockBehavior.Default)
+                .Of<IDataService>()
+                .Where(m => m.StaticData(It.IsAny<string>()) == staticData)
+                .Where(m => m.RuntimeData == runtimeData)
+                .First(m => m.AmmunitionData(AmmoType.Shell) == shellData);
+            
+            _viewService = Mock.Of<IViewService>();
+            
             _contexts = new Contexts();
             _contexts.game.SetViewService(_viewService);
         }
@@ -52,9 +52,10 @@ namespace Tanks.Tests.EditorMode.ECS
                 new(TeamType.Red, new Vector3(10, 0, 10)),
                 new(TeamType.Black, new Vector3(15, 0, 15)),
             };
-            _viewService.CreateView(staticData.TankPrefab)
-                .Returns(_ => new GameObject("Tank").AddComponent<UnityView>());
-
+            Mock<IViewService> viewServiceMock = Mock.Get(_viewService);
+            viewServiceMock.Setup(m => m.CreateView(It.IsAny<GameObject>(), null))
+                .Returns(() => new GameObject().AddComponent<UnityView>());
+            
             var system = new TanksInitSystem(_contexts, staticData, _dataService.RuntimeData);
             IGroup<GameEntity> entities = _contexts.game.GetGroup(GameMatcher.Team);
             // Act.
@@ -97,15 +98,17 @@ namespace Tanks.Tests.EditorMode.ECS
         public void WhenViewDeadActivateSystemExecute_AndEntityIsDead_ThenCreatesExplosion()
         {
             // Arrange.
-            var poolService = Substitute.For<IPoolService>();
-            poolService.Instantiate<ParticleSystem>(_dataService.StaticData("").ExplosionPrefab)
-                .Returns(_ => new GameObject("Explosion").AddComponent<ParticleSystem>());
-            var mediator = Substitute.For<IControllersMediator>();
+            var poolService = Mock.Of<IPoolService>(m =>
+                m.Instantiate<ParticleSystem>(It.IsAny<GameObject>(), It.IsAny<Transform>()) ==
+                new GameObject("Explosion").AddComponent<ParticleSystem>());
+
+            var mediator = Mock.Of<IControllersMediator>();
+            var view = Mock.Of<IView>(m => m.Transform == new GameObject().transform);
+
             var system = new ViewDeadActivateSystem(_contexts, _dataService.StaticData(""), poolService, mediator);
             var deadEntity = _contexts.game.CreateEntity();
-            var view = Substitute.For<IView>();
-            view.Transform.Returns(new GameObject().transform);
             var explosionEntities = _contexts.game.GetGroup(GameMatcher.Particle);
+
             // Act.
             deadEntity.AddView(view);
             deadEntity.AddTransform(view.Transform);

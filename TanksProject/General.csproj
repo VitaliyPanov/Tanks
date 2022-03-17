@@ -429,6 +429,9 @@
      <Reference Include="Sirenix.Serialization">
      <HintPath>D:\Unity Projects\Tanks\TanksProject\Assets\Plugins\Sirenix\Assemblies\Sirenix.Serialization.dll</HintPath>
      </Reference>
+     <Reference Include="Moq">
+     <HintPath>D:\Unity Projects\Tanks\TanksProject\Assets\Tests\Dependencies\Moq.dll</HintPath>
+     </Reference>
      <Reference Include="DesperateDevs.CodeGeneration">
      <HintPath>D:\Unity Projects\Tanks\TanksProject\Assets\Plugins\DesperateDevs\Editor\DesperateDevs.CodeGeneration.dll</HintPath>
      </Reference>

@@ -48,7 +48,7 @@ namespace Tanks.GameLogic.Systems.Init
 
         private void CreateTankView(GameEntity tankEntity, TeamType playableTeam, float health, AmmoData ammoData)
         {
-            var tankView = _contexts.game.viewService.value.CreateView(_staticData.TankPrefab);
+            var tankView = _contexts.game.viewService.value.CreateView(_staticData.TankPrefab, null);
             if (tankEntity.team.Type == playableTeam)
                 tankEntity.isPlayable = true;
             else
