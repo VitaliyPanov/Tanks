@@ -71,7 +71,7 @@
      <Compile Include="Assets\Scripts\GameLogic\Generated\AI\AIEntity.cs" />
      <Compile Include="Assets\Scripts\GameLogic\Generated\Game\Components\GameCurrentHealthComponent.cs" />
      <Compile Include="Assets\Scripts\GameLogic\Systems\Update\DestroySystem.cs" />
-     <Compile Include="Assets\Scripts\GameLogic\Systems\Events\EventsSystems.cs" />
+     <Compile Include="Assets\Scripts\GameLogic\Systems\FixedUpdate\Events\EventsSystems.cs" />
      <Compile Include="Assets\Scripts\GameLogic\Views\Behaviours\WeaponBehaviour.cs" />
      <Compile Include="Assets\Scripts\GameLogic\Components\Game\Health\HealthDamageComponent.cs" />
      <Compile Include="Assets\Scripts\GameLogic\Components\Game\UnityEvents\TriggeredComponent.cs" />
@@ -135,7 +135,7 @@
      <Compile Include="Assets\Scripts\GameLogic\Generated\AI\AIMatcher.cs" />
      <Compile Include="Assets\Scripts\GameLogic\Components\Input\ToggleNextComponent.cs" />
      <Compile Include="Assets\Scripts\GameLogic\Generated\Events\Components\HealthDamageListenerComponent.cs" />
-     <Compile Include="Assets\Scripts\GameLogic\Systems\Events\TriggeredShellExplosionSystem.cs" />
+     <Compile Include="Assets\Scripts\GameLogic\Systems\FixedUpdate\Events\TriggeredShellExplosionSystem.cs" />
      <Compile Include="Assets\Scripts\GameLogic\Generated\AI\Components\AIActiveAgentComponent.cs" />
      <Compile Include="Assets\Scripts\GameLogic\Components\AI\ActiveAgentComponent.cs" />
      <Compile Include="Assets\Scripts\GameLogic\Generated\AI\Components\AIGameEntityComponent.cs" />

@@ -8,19 +8,18 @@ namespace Tanks.GameLogic.Systems.AI
 {
     internal sealed class AgentSetupSystem : IInitializeSystem
     {
+        private const float c_tankFireAngleY = 10f;
+        private const float c_tankFireY = 1.7f;
+        private const float c_tankFireX = 1.35f;
+        private readonly float _gravity = Physics.gravity.y;
+
         private readonly IDataService _dataService;
         private readonly IGroup<AIEntity> _entities;
         private readonly AIContext _context;
 
-        private float _tankFireAngleY = 10f;
-        private float _tankFireY = 1.7f;
-        private float _tankFireX = 1.35f;
-        private float _gravity = Physics.gravity.y;
-
         public AgentSetupSystem(AIContext aiContext, IDataService dataService)
         {
             _dataService = dataService;
-            
             _context = aiContext;
             _entities = _context.GetGroup(AIMatcher.NavMesh);
         }
@@ -46,16 +45,16 @@ namespace Tanks.GameLogic.Systems.AI
 
         private void SetBallisticDistances()
         {
-            float fireAngleYRad = _tankFireAngleY * Mathf.PI / 180;
+            float fireAngleYRad = c_tankFireAngleY * Mathf.PI / 180;
             AmmoData shellData = _dataService.AmmunitionData(AmmoType.Shell);
             float accelerationFactor = 2 * Mathf.Pow(Mathf.Cos(fireAngleYRad), 2);
 
             float maxDiscriminant = Mathf.Pow(
                 Mathf.Tan(fireAngleYRad) * Mathf.Pow(shellData.MaxLaunchForce, 2) * accelerationFactor,
-                2) - 4 * _gravity * _tankFireY * Mathf.Pow(shellData.MaxLaunchForce, 2) * accelerationFactor;
+                2) - 4 * _gravity * c_tankFireY * Mathf.Pow(shellData.MaxLaunchForce, 2) * accelerationFactor;
             float minDiscriminant = Mathf.Pow(
                 Mathf.Tan(fireAngleYRad) * Mathf.Pow(shellData.MinLaunchForce, 2) * accelerationFactor,
-                2) - 4 * _gravity * _tankFireY * Mathf.Pow(shellData.MinLaunchForce, 2) * accelerationFactor;
+                2) - 4 * _gravity * c_tankFireY * Mathf.Pow(shellData.MinLaunchForce, 2) * accelerationFactor;
 
             float maxDistanceRaw =
                 (-Mathf.Pow(shellData.MaxLaunchForce, 2) * accelerationFactor * Mathf.Tan(fireAngleYRad) -
@@ -65,8 +64,8 @@ namespace Tanks.GameLogic.Systems.AI
                 (-Mathf.Pow(shellData.MinLaunchForce, 2) * accelerationFactor * Mathf.Tan(fireAngleYRad) -
                  Mathf.Sqrt(minDiscriminant)) / (2 * _gravity);
 
-            _context.SetMaxBallisticDistance(maxDistanceRaw + _tankFireX);
-            _context.SetMinBallisticDistance(minDistanceRaw + _tankFireX);
+            _context.SetMaxBallisticDistance(maxDistanceRaw + c_tankFireX);
+            _context.SetMinBallisticDistance(minDistanceRaw + c_tankFireX);
         }
     }
 }

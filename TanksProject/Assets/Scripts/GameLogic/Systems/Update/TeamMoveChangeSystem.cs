@@ -16,7 +16,7 @@ namespace Tanks.GameLogic.Systems.Update
         private readonly IGroup<GameEntity> _entities;
         private readonly IGroup<GameEntity> _movableEntities;
         private readonly GameContext _context;
-        private List<GameEntity> _buffer = new();
+        private readonly List<GameEntity> _buffer = new();
         private List<TeamType> _activeTeams = new();
         private TeamType _currentTeam;
 

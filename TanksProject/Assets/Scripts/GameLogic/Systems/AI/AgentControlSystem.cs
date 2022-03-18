@@ -11,7 +11,7 @@ namespace Tanks.GameLogic.Systems.AI
         private readonly AIContext _context;
         private readonly IGroup<AIEntity> _entities;
         private readonly int _allLayers = ~0;
-        private List<AIEntity> _buffer = new List<AIEntity>();
+        private readonly List<AIEntity> _buffer = new();
         private RaycastHit _hit;
 
         public AgentControlSystem(AIContext aiContext)
@@ -30,14 +30,10 @@ namespace Tanks.GameLogic.Systems.AI
                 if (entity.navMesh.Value.remainingDistance > entity.navMesh.Value.stoppingDistance)
                 {
                     if (entity.navMesh.Value.remainingDistance <= _context.maxBallisticDistance.Value)
-                    {
                         TryAim(entity);
-                    }
                 }
                 else
-                {
                     entity.gameEntity.Value.isMovable = false;
-                }
             }
         }
 
@@ -49,9 +45,7 @@ namespace Tanks.GameLogic.Systems.AI
 
             if (Physics.SphereCast(ray, 0.5f, out _hit, _context.maxBallisticDistance.Value,
                     _allLayers, QueryTriggerInteraction.Ignore) && _hit.transform == entity.target.Value)
-            {
                 entity.isReadyToShoot = true;
-            }
         }
     }
 }

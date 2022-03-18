@@ -7,11 +7,11 @@ namespace Tanks.GameLogic.Systems.Update
 {
     internal sealed class ControllableUpdateSystem : ReactiveSystem<GameEntity>, ICleanupSystem
     {
-        private static readonly string s_emissioncolor = "_EmissionColor";
+        private const string c_emission = "_EmissionColor";
         private readonly IControllersMediator _mediator;
         private readonly GameContext _context;
         private readonly IGroup<GameEntity> _selectGroup;
-        private List<GameEntity> _buffer = new();
+        private readonly List<GameEntity> _buffer = new();
 
         public ControllableUpdateSystem(GameContext gameContext, IControllersMediator mediator) : base(gameContext)
         {
@@ -44,7 +44,7 @@ namespace Tanks.GameLogic.Systems.Update
         {
             foreach (var renderer in entity.meshRenderer.Array)
             {
-                renderer.material.SetColor(s_emissioncolor, color);
+                renderer.material.SetColor(c_emission, color);
             }
         }
         public void Cleanup()

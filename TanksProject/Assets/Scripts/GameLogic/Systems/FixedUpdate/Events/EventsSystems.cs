@@ -1,7 +1,7 @@
 ﻿using Tanks.Data;
 using Tanks.General.Services;
 
-namespace Tanks.GameLogic.Systems.Events
+namespace Tanks.GameLogic.Systems.FixedUpdate.Events
 {
     public sealed class EventsSystems : Feature
     {

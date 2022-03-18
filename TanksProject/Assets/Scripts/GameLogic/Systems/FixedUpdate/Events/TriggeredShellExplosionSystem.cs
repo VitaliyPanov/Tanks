@@ -5,7 +5,7 @@ using Tanks.Data;
 using Tanks.General.Services;
 using UnityEngine;
 
-namespace Tanks.GameLogic.Systems.Events
+namespace Tanks.GameLogic.Systems.FixedUpdate.Events
 {
     internal sealed class TriggeredShellExplosionSystem : IExecuteSystem
     {
@@ -13,7 +13,7 @@ namespace Tanks.GameLogic.Systems.Events
         private readonly GameContext _context;
         private readonly IGroup<GameEntity> _triggeredEntities;
         private readonly IGroup<GameEntity> _targetEntities;
-        private List<GameEntity> _buffer = new();
+        private readonly List<GameEntity> _buffer = new();
         private readonly AmmoData _shellData;
 
         public TriggeredShellExplosionSystem(GameContext gameContext, RuntimeData runtimeData, IPoolService poolService)

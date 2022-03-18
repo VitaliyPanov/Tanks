@@ -8,7 +8,7 @@ namespace Tanks.GameLogic.Systems.AI
         private readonly AIContext _context;
         private readonly IGroup<AIEntity> _entities;
         private readonly IGroup<AIEntity> _deactivateEntities;
-        private List<AIEntity> _buffer = new List<AIEntity>();
+        private readonly List<AIEntity> _buffer = new();
 
         public AgentToggleActiveSystem(AIContext aiContext)
         {

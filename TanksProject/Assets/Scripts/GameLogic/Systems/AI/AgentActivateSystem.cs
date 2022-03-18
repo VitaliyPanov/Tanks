@@ -7,13 +7,11 @@ namespace Tanks.GameLogic.Systems.AI
 {
     internal sealed class AgentActivateSystem : ReactiveSystem<AIEntity>
     {
+        private const float c_maxDistance = float.MaxValue;
         private readonly IGroup<GameEntity> _tankEntities;
-        private readonly AIContext _context;
-        private readonly float _maxDistance = float.MaxValue;
 
         public AgentActivateSystem(AIContext aiContext, GameContext gameContext) : base(aiContext)
         {
-            _context = aiContext;
             _tankEntities = gameContext.GetGroup(GameMatcher
                 .AllOf(GameMatcher.Health, GameMatcher.Transform)
                 .NoneOf(GameMatcher.Movable, GameMatcher.Dead));
@@ -29,7 +27,7 @@ namespace Tanks.GameLogic.Systems.AI
             foreach (var entity in entities)
             {
                 Vector3 agentPosition = entity.gameEntity.Value.transform.Value.position;
-                float enemyDistance = _maxDistance;
+                float enemyDistance = c_maxDistance;
                 Transform target = null;
                 foreach (var tank in _tankEntities)
                 {

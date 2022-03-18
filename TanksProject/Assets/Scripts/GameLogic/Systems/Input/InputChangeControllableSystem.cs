@@ -8,7 +8,7 @@ namespace Tanks.GameLogic.Systems.Input
     {
         private readonly IGroup<GameEntity> _entities;
         private readonly GameContext _context;
-        private List<GameEntity> _buffer = new();
+        private readonly List<GameEntity> _buffer = new();
 
         public InputChangeControllableSystem(GameContext gameContextContext, InputContext inputContext) : base(inputContext)
         {

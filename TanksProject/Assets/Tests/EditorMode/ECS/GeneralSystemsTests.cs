@@ -20,7 +20,6 @@ namespace Tanks.Tests.EditorMode.ECS
     {
         private Contexts _contexts;
         private IDataService _dataService;
-        private IPoolService _poolService;
         private IViewService _viewService;
 
         [SetUp]
@@ -133,7 +132,5 @@ namespace Tanks.Tests.EditorMode.ECS
             // Assert.
             entity.hasPosition.Should().BeFalse();
         }
-        
-        
     }
 }

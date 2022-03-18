@@ -8,7 +8,7 @@ namespace Tanks.GameLogic.Systems.Update
     {
         private readonly IGroup<GameEntity> _entities;
         private readonly InputContext _inputContext;
-        private List<GameEntity> _buffer = new();
+        private readonly List<GameEntity> _buffer = new();
 
         public TimeTrippingSystem(GameContext gameContext, InputContext inputContext)
         {

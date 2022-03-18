@@ -7,7 +7,7 @@ namespace Tanks.GameLogic.Systems.Update
     {
         private readonly GameContext _context;
         private readonly IGroup<GameEntity> _destroyGroup;
-        private List<GameEntity> _buffer = new();
+        private readonly List<GameEntity> _buffer = new();
 
         public DestroySystem(GameContext gameContext)
         {

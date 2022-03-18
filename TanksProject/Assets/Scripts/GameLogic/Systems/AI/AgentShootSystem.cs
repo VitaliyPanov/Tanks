@@ -9,9 +9,8 @@ namespace Tanks.GameLogic.Systems.AI
 {
     internal sealed class AgentShootSystem : IExecuteSystem
     {
-        private readonly RuntimeData _runtimeData;
         private readonly IGroup<AIEntity> _entities;
-        private List<AIEntity> _buffer = new List<AIEntity>();
+        private readonly List<AIEntity> _buffer = new();
         private readonly AIContext _aiContext;
         private readonly AmmoData _shellData;
         private readonly InputContext _inputContext;
@@ -20,7 +19,6 @@ namespace Tanks.GameLogic.Systems.AI
         {
             _aiContext = aiContext;
             _inputContext = inputContext;
-            _runtimeData = dataService.RuntimeData;
             _shellData = dataService.AmmunitionData(AmmoType.Shell);
             _entities = _aiContext.GetGroup(AIMatcher
                 .AllOf(AIMatcher.NavMesh, AIMatcher.CanBeActive, AIMatcher.GameEntity, AIMatcher.AgentDestination,

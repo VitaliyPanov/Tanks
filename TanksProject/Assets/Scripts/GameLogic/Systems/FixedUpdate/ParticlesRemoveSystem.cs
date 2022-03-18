@@ -9,7 +9,7 @@ namespace Tanks.GameLogic.Systems.FixedUpdate
     {
         private readonly IPoolService _poolService;
         private readonly IGroup<GameEntity> _entities;
-        private List<GameEntity> _buffer = new List<GameEntity>();
+        private readonly List<GameEntity> _buffer = new();
 
         public ParticlesRemoveSystem(GameContext gameContext, IPoolService poolService)
         {
